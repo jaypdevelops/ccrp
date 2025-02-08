@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispatch360 Online Test</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Default Light Mode Styling */
+        /* Default light mode styling (Safari Reader-like) */
         body {
             font-family: 'Montserrat', sans-serif;
             font-size: 20px;
@@ -18,7 +18,6 @@
             color: #3e322d;
         }
 
-        /* Header */
         h1, h2 {
             font-weight: 700;
         }
@@ -43,53 +42,44 @@
             margin-bottom: 20px;
         }
 
-        /* Form Inputs */
-        label {
-            font-weight: 400;
-            font-size: 18px;
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            font-weight: 300;
         }
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 18px;
+        li {
+            margin-bottom: 10px;
         }
 
-        /* Buttons */
-        .btn {
-            padding: 10px 20px;
-            background-color: #007aff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
+        a {
+            color: #007aff;
+            text-decoration: none;
             font-weight: 700;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: #005ecb;
+        a:hover {
+            text-decoration: underline;
         }
 
-        /* Tab Buttons */
-        .tab-button {
-            padding: 10px;
-            background-color: #f2f2f2;
+        /* Dark Mode Styling */
+        .dark-mode {
+            background-color: #1c1b1a;
+            color: #eae6df;
+        }
+
+        /* Toggle Button */
+        .toggle-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .toggle-button {
+            background: none;
             border: none;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 18px;
-            border-radius: 5px;
-            margin-right: 10px;
-            font-weight: 400;
-            transition: background-color 0.3s ease;
-        }
-
-        .tab-button.active {
-            background-color: #ddd;
+            color: #007aff;
             font-weight: 700;
         }
 
@@ -107,145 +97,133 @@
         th, td {
             padding: 12px;
             text-align: left;
-            font-size: 18px;
         }
 
-        /* Download Link */
-        .download-link {
-            font-size: 18px;
-            color: #007aff;
-            text-decoration: none;
-            font-weight: 700;
+        /* Input Fields */
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
         }
 
-        .download-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #1c1b1a;
-            color: #eae6df;
-        }
-
-        /* Dark Mode Toggle */
-        .toggle-container {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-
-        .toggle-button {
-            background: none;
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            background-color: #007aff;
+            color: white;
             border: none;
-            font-size: 16px;
             cursor: pointer;
-            color: #007aff;
-            font-weight: 700;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        /* Tabs */
-        .tab {
-            display: none;
+        .btn:hover {
+            background-color: #005bb5;
         }
     </style>
 </head>
 <body>
 
     <div class="toggle-container">
-        <button class="toggle-button" onclick="toggleDarkMode()">Dark Mode</button>
+        <button class="toggle-button" onclick="toggleDarkMode()">Enable Dark Mode</button>
     </div>
 
-    <div class="container">
-        <!-- Login Screen -->
-        <div id="login-screen">
-            <h2>Enter Username and Password</h2>
-            <label for="collar-number">Username:</label>
-            <input type="text" id="collar-number">
-            <label for="password">Password:</label>
-            <input type="password" id="password">
-            <button class="btn" onclick="login()">Login</button>
-        </div>
+    <h1>Person Search</h1>
+    <input type="text" id="first-name" placeholder="First Name">
+    <input type="text" id="last-name" placeholder="Last Name">
+    <button class="btn" onclick="searchRecords()">Search Records</button>
 
-        <!-- Main Content -->
-        <div id="main-screen" style="display: none;">
-            <h2 id="welcome-message"></h2>
-            <button class="btn" onclick="logout()">Log Out</button>
-
-            <div>
-                <button class="tab-button active" onclick="showTab('records')">Person Search</button>
-                <button class="tab-button" onclick="showTab('dispatch')">999 Calls</button>
-            </div>
-
-            <div id="records" class="tab">
-                <h3>Person Search</h3>
-                <input type="text" id="first-name" placeholder="First Name">
-                <input type="text" id="last-name" placeholder="Last Name">
-                <button class="btn" onclick="searchRecords()">Search Records</button>
-                <table id="records-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Citations</th>
-                            <th>Vehicles</th>
-                            <th>Wanted</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div id="dispatch" class="tab">
-                <h3>999 Calls</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Call ID</th>
-                            <th>Location</th>
-                            <th>Caller</th>
-                            <th>Date</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dispatch-table"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <table id="records-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Citations</th>
+                <th>Vehicles</th>
+                <th>Wanted</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-            const button = document.querySelector(".toggle-button");
-            if (document.body.classList.contains("dark-mode")) {
-                button.textContent = "Light Mode";
-            } else {
-                button.textContent = "Dark Mode";
+        const records = [
+            {
+                full_name: "Jay Powell",
+                citations: [{ date: "2023-01-01", reason: "Speeding" }],
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
+                wanted: false
+            },
+            {
+                full_name: "Jane Smith",
+                citations: [{ date: "2023-02-15", reason: "Parking violation" }],
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "XYZ789" }],
+                wanted: true
+            },
+            {
+                full_name: "First Last",
+                citations: [{ date: "2024-02-08", reason: "No Seatbelt" }],
+                vehicles: [{ vehicle: "Tesla Model 3", license_plate: "FIRST1" }],
+                wanted: false
+            }
+        ];
+
+        function populateTable() {
+            const tableBody = document.querySelector('#records-table tbody');
+            tableBody.innerHTML = '';
+
+            records.forEach(record => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${record.full_name}</td>
+                    <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
+                    <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
+                    <td>${record.wanted ? 'Yes' : 'No'}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function searchRecords() {
+            const firstName = document.getElementById('first-name').value.toLowerCase();
+            const lastName = document.getElementById('last-name').value.toLowerCase();
+            const tableBody = document.querySelector('#records-table tbody');
+            tableBody.innerHTML = '';
+
+            const fullName = `${firstName} ${lastName}`.trim().toLowerCase();
+            let found = false;
+
+            records.forEach(record => {
+                if (record.full_name.toLowerCase().includes(fullName)) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.full_name}</td>
+                        <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
+                        <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
+                        <td>${record.wanted ? 'Yes' : 'No'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert('No records found');
             }
         }
 
-        function login() {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('main-screen').style.display = 'block';
-            document.getElementById('welcome-message').textContent = "Logged in as: User";
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.querySelector('.toggle-button');
+            button.textContent = document.body.classList.contains('dark-mode') ? "Disable Dark Mode" : "Enable Dark Mode";
         }
 
-        function logout() {
-            document.getElementById('login-screen').style.display = 'block';
-            document.getElementById('main-screen').style.display = 'none';
-        }
-
-        function showTab(tabId) {
-            document.querySelectorAll('.tab').forEach(tab => tab.style.display = 'none');
-            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
-
-            document.getElementById(tabId).style.display = 'block';
-            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
-        }
-
-        showTab('records');
+        // Populate table on page load
+        document.addEventListener('DOMContentLoaded', populateTable);
     </script>
-
-    <p><a href="source_code.zip" class="download-link" download>Download the source code</a></p>
 
 </body>
 </html>
