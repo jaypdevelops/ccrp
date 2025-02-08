@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Source Code Documentation</title>
+    <style>
+        /* Global Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+
+        /* Main Container */
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            width: 100%;
+            background-color: #4CAF50;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-top: 30px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Link Style */
+        .download-link {
+            font-size: 18px;
+            color: #4CAF50;
+            text-decoration: none;
+            background-color: #e6e6e6;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .download-link:hover {
+            background-color: #ddd;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #4CAF50;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#introduction">Introduction</a>
+        <a href="#installation">Installation</a>
+        <a href="#usage">Usage</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction Section -->
+        <section id="introduction" class="section">
+            <h2>Introduction</h2>
+            <p>Welcome to the official documentation of our source code. This project provides a comprehensive system for managing and interacting with the police database, including managing records, dispatch calls, and user authentication.</p>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="section">
+            <h2>Installation</h2>
+            <p>Follow the steps below to get the system up and running:</p>
+            <ul>
+                <li>Download the source code using the link in the 'Download' section.</li>
+                <li>Ensure you have Python 3.x installed on your system.</li>
+                <li>Install the required libraries by running <code>pip install -r requirements.txt</code></li>
+                <li>Run the application by executing <code>python app.py</code>.</li>
+            </ul>
+        </section>
+
+        <!-- Usage Section -->
+        <section id="usage" class="section">
+            <h2>Usage</h2>
+            <p>This system allows users to:</p>
+            <ul>
+                <li>Log in using a collar number and password.</li>
+                <li>Search for individual records, view citations, arrests, and more.</li>
+                <li>View dispatch calls and details.</li>
+                <li>Download source code and gain access to additional features.</li>
+            </ul>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <h2>Features</h2>
+            <p>Key features of this project include:</p>
+            <ul>
+                <li>Intuitive user interface built with Tkinter.</li>
+                <li>Ability to search for police records by name.</li>
+                <li>Management of citations, vehicles, arrests, and more.</li>
+                <li>Real-time dispatch call logs.</li>
+                <li>Role-based authentication and access controls.</li>
+            </ul>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="section">
+            <h2>Download the Source Code</h2>
+            <p>Get access to the full source code of this project and start using it or modifying it as per your needs:</p>
+            <p><a href="path/to/your/source_code.zip" class="download-link" download>Download the source code</a></p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 National Police Computer. All rights reserved.</p>
+    </div>
+</body>
+</html>
