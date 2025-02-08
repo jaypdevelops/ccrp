@@ -42,16 +42,6 @@
             margin-bottom: 20px;
         }
 
-        ul {
-            margin-top: 10px;
-            padding-left: 20px;
-            font-weight: 300;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
         a {
             color: #007aff;
             text-decoration: none;
@@ -133,8 +123,8 @@
     </div>
 
     <h1>Person Search</h1>
-    <input type="text" id="first-name" placeholder="Try 'First'">
-    <input type="text" id="last-name" placeholder="Try 'Last'">
+    <input type="text" id="first-name" placeholder="First Name">
+    <input type="text" id="last-name" placeholder="Last Name">
     <button class="btn" onclick="searchRecords()">Search Records</button>
 
     <table id="records-table">
@@ -143,7 +133,6 @@
                 <th>Name</th>
                 <th>Citations</th>
                 <th>Vehicles</th>
-                <th>Wanted</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -152,16 +141,19 @@
     <script>
         const records = [
             {
+                full_name: "Jay Powell",
+                citations: [{ date: "2023-01-01", reason: "Speeding" }],
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }]
+            },
+            {
                 full_name: "Jane Smith",
                 citations: [{ date: "2023-02-15", reason: "Parking violation" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "XYZ789" }],
-                wanted: true
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "XYZ789" }]
             },
             {
                 full_name: "First Last",
                 citations: [{ date: "2024-02-08", reason: "No Seatbelt" }],
-                vehicles: [{ vehicle: "Tesla Model 3", license_plate: "FIRST1" }],
-                wanted: false
+                vehicles: [{ vehicle: "Tesla Model 3", license_plate: "FIRST1" }]
             }
         ];
 
@@ -175,7 +167,6 @@
                     <td>${record.full_name}</td>
                     <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
                     <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
-                    <td>${record.wanted ? 'Yes' : 'No'}</td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -197,7 +188,6 @@
                         <td>${record.full_name}</td>
                         <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
                         <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
-                        <td>${record.wanted ? 'Yes' : 'No'}</td>
                     `;
                     tableBody.appendChild(row);
                     found = true;
