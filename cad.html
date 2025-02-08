@@ -4,89 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispatch360 Online Test</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
+        /* Default Light Mode Styling */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            font-size: 20px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            background-color: #faf6ef;
+            color: #3e322d;
         }
 
         /* Header */
-        .header {
-            text-align: center;
-            padding: 20px;
+        h1, h2 {
+            font-weight: 700;
         }
 
         h1 {
-            font-size: 3em;
-            margin-bottom: 0;
-            color: #4CAF50;
+            font-size: 32px;
         }
 
         h2 {
-            font-size: 2em;
-            color: #4CAF50;
+            font-size: 24px;
+            margin-top: 30px;
         }
 
         h3 {
-            font-size: 1.5em;
-            color: #333;
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+
+        p {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        /* Form Inputs */
+        label {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
         }
 
         /* Buttons */
         .btn {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #007aff;
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 700;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #45a049;
+            background-color: #005ecb;
         }
 
+        /* Tab Buttons */
         .tab-button {
             padding: 10px;
-            background-color: #e6e6e6;
+            background-color: #f2f2f2;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             border-radius: 5px;
             margin-right: 10px;
+            font-weight: 400;
             transition: background-color 0.3s ease;
         }
 
         .tab-button.active {
             background-color: #ddd;
-        }
-
-        /* Forms */
-        label {
-            font-size: 1em;
-            color: #333;
-        }
-
-        input[type="text"], input[type="password"] {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
+            font-weight: 700;
         }
 
         /* Tables */
@@ -103,36 +107,53 @@
         th, td {
             padding: 12px;
             text-align: left;
+            font-size: 18px;
         }
 
         /* Download Link */
-        sc {
-            text-align: center;
-            margin-top: 30px;
-        }
-
         .download-link {
             font-size: 18px;
-            color: #4CAF50;
+            color: #007aff;
             text-decoration: none;
-            background-color: #e6e6e6;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            font-weight: 700;
         }
 
         .download-link:hover {
-            background-color: #ddd;
+            text-decoration: underline;
         }
 
-        /* Tab content */
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #1c1b1a;
+            color: #eae6df;
+        }
+
+        /* Dark Mode Toggle */
+        .toggle-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .toggle-button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #007aff;
+            font-weight: 700;
+        }
+
+        /* Tabs */
         .tab {
             display: none;
         }
-
     </style>
 </head>
 <body>
+
+    <div class="toggle-container">
+        <button class="toggle-button" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
 
     <div class="container">
         <!-- Login Screen -->
@@ -145,12 +166,10 @@
             <button class="btn" onclick="login()">Login</button>
         </div>
 
-        <!-- Main Content (after login) -->
+        <!-- Main Content -->
         <div id="main-screen" style="display: none;">
-            <div class="header">
-                <h2 id="welcome-message"></h2>
-                <button class="btn" onclick="logout()">Log Out</button>
-            </div>
+            <h2 id="welcome-message"></h2>
+            <button class="btn" onclick="logout()">Log Out</button>
 
             <div>
                 <button class="tab-button active" onclick="showTab('records')">Person Search</button>
@@ -194,76 +213,25 @@
     </div>
 
     <script>
-        const validCredentials = {
-            "43563": { password: "nebvip-wuDwi2-wiqkyd", full_name: "Product Developer, Jay Powell", role: "Chief Constable" },
-            "dispatch360": { password: "360", full_name: "Testing User", role: "Inspector" }
-        };
-
-        const records = [
-            {
-                full_name: "Jay Powell",
-                citations: [{ date: "2023-01-01", reason: "Speeding" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
-                wanted: false
-            },
-            {
-                full_name: "Jane Smith",
-                citations: [{ date: "2023-02-15", reason: "Parking violation" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
-                wanted: true
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            const button = document.querySelector(".toggle-button");
+            if (document.body.classList.contains("dark-mode")) {
+                button.textContent = "Light Mode";
+            } else {
+                button.textContent = "Dark Mode";
             }
-        ];
-
-        const dispatchCalls = [
-            { call_id: "C123", location: "Main St", caller: "John Doe", date: "2023-02-01", details: "Suspicious activity reported." },
-            { call_id: "C124", location: "Pine St", caller: "Jane Doe", date: "2023-02-02", details: "Car accident reported." }
-        ];
+        }
 
         function login() {
-            const collarNumber = document.getElementById('collar-number').value;
-            const password = document.getElementById('password').value;
-
-            if (validCredentials[collarNumber] && validCredentials[collarNumber].password === password) {
-                const user = validCredentials[collarNumber];
-                document.getElementById('login-screen').style.display = 'none';
-                document.getElementById('main-screen').style.display = 'block';
-                document.getElementById('welcome-message').textContent = `Logged in as: ${user.full_name}`;
-            } else {
-                alert('Invalid collar number or password');
-            }
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('main-screen').style.display = 'block';
+            document.getElementById('welcome-message').textContent = "Logged in as: User";
         }
 
         function logout() {
             document.getElementById('login-screen').style.display = 'block';
             document.getElementById('main-screen').style.display = 'none';
-        }
-
-        function searchRecords() {
-            const firstName = document.getElementById('first-name').value.toLowerCase();
-            const lastName = document.getElementById('last-name').value.toLowerCase();
-            const tableBody = document.querySelector('#records-table tbody');
-            tableBody.innerHTML = '';
-
-            const fullName = `${firstName} ${lastName}`.toLowerCase();
-            let found = false;
-
-            records.forEach(record => {
-                if (record.full_name.toLowerCase().includes(fullName)) {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${record.full_name}</td>
-                        <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
-                        <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
-                        <td>${record.wanted ? 'Yes' : 'No'}</td>
-                    `;
-                    tableBody.appendChild(row);
-                    found = true;
-                }
-            });
-
-            if (!found) {
-                alert('No records found');
-            }
         }
 
         function showTab(tabId) {
@@ -274,26 +242,10 @@
             document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
         }
 
-        // Initial load: display dispatch calls
-        dispatchCalls.forEach(call => {
-            const tableBody = document.getElementById('dispatch-table');
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${call.call_id}</td>
-                <td>${call.location}</td>
-                <td>${call.caller}</td>
-                <td>${call.date}</td>
-                <td>${call.details}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-
-        // Show records tab by default
         showTab('records');
     </script>
 
-    <sc>
-        <p><a href="path/to/your/source_code.zip" class="download-link" download>Download the source code to get access to more details.</a></p>
-    </sc>
+    <p><a href="source_code.zip" class="download-link" download>Download the source code</a></p>
+
 </body>
 </html>
