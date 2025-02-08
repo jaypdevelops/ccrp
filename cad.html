@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Police Computer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0;
+            color: #4CAF50;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #4CAF50;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .tab-button {
+            padding: 10px;
+            background-color: #e6e6e6;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab-button.active {
+            background-color: #ddd;
+        }
+
+        /* Forms */
+        label {
+            font-size: 1em;
+            color: #333;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* Download Link */
+        sc {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-link {
+            font-size: 18px;
+            color: #4CAF50;
+            text-decoration: none;
+            background-color: #e6e6e6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #ddd;
+        }
+
+        /* Tab content */
+        .tab {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="login-screen">
+            <h2>Enter Collar Number and Password</h2>
+            <label for="collar-number">Collar Number:</label>
+            <input type="text" id="collar-number">
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <button class="btn" onclick="login()">Login</button>
+        </div>
+
+        <!-- Main Content (after login) -->
+        <div id="main-screen" style="display: none;">
+            <div class="header">
+                <h2 id="welcome-message"></h2>
+                <button class="btn" onclick="logout()">Log Out</button>
+            </div>
+
+            <div>
+                <button class="tab-button active" onclick="showTab('records')">Person Search</button>
+                <button class="tab-button" onclick="showTab('dispatch')">999 Calls</button>
+            </div>
+
+            <div id="records" class="tab">
+                <h3>Person Search</h3>
+                <input type="text" id="first-name" placeholder="First Name">
+                <input type="text" id="last-name" placeholder="Last Name">
+                <button class="btn" onclick="searchRecords()">Search Records</button>
+                <table id="records-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Citations</th>
+                            <th>Vehicles</th>
+                            <th>Wanted</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="dispatch" class="tab">
+                <h3>999 Calls</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Call ID</th>
+                            <th>Location</th>
+                            <th>Caller</th>
+                            <th>Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dispatch-table"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const validCredentials = {
+            "43563": { password: "nebvip-wuDwi2-wiqkyd", full_name: "Chief Constable Jay Powell", role: "Chief Constable" },
+            "inspector": { password: "inspector", full_name: "Constable", role: "Inspector" }
+        };
+
+        const records = [
+            {
+                full_name: "Jay Powell",
+                citations: [{ date: "2023-01-01", reason: "Speeding" }],
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
+                wanted: false
+            },
+            {
+                full_name: "Jane Smith",
+                citations: [{ date: "2023-02-15", reason: "Parking violation" }],
+                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
+                wanted: true
+            }
+        ];
+
+        const dispatchCalls = [
+            { call_id: "C123", location: "Main St", caller: "John Doe", date: "2023-02-01", details: "Suspicious activity reported." },
+            { call_id: "C124", location: "Pine St", caller: "Jane Doe", date: "2023-02-02", details: "Car accident reported." }
+        ];
+
+        function login() {
+            const collarNumber = document.getElementById('collar-number').value;
+            const password = document.getElementById('password').value;
+
+            if (validCredentials[collarNumber] && validCredentials[collarNumber].password === password) {
+                const user = validCredentials[collarNumber];
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-screen').style.display = 'block';
+                document.getElementById('welcome-message').textContent = `Logged in as: ${user.full_name}`;
+            } else {
+                alert('Invalid collar number or password');
+            }
+        }
+
+        function logout() {
+            document.getElementById('login-screen').style.display = 'block';
+            document.getElementById('main-screen').style.display = 'none';
+        }
+
+        function searchRecords() {
+            const firstName = document.getElementById('first-name').value.toLowerCase();
+            const lastName = document.getElementById('last-name').value.toLowerCase();
+            const tableBody = document.querySelector('#records-table tbody');
+            tableBody.innerHTML = '';
+
+            const fullName = `${firstName} ${lastName}`.toLowerCase();
+            let found = false;
+
+            records.forEach(record => {
+                if (record.full_name.toLowerCase().includes(fullName)) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.full_name}</td>
+                        <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
+                        <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
+                        <td>${record.wanted ? 'Yes' : 'No'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert('No records found');
+            }
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+
+        // Initial load: display dispatch calls
+        dispatchCalls.forEach(call => {
+            const tableBody = document.getElementById('dispatch-table');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${call.call_id}</td>
+                <td>${call.location}</td>
+                <td>${call.caller}</td>
+                <td>${call.date}</td>
+                <td>${call.details}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Show records tab by default
+        showTab('records');
+    </script>
+
+    <sc>
+        <p><a href="path/to/your/source_code.zip" class="download-link" download>Download the source code to get access to more details.</a></p>
+    </sc>
+</body>
+</html>
