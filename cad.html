@@ -133,8 +133,8 @@
     </div>
 
     <h1>Person Search</h1>
-    <input type="text" id="first-name" placeholder="First Name">
-    <input type="text" id="last-name" placeholder="Last Name">
+    <input type="text" id="first-name" placeholder="Try 'First'">
+    <input type="text" id="last-name" placeholder="Try 'Last'">
     <button class="btn" onclick="searchRecords()">Search Records</button>
 
     <table id="records-table">
@@ -151,12 +151,6 @@
 
     <script>
         const records = [
-            {
-                full_name: "Jay Powell",
-                citations: [{ date: "2023-01-01", reason: "Speeding" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }],
-                wanted: false
-            },
             {
                 full_name: "Jane Smith",
                 citations: [{ date: "2023-02-15", reason: "Parking violation" }],
