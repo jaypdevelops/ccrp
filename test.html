@@ -5,47 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispatch360</title>
 
-    <!-- iOS-Style Font & Styling -->
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* iOS UI Styling */
+        /* Default light mode styling */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            line-height: 1.8;
             max-width: 700px;
             margin: auto;
             padding: 40px;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #faf6ef;
+            color: #3e322d;
         }
         
+        h1, h2 {
+            font-weight: 700;
+        }
+
         h1 {
             font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 10px;
         }
 
         h2 {
             font-size: 24px;
-            font-weight: 600;
             margin-top: 30px;
         }
 
         h3 {
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 22px;
             margin-top: 20px;
+            font-weight: 400;
         }
 
         p {
-            font-weight: 400;
+            font-weight: 300;
             margin-bottom: 20px;
         }
 
         ul {
             margin-top: 10px;
             padding-left: 20px;
-            font-weight: 400;
+            font-weight: 300;
         }
 
         li {
@@ -55,33 +58,20 @@
         a {
             color: #007aff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        /* iOS-style Buttons */
-        .ios-button {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 12px;
-            background: #007aff;
-            color: white;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
-            transition: all 0.3s ease;
+        /* Navigation Menu */
+        .menu-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
-        .ios-button:hover {
-            background: #005ecb;
-            box-shadow: 0 6px 16px rgba(0, 122, 255, 0.4);
-        }
-
-        /* Left-Side Navigation Menu */
         .menu-icon {
             font-size: 28px;
             cursor: pointer;
@@ -97,10 +87,11 @@
             background: rgba(255, 255, 255, 0.7);
         }
 
+        /* Left-Side Sliding Navigation Menu */
         .nav-menu {
             position: fixed;
             top: 0;
-            left: -25%; /* Initially hidden off-screen */
+            left: -25%; /* Initially hidden */
             width: 25%;
             height: 100%;
             background: rgba(255, 255, 255, 0.8);
@@ -113,9 +104,9 @@
         .nav-menu a {
             display: block;
             padding: 15px 20px;
-            color: #1d1d1f;
+            color: #3e322d;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
             transition: background 0.3s ease;
         }
 
@@ -127,7 +118,7 @@
             left: 0; /* Slide in */
         }
 
-        /* Overlay to close the menu */
+        /* Overlay for clicking outside the menu */
         .overlay {
             position: fixed;
             top: 0;
@@ -142,12 +133,11 @@
         .overlay.active {
             display: block;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Hamburger Menu Icon -->
+    <!-- Left-Aligned Hamburger Menu Icon -->
     <div class="menu-container">
         <span class="menu-icon" onclick="toggleMenu()">☰</span>
     </div>
@@ -179,7 +169,7 @@
         <li>Oldest version of Dispatch360</li>
     </ul>
 
-    <p><a href="your-download-link-here" class="ios-button" download>Download</a></p>
+    <p><a href="your-download-link-here" download>Download</a></p>
     
     <h3>Version 0.65</h3>
     <p>Best option for large communities, expanding constantly.</p>
@@ -192,7 +182,7 @@
         <li>Advanced UI</li>
     </ul>
 
-    <p><a href="your-download-link-here" class="ios-button" download>Download</a></p>
+    <p><a href="your-download-link-here" download>Download</a></p>
 
     <script>
         function toggleMenu() {
