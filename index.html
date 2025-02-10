@@ -71,12 +71,26 @@
             color: #eae6df;
         }
 
-        /* Toggle Button */
-        .toggle-container {
-            text-align: right;
+        /* Header container */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
 
+        /* Menu Button */
+        .menu-button {
+            font-size: 16px;
+            cursor: pointer;
+            color: #007aff;
+            font-weight: 700;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        /* Toggle Button */
         .toggle-button {
             background: none;
             border: none;
@@ -91,19 +105,12 @@
             position: relative;
         }
 
-        .menu-icon {
-            font-size: 28px;
-            cursor: pointer;
-            display: block;
-            text-align: right;
-        }
-
         .nav-menu {
             display: none;
             background: #faf6ef;
             position: absolute;
-            top: 40px;
-            right: 0;
+            top: 30px;
+            left: 0;
             width: 200px;
             border: 1px solid #ddd;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -151,18 +158,16 @@
 </head>
 <body>
 
-    <div class="toggle-container">
-        <button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
-    </div>
-
-    <div class="menu-container">
-        <span class="menu-icon" onclick="toggleMenu()">☰</span>
-        <div class="nav-menu" id="navMenu">
-            <a href="#">Home</a>
-            <a href="#">Downloads</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+    <div class="header">
+        <div class="menu-container">
+            <button class="menu-button" onclick="toggleMenu()">Menu</button>
+            <div class="nav-menu" id="navMenu">
+                <a href="https://jaypdevelops.github.io/dispatch360/">Home</a>
+                <a href="https://jaypdevelops.github.io/dispatch360/downloads">Downloads</a>
+                <a href="https://jaypdevelops.github.io/dispatch360/documentation">Documentation</a>
+            </div>
         </div>
+        <button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
     </div>
 
     <h1>Dispatch360</h1>
@@ -210,9 +215,9 @@
         // Close menu when clicking outside
         document.addEventListener("click", function(event) {
             const menu = document.getElementById("navMenu");
-            const icon = document.querySelector(".menu-icon");
+            const button = document.querySelector(".menu-button");
 
-            if (!menu.contains(event.target) && !icon.contains(event.target)) {
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
                 menu.classList.remove("active");
             }
         });
