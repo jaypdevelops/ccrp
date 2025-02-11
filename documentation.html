@@ -6,7 +6,7 @@
     <title>Dispatch360 Documentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Default light mode styling (Safari Reader-like) */
+        /* Default light mode styling */
         body {
             font-family: 'Montserrat', sans-serif;
             font-size: 20px;
@@ -68,13 +68,16 @@
             color: #eae6df;
         }
 
-        /* Toggle Button */
-        .toggle-container {
-            text-align: right;
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
 
-        .toggle-button {
+        /* Menu Button */
+        .menu-button {
             background: none;
             border: none;
             font-size: 16px;
@@ -82,11 +85,70 @@
             color: #007aff;
             font-weight: 700;
         }
+
+        /* Dropdown Menu */
+        .nav-menu {
+            display: none;
+            position: absolute;
+            background: #faf6ef;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            top: 40px;
+            left: 0;
+            width: 150px;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px;
+            color: #3e322d;
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a:hover {
+            background: #e0dbd3;
+        }
+
+        /* Show menu when active */
+        .nav-menu.active {
+            display: block;
+        }
+
+        /* Dark mode adjustments */
+        .dark-mode .nav-menu {
+            background: #2c2b29;
+            border-color: #444;
+        }
+
+        .dark-mode .nav-menu a {
+            color: #eae6df;
+            border-bottom-color: #444;
+        }
+
+        .dark-mode .nav-menu a:hover {
+            background: #444;
+        }
     </style>
 </head>
 <body>
-    <div class="toggle-container">
-        <button id="darkModeToggle" class="toggle-button" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <div class="top-nav">
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <button id="darkModeToggle" class="menu-button" onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="https://jaypdevelops.github.io/dispatch360/">Home</a>
+        <a href="https://jaypdevelops.github.io/dispatch360/downloads">Downloads</a>
+        <a href="https://jaypdevelops.github.io/dispatch360/documentation">Documentation</a>
     </div>
 
     <h1>Dispatch360 Documentation</h1>
@@ -117,8 +179,8 @@
     
     <h2>Online Testing</h2>
     <p>You can test Dispatch360, to see if it fits your needs, in your browser. Login details are provided below:<br><code>Username: dispatch360<br>Password: 360</code><br>Username and password are caps sensitive.</p>
-   <p>Username and Password no longer required.</p>
-     <a href="/dispatch360/cad">Test online</a>
+    <p>Username and Password no longer required.</p>
+    <a href="/dispatch360/cad">Test online</a>
 
     <h2>Download the Source Code</h2>
     <p>Get full access to Dispatch360 and start customizing it to fit your needs.</p>
@@ -138,6 +200,21 @@
                 button.textContent = "Dark Mode";
             }
         }
+
+        function toggleMenu() {
+            document.getElementById("navMenu").classList.toggle("active");
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("navMenu");
+            const menuButton = document.querySelector(".menu-button");
+
+            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
     </script>
+
 </body>
 </html>
