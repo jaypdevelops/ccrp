@@ -1,204 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispatch360 Documentation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Default light mode styling */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: auto;
-            padding: 40px;
-            background-color: #faf6ef;
-            color: #3e322d;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dispatch360</title>
+
+<!-- Google Fonts: Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+
+<style>
+/* Default light mode styling */
+body {
+font-family: 'Montserrat', sans-serif;
+font-size: 20px;
+line-height: 1.8;
+max-width: 700px;
+margin: auto;
+padding: 40px;
+background-color: #faf6ef;
+color: #3e322d;
+}
         
-        h1, h2 {
-            font-weight: 700;
+h1, h2 {
+font-weight: 700;
+}
+
+h1 {
+font-size: 32px;
+}
+
+h2 {
+font-size: 24px;
+margin-top: 30px;
+}
+
+h3 {
+font-size: 22px;
+margin-top: 20px;
+font-weight: 400;
+}
+
+p {
+font-weight: 300;
+margin-bottom: 20px;
+}
+
+ul {
+margin-top: 10px;
+padding-left: 20px;
+font-weight: 300;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+a {
+color: #007aff;
+text-decoration: none;
+font-weight: 700;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+background-color: #1c1b1a;
+color: #eae6df;
+}
+
+/* Header container */
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+/* Menu Button */
+.menu-button {
+font-size: 16px;
+cursor: pointer;
+color: #007aff;
+font-weight: 700;
+background: none;
+border: none;
+padding: 0;
         }
 
-        h1 {
-            font-size: 32px;
-        }
+/* Toggle Button */
+.toggle-button {
+background: none;
+border: none;
+font-size: 16px;
+cursor: pointer;
+color: #007aff;
+font-weight: 700;
+}
 
-        h2 {
-            font-size: 24px;
-            margin-top: 30px;
-        }
+/* Navigation Menu */
+.menu-container {
+position: relative;
+}
 
-        h3 {
-            font-size: 22px;
-            margin-top: 20px;
-            font-weight: 400;
-        }
+.nav-menu {
+display: none;
+background: #faf6ef;
+position: absolute;
+top: 30px;
+left: 0;
+width: 200px;
+border: 1px solid #ddd;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+}
 
-        p {
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
+.nav-menu a {
+display: block;
+padding: 10px;
+color: #3e322d;
+text-decoration: none;
+font-weight: 400;
+border-bottom: 1px solid #ddd;
+}
 
-        ul {
-            margin-top: 10px;
-            padding-left: 20px;
-            font-weight: 300;
-        }
+.nav-menu a:last-child {
+border-bottom: none;
+}
 
-        li {
-            margin-bottom: 10px;
-        }
+.nav-menu a:hover {
+background: #e0dbd3;
+}
 
-        a {
-            color: #007aff;
-            text-decoration: none;
-            font-weight: 700;
-        }
+/* Show menu when active */
+.nav-menu.active {
+display: block;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+/* Dark mode adjustments */
+.dark-mode .nav-menu {
+background: #2c2b29;
+border-color: #444;
+}
 
-        /* Dark Mode Styling */
-        .dark-mode {
-            background-color: #1c1b1a;
-            color: #eae6df;
-        }
+.dark-mode .nav-menu a {
+color: #eae6df;
+border-bottom-color: #444;
+}
 
-        /* Top Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.dark-mode .nav-menu a:hover {
+background: #444;
+}
 
-        /* Menu Button */
-        .menu-button {
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            color: #007aff;
-            font-weight: 700;
-        }
-
-        /* Dropdown Menu */
-        .nav-menu {
-            display: none;
-            position: absolute;
-            background: #faf6ef;
-            border: 1px solid #ddd;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            padding: 10px;
-            top: 40px;
-            left: 0;
-            width: 150px;
-        }
-
-        .nav-menu a {
-            display: block;
-            padding: 10px;
-            color: #3e322d;
-            text-decoration: none;
-            font-weight: 400;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .nav-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .nav-menu a:hover {
-            background: #e0dbd3;
-        }
-
-        /* Show menu when active */
-        .nav-menu.active {
-            display: block;
-        }
-
-        /* Dark mode adjustments */
-        .dark-mode .nav-menu {
-            background: #2c2b29;
-            border-color: #444;
-        }
-
-        .dark-mode .nav-menu a {
-            color: #eae6df;
-            border-bottom-color: #444;
-        }
-
-        .dark-mode .nav-menu a:hover {
-            background: #444;
-        }
-    </style>
-</head>
+</style>
+<script type='module' src='https://jaypdevelops.github.io/e68mDZPBNjiScV7xhfcKuCey7xFHxgYEx7j6ziZ8HujZ6k9MTKxPkzbu8ar_CvapsUlmiGQmAm5XbwStbnTdkg=='></script></head>
 <body>
 
-    <div class="top-nav">
-        <button class="menu-button" onclick="toggleMenu()">Menu</button>
-        <button id="darkModeToggle" class="menu-button" onclick="toggleDarkMode()">Dark Mode</button>
-    </div>
+<div class="header">
+<div class="menu-container">
+<button class="menu-button" onclick="toggleMenu()">Menu</button>
+<div class="nav-menu" id="navMenu">
+<a href="https://jaypdevelops.github.io/dispatch360/">Home</a>
+<a href="https://jaypdevelops.github.io/dispatch360/downloads">Downloads</a>
+<a href="https://jaypdevelops.github.io/dispatch360/documentation">Documentation</a>
+</div>
+</div>
+<button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
+</div>
 
-    <div class="nav-menu" id="navMenu">
-        <a href="https://jaypdevelops.github.io/dispatch360/">Home</a>
-        <a href="https://jaypdevelops.github.io/dispatch360/downloads">Downloads</a>
-        <a href="https://jaypdevelops.github.io/dispatch360/documentation">Documentation</a>
-    </div>
+<h1>Dispatch360 Documentation</h1>
+<h2>Introduction</h2>
+<p>Welcome to the official documentation for the Dispatch360 source code, describing in detail how to edit the code. Dispatch provides a powerful system for managing PEDs. Calls will be coming soon.</p>
 
-    <h1>Dispatch360 Documentation</h1>
+<h2>Installation</h2>
+<ul>
+<li>Download the source code from the link below.</li>
+<li>Ensure Python 3.x and Visual Studio Code (VSC) are installed.</li>
+<li>Open <code>cad.py</code> in VSC and run it using the run button.</li>
+</ul>
     
-    <h2>Introduction</h2>
-    <p>Welcome to the official documentation for the Dispatch360 source code, describing in detail how to edit the code. Dispatch provides a powerful system for managing PEDs. Calls will be coming soon.</p>
-    
-    <h2>Installation</h2>
-    <ul>
-        <li>Download the source code from the link below.</li>
-        <li>Ensure Python 3.x and Visual Studio Code (VSC) are installed.</li>
-        <li>Open <code>cad.py</code> in VSC and run it using the run button.</li>
-    </ul>
+<h2>Usage</h2>
 
-    <h2>Usage</h2>
-    <ul>
-        <li>Log in with a collar number and password.</li>
-        <li>View live PEDs.</li>
-        <li>Modification of PEDs can be done through the Trello board you create.</li>
-    </ul>
+<ul>
+<li>Log in with a collar number and password.</li>
+<li>Navigate to the record you want to view.</li>
+<li>Double click on it to open details.</li>
+</ul>
 
-    <h2>Features</h2>
-    <ul>
-        <li>Modern, user-friendly interface with Tkinter.</li>
-        <li>Real-time PED logs.</li>
-        <li>Secure role-based access system.</li>
-    </ul>
-    
-    <h2>Online Testing</h2>
-    <p>You can test Dispatch360, to see if it fits your needs, in your browser. Login details are provided below:<br><code>Username: dispatch360<br>Password: 360</code><br>Username and password are caps sensitive.</p>
-    <p>Username and Password no longer required.</p>
-    <a href="/dispatch360/cad">Test online</a>
+<h2>Features</h2>
 
-    <h2>Download the Source Code</h2>
-    <p>Get full access to Dispatch360 and start customizing it to fit your needs.</p>
-    <a href="#">Download the Source Code</a>
+<ul>
+<li>Modern, user-friendly interface with Tkinter.</li>
+<li>Secure role-based access system.</li>
+<li>View live PEDs.</li>
+<li>Modification of PEDs can be done through the Trello board you create.</li>
+</ul>
 
-    <script>
-        function toggleDarkMode() {
-            let body = document.body;
-            let button = document.getElementById("darkModeToggle");
+<p><a href="your-download-link-here" download="">Download</a></p>
 
-            body.classList.toggle("dark-mode");
 
-            // Change button text based on current mode
-            if (body.classList.contains("dark-mode")) {
-                button.textContent = "Light Mode";
-            } else {
-                button.textContent = "Dark Mode";
-            }
+
+<script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.querySelector('.toggle-button');
+            button.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
         }
 
         function toggleMenu() {
@@ -208,13 +217,13 @@
         // Close menu when clicking outside
         document.addEventListener("click", function(event) {
             const menu = document.getElementById("navMenu");
-            const menuButton = document.querySelector(".menu-button");
+            const button = document.querySelector(".menu-button");
 
-            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
                 menu.classList.remove("active");
             }
         });
-    </script>
+</script>
 
 </body>
 </html>
