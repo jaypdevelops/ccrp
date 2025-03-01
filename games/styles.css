@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.game-container {
+    margin-top: 50px;
+}
+
+.clue {
+    margin: 20px 0;
+}
+
+input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#code-entry {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#envelope {
+    width: 200px;
+    height: 120px;
+    background-color: #d43f00;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.5s;
+}
+
+#envelope.locked {
+    background-color: #333;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#envelope .flap {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #d43f00;
+    border-radius: 10px;
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+
+#envelope.unlocked .flap {
+    transform: rotateX(180deg);
+}
+
+#envelope.unlocked .message {
+    display: block;
+}
+
+.message {
+    display: none;
+}
+
+/* Hidden clue (Easter egg) */
+#hidden-code {
+    display: none;
+}
