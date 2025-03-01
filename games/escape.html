@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game - Unlock the Envelope</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Escape Challenge: Unlock the Envelope</h1>
+        <p>Find the hidden clues and solve the riddle to unlock the envelope.</p>
+
+        <div id="clue-1" class="clue">
+            <p><strong>Clue 1:</strong> Sometimes, the answer is hidden in plain sight.</p>
+        </div>
+
+        <div id="clue-2" class="clue">
+            <p><strong>Clue 2:</strong> I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
+            <input type="text" id="riddle-answer" placeholder="Enter your answer">
+            <button onclick="checkRiddle()">Submit</button>
+        </div>
+
+        <div id="code-entry" class="hidden">
+            <p><strong>Final Step:</strong> Enter the 4-digit code:</p>
+            <input type="text" id="code-input" maxlength="4" placeholder="Enter code">
+            <button onclick="checkCode()">Unlock</button>
+        </div>
+
+        <div id="envelope" class="locked">
+            <div class="flap"></div>
+            <div class="message">I love you more, Ruby</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
