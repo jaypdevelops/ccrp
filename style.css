@@ -142,3 +142,14 @@ border-bottom-color: #444;
 .dark-mode .nav-menu a:hover {
 background: #444;
 }
+
+input {
+background-color: #faf6ef;
+border: 1px solid #3e322d;
+border-radius: 7px;
+}
+
+/* Dark mode input adjustments */
+.dark-mode input {
+border: 1px solid #eae6df;
+}
