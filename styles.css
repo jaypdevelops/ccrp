@@ -33,26 +33,34 @@ nav {
     margin: 20px 0;
 }
 
-.nav-button {
-    background: #222;
-    color: white;
+/* Buttons */
+.nav-button, .join-button {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     margin: 5px;
     font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Default Button Colors */
+.nav-button {
+    background: #222;
+    color: white;
 }
 
 .join-button {
     background: #ffb300;
     color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 5px;
     font-weight: 600;
+}
+
+/* Hover Effects */
+.nav-button:hover,
+.join-button:hover {
+    background: #ff8c00; /* Orange color */
+    color: black; /* Ensures good contrast */
 }
 
 /* Server List */
