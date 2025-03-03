@@ -55,7 +55,7 @@ nav {
 
 .server-list {
   background: rgba(0, 0, 0, 0.5);
-  width: 90%; /* Adjustable width */
+  width: 90%; /* Makes it scale properly */
   max-width: 900px; /* Prevents it from being too wide */
   margin: auto;
   padding: 20px;
@@ -64,7 +64,7 @@ nav {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the rows */
+  align-items: center;
 }
 
 .server-row {
@@ -72,38 +72,45 @@ nav {
   margin: 10px 0;
   border-radius: 7px;
   padding: 15px;
-  width: 100%; /* Ensures each row fits within .server-list */
-  max-width: 850px; /* Allows customization */
+  width: 100%;
+  max-width: 850px; /* Allows easy customization */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: all 0.3s ease;
+  word-wrap: break-word; /* Ensures text wraps inside the box */
+  overflow-wrap: break-word; /* Prevents long words from breaking layout */
 }
 
 .server-info {
   text-align: left;
   width: 100%;
   padding: 0 10px;
+  white-space: normal; /* Ensures text breaks into new lines if necessary */
 }
 
-/* Prevents text overflow */
+/* Ensures text doesn't overflow */
 .server-info div {
   margin-bottom: 5px;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Mobile Optimization */
 @media screen and (max-width: 600px) {
   .server-list {
-    width: 95%; /* Uses more space on smaller screens */
+    width: 95%;
     padding: 15px;
   }
 
   .server-row {
     padding: 10px;
-    font-size: 14px;
-    max-width: 100%; /* Makes sure it fully adjusts */
+    font-size: 14px; /* Adjust font size for smaller screens */
+    max-width: 100%;
+  }
+
+  .server-info {
+    font-size: 13px; /* Smaller text for better fit */
   }
 }
 
