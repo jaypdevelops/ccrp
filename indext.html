@@ -22,17 +22,12 @@ body {
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent;
 }
 
-.menu-container {
-    display: flex;
-    align-items: center;
-}
-
-.menu-button {
+.nav-button {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
@@ -40,30 +35,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: rgba(0, 0, 0, 0.7);
     color: white;
+    margin: 0 10px;
 }
 
-.menu-button:hover {
+.nav-button:hover {
     background: #ffffff;
     color: #000000;
 }
 
-.nav-menu {
-    display: none;
-    flex-direction: column;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-    margin: 5px 0;
-}
-
-.nav-menu a:hover {
-    color: #ffffff;
-}
-
 h1 {
-    font-size: 28px;
+    font-size: 2em;
     margin-top: 20px;
 }
 
@@ -86,28 +67,20 @@ li {
     height: 3px;
     background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
     margin: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 100px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Menu -->
+<!-- Top navigation bar -->
 <div class="header">
-    <div class="menu-container">
-        <button class="menu-button" onclick="toggleMenu()">Menu</button>
-        <div class="nav-menu" id="navMenu">
-            <a href="https://jaypdevelops.github.io/dispatch360/">C://dispatch360</a>
-            <a href="downloads">C://downloads</a>
-            <a href="documentation">C://documentation</a>
-        </div>
-    </div>
+    <button class="nav-button" onclick="window.location.href='https://jaypdevelops.github.io/dispatch360/'">C://dispatch360</button>
+    <button class="nav-button" onclick="window.location.href='downloads'">C://downloads</button>
+    <button class="nav-button" onclick="window.location.href='documentation'">C://documentation</button>
 </div>
 
 <h1>C://dispatch360</h1>
-<div class="gradient-line"></div>
 <p>Dispatch360, the newest, and only, CAD and MDT system using Trello integrations for datastores.</p>
 
 <h2>Features</h2>
@@ -120,6 +93,7 @@ li {
     <li>Able to add and remove records while running the program</li>
 </ul>
 
+<div class="gradient-line"></div>
 
 <script>
     function toggleMenu() {
