@@ -3,34 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Page Not Found</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="script.js"></script>
+<title>C://dispatch360</title>
+
+<!-- Google Fonts: Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
 </head>
+
+<!-- Beginning of body -->
 <body>
-<div class="container">
-    <header>
-        <h1>404 - Page Not Found</h1>
-        <p>The page you're looking for does not exist.</p>
-    </header>
 
-    <nav>
-        <button class="nav-button" id="homeButton" onclick="window.location.href = 'index.html'">Go Home</button>
-        <button class="nav-button" id="contactButton" onclick="window.location.href = 'contact.html'">Contact Support</button>
-    </nav>
-
-    <div class="gradient-line"></div>
-
-    <div class="error-message">
-        <h2>Oops! Something went wrong.</h2>
-        <p>We couldn't find the page you were looking for. Please check the URL or return to the home page.</p>
-    </div>
+<!-- Menu -->
+<div class="header">
+<div class="menu-container">
+<button class="menu-button" onclick="toggleMenu()">Menu</button>
+<div class="nav-menu" id="navMenu">
+<a href="https://jaypdevelops.github.io/dispatch360/">C://dispatch360</a>
+<a href="downloads">C://downloads</a>
+<a href="documentation">C://documentation</a>
+</div>
+</div>
 </div>
 
-<script>
-    window.onload = function() {
-        document.getElementById("homeButton").classList.add("active-button");
-    }
-</script>
+<h1>404://notfound</h1>
+<p>The URL you entered does not match any page on our website.</p>
+
+<h2>Things to check</h2>
+
+<ul>
+<li>The URL, make sure you typed everything correctly,</li>
+<li>Either the link you were sent or told to type in.</li>
+</ul>
+
 </body>
 </html>
