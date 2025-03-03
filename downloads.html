@@ -10,69 +10,6 @@
 <!-- Google Fonts: Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
 
-<style>
-    /* Modal style */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.5);
-        padding-top: 100px;
-        overflow: auto;
-        box-sizing: border-box;
-        border-radius: 7px;
-    }
-    .modal-content {
-        background-color: #faf6ef;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 700px;
-        max-height: 80%;
-        overflow-y: scroll;
-    }
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .modal-content h2 {
-        font-size: 24px;
-    }
-    .modal-content p {
-        font-size: 16px;
-        font-weight: 300;
-    }
-    .modal-footer {
-        display: flex;
-        justify-content: space-between;
-    }
-    .accept-btn, .decline-btn {
-        background-color: #007aff;
-        color: white;
-        padding: 10px 20px;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    .decline-btn {
-        background-color: #ff4d4d;
-    }
-</style>
-
 </head>
 
 <body>
@@ -105,7 +42,7 @@
 <li>Oldest version of Dispatch360</li>
 </ul>
 
-<p><a href="#" onclick="openModal('your-download-link-here')">Download</a></p>
+<a href="yourfile.zip" download class="download-btn">Download</a>
     
 <h3>Version 0.65</h3>
 <p>Best option for large communities, expanding constantly.</p>
@@ -118,71 +55,7 @@
 <li>Advanced UI</li>
 </ul>
 
-<p><a href="#" onclick="openModal('your-download-link-here')">Download</a></p>
-
-<!-- Modal for Terms and Conditions -->
-<div id="termsModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Terms and Conditions</h2>
-    
-    <p><strong>1. Acceptance of Terms:</strong> By downloading Dispatch360, you agree to the terms and conditions outlined here.</p>
-    
-    <p><strong>2. Product Description:</strong> Dispatch360 is a CAD/MDT system designed to streamline dispatch operations. It uses Trello-based databases for tracking and organizing information.</p>
-    
-    <p><strong>3. Eligibility:</strong> You must be at least 13 years old to use Dispatch360. By using Dispatch360, you confirm that you are 13 or older.</p>
-    
-    <p><strong>4. Account Registration:</strong> No account registration is required to use Dispatch360. Access is available immediately upon download.</p>
-    
-    <p><strong>5. User Conduct:</strong> You agree to use Dispatch360 in a lawful manner and not engage in activities that may disrupt or damage the service.</p>
-    
-    <p><strong>6. Distribution Restrictions:</strong> You are not allowed to redistribute Dispatch360 unless proper credits and links to the official website are included.</p>
-    
-    <p><strong>7. Intellectual Property:</strong> Dispatch360, including all associated materials, is the intellectual property of 13DP STUDIOS™. Unauthorized use is prohibited.</p>
-    
-    <p><strong>8. Fees and Payments:</strong> Dispatch360 is free to use, but some premium versions may be available for purchase. Any applicable fees will be outlined at the time of purchase. Abuse of such systems will result in the product being deactivated without a refund.</p>
-    
-    <p><strong>9. Termination:</strong> We may suspend or terminate your access to Dispatch360 at any time if you violate these terms.</p>
-    
-    <p><strong>10. Disclaimers:</strong> Dispatch360 is provided on an “as-is” basis. We do not guarantee that the service will always be available or free of errors.</p>
-    
-    <p><strong>11. Limitation of Liability:</strong> We are not responsible for any indirect, incidental, or consequential damages that may arise from using Dispatch360.</p>
-    
-    <p><strong>12. Indemnification:</strong> You agree to indemnify 13DP STUDIOS™ against any claims arising from your use of Dispatch360.</p>
-    
-    <p><strong>13. Governing Law:</strong> These terms are governed by the laws of the United Kingdom. Any legal disputes will be resolved in the appropriate courts.</p>
-    
-    <p><strong>14. Changes to Terms:</strong> We may modify these terms at any time. Notice of changes will be provided on the website.</p>
-
-    <div class="modal-footer">
-      <button class="accept-btn" id="acceptBtn">Accept</button>
-      <button class="decline-btn" onclick="closeModal()">Decline</button>
-    </div>
-  </div>
-</div>
-
-<script>
-    // Open Modal
-    function openModal(downloadLink) {
-        document.getElementById("termsModal").style.display = "block";
-        document.getElementById("acceptBtn").onclick = function() { 
-            window.location.href = downloadLink; 
-            closeModal();
-        };
-    }
-
-    // Close Modal
-    function closeModal() {
-        document.getElementById("termsModal").style.display = "none";
-    }
-
-    // To close the modal when clicking outside of the modal
-    window.onclick = function(event) {
-        if (event.target === document.getElementById("termsModal")) {
-            closeModal();
-        }
-    }
-</script>
+<a href="yourfile.zip" download class="download-btn">Download</a>
 
 </body>
 </html>
