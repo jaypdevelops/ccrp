@@ -4,8 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>C://dispatch360</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+<!-- Google Fonts: Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button, .toggle-button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.menu-button:hover, .toggle-button:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 0;
+}
+
+.nav-menu a:hover {
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.gradient-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 100px;
+}
+</style>
 </head>
+
 <body>
 
 <!-- Menu -->
@@ -34,63 +121,16 @@
     <li>Able to add and remove records while running the program</li>
 </ul>
 
-<!-- Login and Signup Forms -->
-<div class="container" id="login-container">
-    <h2>Login</h2>
-    <input type="text" id="login-username" placeholder="Username">
-    <input type="password" id="login-password" placeholder="Password">
-    <button onclick="login()">Login</button>
-    <p class="switch" onclick="showSignup()">Don't have an account? Sign up</p>
-</div>
-
-<div class="container" id="signup-container" style="display: none;">
-    <h2>Sign Up</h2>
-    <input type="text" id="signup-username" placeholder="Username">
-    <input type="password" id="signup-password" placeholder="Password">
-    <button onclick="signup()">Sign Up</button>
-    <p class="switch" onclick="showLogin()">Already have an account? Login</p>
-</div>
+<div class="gradient-line"></div>
 
 <script>
-    function showSignup() {
-        document.getElementById("login-container").style.display = "none";
-        document.getElementById("signup-container").style.display = "block";
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    function showLogin() {
-        document.getElementById("signup-container").style.display = "none";
-        document.getElementById("login-container").style.display = "block";
-    }
-
-    async function signup() {
-        let username = document.getElementById("signup-username").value;
-        let password = document.getElementById("signup-password").value;
-
-        const response = await fetch('http://localhost:3000/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.json();
-        alert(data.message);
-        if (response.ok) {
-            showLogin();
-        }
-    }
-
-    async function login() {
-        let username = document.getElementById("login-username").value;
-        let password = document.getElementById("login-password").value;
-
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.json();
-        alert(data.message);
+    function toggleMode() {
+        document.body.classList.toggle('dark-mode');
     }
 </script>
 
