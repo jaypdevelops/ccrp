@@ -55,13 +55,16 @@ nav {
 
 .server-list {
   background: rgba(0, 0, 0, 0.5);
-  width: 90%; /* Makes it scale on all screens */
-  max-width: 800px; /* Prevents it from being too wide on large screens */
+  width: 90%; /* Adjustable width */
+  max-width: 900px; /* Prevents it from being too wide */
   margin: auto;
   padding: 20px;
   border-radius: 10px;
   text-align: left;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the rows */
 }
 
 .server-row {
@@ -69,22 +72,22 @@ nav {
   margin: 10px 0;
   border-radius: 7px;
   padding: 15px;
+  width: 100%; /* Ensures each row fits within .server-list */
+  max-width: 850px; /* Allows customization */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%; /* Takes full width of .server-list */
-  box-sizing: border-box;
-  transition: all 0.3s ease; /* Smooth transition on resize */
+  transition: all 0.3s ease;
 }
 
 .server-info {
   text-align: left;
   width: 100%;
   padding: 0 10px;
-  height: 30%
 }
 
-/* Ensure text doesn't overflow */
+/* Prevents text overflow */
 .server-info div {
   margin-bottom: 5px;
   word-wrap: break-word;
@@ -93,13 +96,14 @@ nav {
 /* Mobile Optimization */
 @media screen and (max-width: 600px) {
   .server-list {
-    width: 95%; /* Makes use of more space on small screens */
+    width: 95%; /* Uses more space on smaller screens */
     padding: 15px;
   }
 
   .server-row {
     padding: 10px;
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
+    max-width: 100%; /* Makes sure it fully adjusts */
   }
 }
 
