@@ -55,27 +55,31 @@ nav {
 
 .server-list {
   background: rgba(0, 0, 0, 0.5);
-  width: 100%;
+  width: 90%; /* Ensures it's not too wide */
+  max-width: 600px; /* Prevents it from being too wide on large screens */
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
   text-align: left;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 .server-row {
   background: rgba(0, 0, 0, 0.7);
   margin: 10px 0;
   border-radius: 7px;
-  padding: 10px;
+  padding: 15px; /* Increased for better spacing */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%; /* Makes sure they all align properly */
+  box-sizing: border-box; /* Ensures padding does not affect width */
 }
 
 .server-info {
   text-align: left;
-  margin-left: 15px;
+  width: 100%; /* Makes sure text is properly aligned */
+  padding: 0 10px; /* Adjusts padding inside */
 }
 
 .server-info div {
