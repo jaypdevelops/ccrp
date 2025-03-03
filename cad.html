@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <title>C://dispatch360</title>
-
-<!-- Google Fonts: Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
 </head>
-
-<!-- Beginning of body -->
 <body>
 
 <!-- Menu -->
@@ -57,17 +51,7 @@
     <p class="switch" onclick="showLogin()">Already have an account? Login</p>
 </div>
 
-<!-- Scripts -->
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById("navMenu");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
-
-    function toggleMode() {
-        document.body.classList.toggle("dark-mode");
-    }
-
     function showSignup() {
         document.getElementById("login-container").style.display = "none";
         document.getElementById("signup-container").style.display = "block";
@@ -78,28 +62,35 @@
         document.getElementById("login-container").style.display = "block";
     }
 
-    function signup() {
+    async function signup() {
         let username = document.getElementById("signup-username").value;
         let password = document.getElementById("signup-password").value;
 
-        if (localStorage.getItem(username)) {
-            alert("Username already taken!");
-        } else {
-            localStorage.setItem(username, password);
-            alert("Account created successfully!");
+        const response = await fetch('http://localhost:3000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+        alert(data.message);
+        if (response.ok) {
             showLogin();
         }
     }
 
-    function login() {
+    async function login() {
         let username = document.getElementById("login-username").value;
         let password = document.getElementById("login-password").value;
 
-        if (localStorage.getItem(username) === password) {
-            alert("Login successful!");
-        } else {
-            alert("Invalid username or password!");
-        }
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+        alert(data.message);
     }
 </script>
 
