@@ -1,213 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispatch360 Online Test</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Default light mode styling (Safari Reader-like) */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: auto;
-            padding: 40px;
-            background-color: #faf6ef;
-            color: #3e322d;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<title>C://dispatch360</title>
 
-        h1, h2 {
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: 32px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-top: 30px;
-        }
-
-        h3 {
-            font-size: 22px;
-            margin-top: 20px;
-            font-weight: 400;
-        }
-
-        p {
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #007aff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Dark Mode Styling */
-        .dark-mode {
-            background-color: #1c1b1a;
-            color: #eae6df;
-        }
-
-        /* Toggle Button */
-        .toggle-container {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-
-        .toggle-button {
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            color: #007aff;
-            font-weight: 700;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        /* Input Fields */
-        input[type="text"] {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 10px 20px;
-            background-color: #007aff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #005bb5;
-        }
-    </style>
+<!-- Google Fonts: Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
 </head>
+
+<!-- Beginning of body -->
 <body>
 
-    <div class="toggle-container">
-        <button class="toggle-button" onclick="toggleDarkMode()">Dark Mode</button>
+<!-- Menu -->
+<div class="header">
+    <div class="menu-container">
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <div class="nav-menu" id="navMenu">
+            <a href="https://jaypdevelops.github.io/dispatch360/">C://dispatch360</a>
+            <a href="downloads">C://downloads</a>
+            <a href="documentation">C://documentation</a>
+        </div>
     </div>
+    <button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
+</div>
 
-    <h1>Person Search</h1>
-    <input type="text" id="first-name" placeholder="First Name">
-    <input type="text" id="last-name" placeholder="Last Name">
-    <button class="btn" onclick="searchRecords()">Search Records</button>
+<h1>C://dispatch360</h1>
+<p>Dispatch360, the newest, and only, CAD and MDT system using Trello integrations for datastores.</p>
 
-    <table id="records-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Citations</th>
-                <th>Vehicles</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+<h2>Features</h2>
+<p>A massive list of features for Dispatch360 (updated to match the latest version).</p>
 
-    <script>
-        const records = [
-            {
-                full_name: "Jay Powell",
-                citations: [{ date: "2023-01-01", reason: "Speeding" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "ABC123" }]
-            },
-            {
-                full_name: "Jane Smith",
-                citations: [{ date: "2023-02-15", reason: "Parking violation" }],
-                vehicles: [{ vehicle: "Ford Mustang", license_plate: "XYZ789" }]
-            },
-            {
-                full_name: "First Last",
-                citations: [{ date: "2024-02-08", reason: "No Seatbelt" }],
-                vehicles: [{ vehicle: "Tesla Model 3", license_plate: "FIRST1" }]
-            }
-        ];
+<ul>
+    <li>Easy to set up and configure</li>
+    <li>Minimal system requirements</li>
+    <li>Trello and Code based records available</li>
+    <li>Able to add and remove records while running the program</li>
+</ul>
 
-        function populateTable() {
-            const tableBody = document.querySelector('#records-table tbody');
-            tableBody.innerHTML = '';
+<!-- Login and Signup Forms -->
+<div class="container" id="login-container">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p class="switch" onclick="showSignup()">Don't have an account? Sign up</p>
+</div>
 
-            records.forEach(record => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${record.full_name}</td>
-                    <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
-                    <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
-                `;
-                tableBody.appendChild(row);
-            });
+<div class="container" id="signup-container" style="display: none;">
+    <h2>Sign Up</h2>
+    <input type="text" id="signup-username" placeholder="Username">
+    <input type="password" id="signup-password" placeholder="Password">
+    <button onclick="signup()">Sign Up</button>
+    <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+</div>
+
+<!-- Scripts -->
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("navMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+    }
+
+    function showSignup() {
+        document.getElementById("login-container").style.display = "none";
+        document.getElementById("signup-container").style.display = "block";
+    }
+
+    function showLogin() {
+        document.getElementById("signup-container").style.display = "none";
+        document.getElementById("login-container").style.display = "block";
+    }
+
+    function signup() {
+        let username = document.getElementById("signup-username").value;
+        let password = document.getElementById("signup-password").value;
+
+        if (localStorage.getItem(username)) {
+            alert("Username already taken!");
+        } else {
+            localStorage.setItem(username, password);
+            alert("Account created successfully!");
+            showLogin();
         }
+    }
 
-        function searchRecords() {
-            const firstName = document.getElementById('first-name').value.toLowerCase();
-            const lastName = document.getElementById('last-name').value.toLowerCase();
-            const tableBody = document.querySelector('#records-table tbody');
-            tableBody.innerHTML = '';
+    function login() {
+        let username = document.getElementById("login-username").value;
+        let password = document.getElementById("login-password").value;
 
-            const fullName = `${firstName} ${lastName}`.trim().toLowerCase();
-            let found = false;
-
-            records.forEach(record => {
-                if (record.full_name.toLowerCase().includes(fullName)) {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${record.full_name}</td>
-                        <td>${record.citations.map(c => `${c.reason} (${c.date})`).join(', ')}</td>
-                        <td>${record.vehicles.map(v => `${v.vehicle} (Plate: ${v.license_plate})`).join(', ')}</td>
-                    `;
-                    tableBody.appendChild(row);
-                    found = true;
-                }
-            });
-
-            if (!found) {
-                alert('No records found');
-            }
+        if (localStorage.getItem(username) === password) {
+            alert("Login successful!");
+        } else {
+            alert("Invalid username or password!");
         }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const button = document.querySelector('.toggle-button');
-            button.textContent = document.body.classList.contains('dark-mode') ? "Light Mode" : "Dark Mode";
-        }
-
-        // Populate table on page load
-        document.addEventListener('DOMContentLoaded', populateTable);
-    </script>
+    }
+</script>
 
 </body>
 </html>
