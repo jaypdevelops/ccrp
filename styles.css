@@ -1,57 +1,165 @@
+    /* Default light mode styling */
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #1a1a1a;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px;
+    background-color: #1a1a1a; /* Dark background */
     color: white;
-    text-align: center;
 }
 
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+p {
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    font-weight: 300;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007aff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+    background-color: #1a1a1a; /* Dark background for input */
+    border: 1px solid #ffffff; /* Light border */
+    border-radius: 7px;
+}
+
+/* Header container */
 .header {
     display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+/* Menu Button */
+.menu-button {
+    font-size: 16px;
+    cursor: pointer;
+    color: #007aff;
+    font-weight: 700;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Toggle Button */
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #007aff;
+    font-weight: 700;
+}
+
+/* Navigation Menu */
+.menu-container {
+    position: relative;
+}
+
+.nav-menu {
+    display: none;
+    background: #1a1a1a; /* Dark background */
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 250px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-menu a:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a:hover {
+    background: #444;
+}
+
+/* Show menu when active */
+.nav-menu.active {
+    display: block;
+}
+
+/* Dark mode adjustments */
+.dark-mode .nav-menu {
+    background: #2c2b29;
+    border-color: #444;
+}
+
+.dark-mode .nav-menu a {
+    color: #eae6df;
+    border-bottom-color: #444;
+}
+
+.dark-mode .nav-menu a:hover {
+    background: #444;
+}
+
+.dark-mode input {
+    border: 1px solid #eae6df;
+}
+
+/* Custom Button Styles */
 .nav-button {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
     border-radius: 50px;
-    font-family: 'Montserrat', sans-serif;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     margin: 0 10px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .nav-button:hover {
     background: #ffffff;
     color: #000000;
-}
-
-h1 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-h2 {
-    margin-top: 40px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px;
-}
-
-li {
-    margin: 10px 0;
-}
-
-.gradient-line {
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
-    margin: 20px 0;
 }
