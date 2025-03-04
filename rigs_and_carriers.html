@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rigs & Carriers - Operation Hollymount</title>
+<link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -68,6 +69,42 @@ body {
 .active {
     display: block;
 }
+
+.item-list {
+    width: 60%;
+    margin: auto;
+    text-align: left;
+}
+
+.item {
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.item-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ccc;
+}
 </style>
 </head>
 <body>
@@ -90,11 +127,29 @@ body {
         <h2>Chest Rigs</h2>
         <div class="info-box">
             <p>A variety of lightweight and versatile chest rigs used in Operation Hollymount.</p>
-            <ul>
-                <li>Modular Chest Rig - Adaptable design</li>
-                <li>Lightweight Assault Rig - High mobility</li>
-                <li>Recon Rig - Optimized for scouting</li>
-            </ul>
+        </div>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/modular_rig.png" alt="Modular Chest Rig">
+                <div class="item-info">
+                    <h3>Modular Chest Rig</h3>
+                    <p>Lightweight, customizable, and adaptable for different roles.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/assault_rig.png" alt="Lightweight Assault Rig">
+                <div class="item-info">
+                    <h3>Lightweight Assault Rig</h3>
+                    <p>Designed for high mobility with minimal weight.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/recon_rig.png" alt="Recon Rig">
+                <div class="item-info">
+                    <h3>Recon Rig</h3>
+                    <p>Optimized for scouting and extended operations.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -102,11 +157,35 @@ body {
         <h2>Plate Carriers</h2>
         <div class="info-box">
             <p>Protective plate carriers designed for different combat scenarios.</p>
-            <ul>
-                <li>Standard Issue Carrier - Balanced protection</li>
-                <li>Heavy Assault Carrier - Maximum defense</li>
-                <li>Stealth Carrier - Lightweight and discreet</li>
-            </ul>
+        </div>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/standard_carrier.png" alt="Standard Issue Carrier">
+                <div class="item-info">
+                    <h3>Standard Issue Carrier</h3>
+                    <p><strong>Max Caliber Rating:</strong> 7.62mm</p>
+                    <p><strong>Protection Level:</strong> Level IIIA</p>
+                    <p><strong>Weight:</strong> 10.5 kg</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/heavy_carrier.png" alt="Heavy Assault Carrier">
+                <div class="item-info">
+                    <h3>Heavy Assault Carrier</h3>
+                    <p><strong>Max Caliber Rating:</strong> .308 Win</p>
+                    <p><strong>Protection Level:</strong> Level IV</p>
+                    <p><strong>Weight:</strong> 15.2 kg</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/stealth_carrier.png" alt="Stealth Carrier">
+                <div class="item-info">
+                    <h3>Stealth Carrier</h3>
+                    <p><strong>Max Caliber Rating:</strong> 9mm</p>
+                    <p><strong>Protection Level:</strong> Level II</p>
+                    <p><strong>Weight:</strong> 5.8 kg</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -114,12 +193,29 @@ body {
         <h2>Features</h2>
         <div class="info-box">
             <p>Key features of the gear management system in Dispatch360.</p>
-            <ul>
-                <li>Easy to set up and configure</li>
-                <li>Minimal system requirements</li>
-                <li>Trello and Code-based records available</li>
-                <li>Able to add and remove records while running the program</li>
-            </ul>
+        </div>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/setup.png" alt="Setup">
+                <div class="item-info">
+                    <h3>Easy Setup</h3>
+                    <p>Simple installation and configuration.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/records.png" alt="Records">
+                <div class="item-info">
+                    <h3>Record Keeping</h3>
+                    <p>Includes Trello and code-based records.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/editing.png" alt="Editing">
+                <div class="item-info">
+                    <h3>Live Editing</h3>
+                    <p>Add or remove records while the program is running.</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
