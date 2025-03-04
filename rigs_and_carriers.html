@@ -124,8 +124,9 @@ body {
     <div class="gradient-line"></div>
 
     <div id="rigs" class="content active">
+        <h2>Chest Rigs</h2>
         <div class="info-box">
-            <h2>Chest Rigs</h2>
+            <p>Lightweight and versatile chest rigs used in Operation Hollymount.</p>
         </div>
         <div class="item-list">
             <div class="item">
@@ -162,8 +163,9 @@ body {
     </div>
 
     <div id="carriers" class="content">
+        <h2>Plate Carriers</h2>
         <div class="info-box">
-            <h2>Plate Carriers</h2>
+            <p>Protective plate carriers designed for different combat scenarios.</p>
         </div>
         <div class="item-list">
             <div class="item">
@@ -189,4 +191,55 @@ body {
                 <div class="item-info">
                     <h3>Stealth Carrier</h3>
                     <p><strong>Max Caliber Rating:</strong> 9mm</p>
-                    <p
+                    <p><strong>Protection Level:</strong> Level II</p>
+                    <p><strong>Weight:</strong> 5.8 kg</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="features" class="content">
+        <h2>Features</h2>
+        <div class="info-box">
+            <p>Key features of the gear management system in Dispatch360.</p>
+        </div>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/setup.png" alt="Setup">
+                <div class="item-info">
+                    <h3>Easy Setup</h3>
+                    <p>Simple installation and configuration.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/records.png" alt="Records">
+                <div class="item-info">
+                    <h3>Record Keeping</h3>
+                    <p>Includes Trello and code-based records.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="icons/editing.png" alt="Editing">
+                <div class="item-info">
+                    <h3>Live Editing</h3>
+                    <p>Add or remove records while the program is running.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showContent(section, button) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
+
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+</script>
+
+</body>
+</html>
