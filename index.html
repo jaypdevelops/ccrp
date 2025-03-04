@@ -3,44 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C://rigs_and_carriers</title>
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<title>E://hollymount</title>
-
-<!-- Google Fonts: Montserrat -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
-<!-- Beginning of body -->
 <body>
 
-<!-- Menu -->
-<div class="header">
-<div class="menu-container">
-<button class="menu-button" onclick="toggleMenu()">Menu</button>
-<div class="nav-menu" id="navMenu">
-<a href="https://jaypdevelops.github.io/dispatch360/">E://hollymount</a>
-<a href="missions">C://missions</a>
-<a href="weapon_systems">C://weapon_systems</a>
-<a href="rigs_and_carriers">C://rigs_and_carriers</a>
-</div>
-</div>
-</div>
+<header>
+    <h1>E://hollymount</h1>
+</header>
 
-<h1>E://hollymount</h1>
-<p>Find information about each mission, as well as a list (with information) of weapon systems, chest rigs and plate carriers.</p>
+<div class="container">
+    <nav>
+	<a href="your-link-here" class="nav-button-link"><button class="nav-button active-button">E://hollymount</button></a>
+	<a href="your-link-here" class="nav-button-link"><button class="nav-button">C://weapon_systems</button></a>
+	<a href="your-link-here" class="nav-button-link"><button class="nav-button">C://rigs_and_carriers</button></a>
+    </nav>
 
-<h2>Features</h2>
-<p>A massive list of features for Dispatch360 (updated to match the latest version).</p>
+    <div class="gradient-line"></div>
+    
 
-<ul>
-<li>Easy to set up and configure</li>
-<li>Minimal system requirements</li>
-<li>Trello and Code based records available</li>
-<li>Able to add and remove records while running the program</li>
-</ul>
+    <div id="rigs" class="content active">
+    <h2>Chest Rigs</h2>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/modular_rig.png" alt="1">
+                <div class="item-info">
+                    <h3>Modular Chest Rig</h3>
+                    <p>Highly customizable and adaptable for different roles.</p>
+                    <p><strong>Primary Magazines:</strong> 6</p>
+                    <p><strong>Sidearm Magazines:</strong> 3</p>
+                    <p><strong>Grenades:</strong> 2 (any type)</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="carriers" class="content">
+        <h2>Plate Carriers</h2>
+        <div class="item-list">
+            <div class="item">
+                <img src="icons/standard_carrier.png" alt="1">
+                <div class="item-info">
+                    <h3>Standard Issue Carrier</h3>
+                    <p>Highly customizable and adaptable for different roles.</p>
+                    <p><strong>Max Caliber Rating:</strong> 7.62mm</p>
+                    <p><strong>Protection Level:</strong> Level IIIA</p>
+                    <p><strong>Weight:</strong> 10.5 kg</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+<script>
+function showContent(section, button) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
+
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+</script>
 
 </body>
 </html>
