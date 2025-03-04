@@ -134,8 +134,12 @@ input {
 }
 
 .nav-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
     font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid #ddd;
 }
 
 .nav-menu a:last-child {
@@ -143,11 +147,7 @@ input {
 }
 
 .nav-menu a:hover {
-    font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(255, 255, 255, 0.7);
-    color: black;
+    background: #444;
 }
 
 /* Show menu when active */
