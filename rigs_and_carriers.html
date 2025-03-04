@@ -14,23 +14,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a;
     color: white;
-    display: flex; /* Enables flexbox */
-    justify-content: center; /* Centers content horizontally */
-    align-items: center; /* Centers content vertically */
-    height: 100vh; /* Full height of the viewport */
-    width: 100vw; /* Full width of the viewport */
-    overflow: hidden; /* Prevent scrolling */
-}
-
-.container {
-    width: 100%; /* Takes full width */
-    max-width: 800px; /* Maximum width for larger screens */
-    height: auto;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Centers content inside container */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    height: 100%;
 }
 
 h1 {
@@ -51,6 +36,41 @@ h2 {
     text-align: center;
 }
 
+/* Header Section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 0;
+    z-index: 10; /* Makes sure header is on top */
+    text-align: center;
+    backdrop-filter: blur(10px); /* Adds blur effect to background content */
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.container {
+    margin-top: 80px; /* Space for the fixed header */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    margin-top: 20px;
+}
+
 .nav-button {
     text-decoration: none;
     padding: 10px 25px;
@@ -67,26 +87,6 @@ h2 {
 }
 
 .nav-button:hover {
-    background: rgba(255, 255, 255, 0.7);
-    color: black;
-}
-
-a {
-    text-decoration: none;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 5px;
-    font-weight: 400;
-    font-size: 16px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-}
-
-a:hover {
     background: rgba(255, 255, 255, 0.7);
     color: black;
 }
@@ -112,13 +112,6 @@ a:hover {
     display: block;
 }
 
-.info-box {
-    width: 90%;
-    max-width: 800px; 
-    margin: 20px auto; 
-    text-align: center;
-}
-
 .item-list {
     width: 100%;
     max-width: 800px;
@@ -133,7 +126,7 @@ a:hover {
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers content horizontally */
+    justify-content: center;
     width: 90%;
     max-width: 800px;
 }
@@ -163,11 +156,11 @@ a:hover {
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Rigs and Carriers</h1>
-    </header>
+<header>
+    <h1>Rigs and Carriers</h1>
+</header>
 
+<div class="container">
     <nav>
         <button class="nav-button active-button" onclick="showContent('rigs', this)">Rigs</button>
         <button class="nav-button" onclick="showContent('carriers', this)">Carriers</button>
@@ -175,8 +168,9 @@ a:hover {
     </nav>
 
     <div class="gradient-line"></div>
+    
+    <h2>Chest Rigs</h2>
     <div id="rigs" class="content active">
-        <h2>Chest Rigs</h2>
         <div class="item-list">
             <div class="item">
                 <img src="icons/modular_rig.png" alt="Modular Chest Rig">
