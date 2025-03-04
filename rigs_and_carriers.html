@@ -8,18 +8,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Ensures consistent box-sizing across all elements */
+}
+
+body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a;
     color: white;
     overflow-x: hidden; /* Prevent horizontal scrolling */
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
-    text-align: center; /* Centers the title */
+    text-align: center;
+    margin-top: 0;
 }
 
 h2 {
@@ -55,14 +62,16 @@ header h1 {
     margin: 0;
 }
 
+/* Main Container */
 .container {
     margin-top: 80px; /* Space for the fixed header */
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 100%; /* Ensure it does not overflow */
     margin-left: auto;
     margin-right: auto;
 }
@@ -112,11 +121,12 @@ nav {
     display: block;
 }
 
+/* Styling for Item Lists */
 .item-list {
     width: 100%;
     max-width: 800px;
     margin: auto;
-    text-align: center; 
+    text-align: center;
 }
 
 .item {
