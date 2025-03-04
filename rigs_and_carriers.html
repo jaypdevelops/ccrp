@@ -23,7 +23,7 @@ body {
     padding-top: 20px;
 }
 
-.nav-button {
+.nav-button, .info-box {
     text-decoration: none;
     padding: 10px 25px;
     border: none;
@@ -38,69 +38,19 @@ body {
     color: white;
 }
 
-.nav-button:hover {
-    text-decoration: none;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 5px;
-    font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(255, 255, 255, 0.7);
-    color: black;
-}
-
-a {
-    text-decoration: none;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 5px;
-    font-weight: 400;
-    font-size: 16px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-}
-
-a:hover {
-    text-decoration: none;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 5px;
-    font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
+.nav-button:hover, .info-box:hover {
     background: rgba(255, 255, 255, 0.7);
     color: black;
 }
 
 .active-button {
-    text-decoration: none;
-    padding: 10px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(255, 255, 255, 0.7);
-    color: black;
+    background: #ffffff;
+    color: #000000;
 }
 
 .info-box {
-    background: rgba(0, 0, 0, 0.7);
-    width: 60%;
+    width: 90%;
     margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
     text-align: center;
 }
 
@@ -121,24 +71,25 @@ a:hover {
 }
 
 .item-list {
-    width: 60%;
+    width: 90%;
     margin: auto;
     text-align: left;
 }
 
 .item {
     background: rgba(0, 0, 0, 0.7);
-    margin: 10px 0;
-    padding: 15px;
+    margin: 15px auto;
+    padding: 20px;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    width: 90%;
 }
 
 .item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
 }
 
 .item-info {
@@ -147,12 +98,12 @@ a:hover {
 
 .item-info h3 {
     margin: 0;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .item-info p {
     margin: 5px 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #ccc;
 }
 </style>
@@ -166,9 +117,9 @@ a:hover {
     </header>
 
     <nav>
-        <button class="nav-button active-button" id="rigsButton" onclick="showContent('rigs', this)">Rigs</button>
-        <button class="nav-button" id="carriersButton" onclick="showContent('carriers', this)">Carriers</button>
-        <button class="nav-button" id="featuresButton" onclick="showContent('features', this)">Features</button>
+        <button class="nav-button active-button" onclick="showContent('rigs', this)">Rigs</button>
+        <button class="nav-button" onclick="showContent('carriers', this)">Carriers</button>
+        <button class="nav-button" onclick="showContent('features', this)">Features</button>
     </nav>
 
     <div class="gradient-line"></div>
@@ -189,26 +140,6 @@ a:hover {
                     <p><strong>Grenades:</strong> 2 (any type)</p>
                 </div>
             </div>
-            <div class="item">
-                <img src="icons/assault_rig.png" alt="Lightweight Assault Rig">
-                <div class="item-info">
-                    <h3>Lightweight Assault Rig</h3>
-                    <p>Designed for high mobility with minimal weight.</p>
-                    <p><strong>Primary Magazines:</strong> 4</p>
-                    <p><strong>Sidearm Magazines:</strong> 2</p>
-                    <p><strong>Grenades:</strong> 1 (frag or smoke)</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="icons/recon_rig.png" alt="Recon Rig">
-                <div class="item-info">
-                    <h3>Recon Rig</h3>
-                    <p>Optimized for scouting and extended operations.</p>
-                    <p><strong>Primary Magazines:</strong> 5</p>
-                    <p><strong>Sidearm Magazines:</strong> 4</p>
-                    <p><strong>Grenades:</strong> 3 (flashbang, smoke, frag)</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -227,24 +158,6 @@ a:hover {
                     <p><strong>Weight:</strong> 10.5 kg</p>
                 </div>
             </div>
-            <div class="item">
-                <img src="icons/heavy_carrier.png" alt="Heavy Assault Carrier">
-                <div class="item-info">
-                    <h3>Heavy Assault Carrier</h3>
-                    <p><strong>Max Caliber Rating:</strong> .308 Win</p>
-                    <p><strong>Protection Level:</strong> Level IV</p>
-                    <p><strong>Weight:</strong> 15.2 kg</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="icons/stealth_carrier.png" alt="Stealth Carrier">
-                <div class="item-info">
-                    <h3>Stealth Carrier</h3>
-                    <p><strong>Max Caliber Rating:</strong> 9mm</p>
-                    <p><strong>Protection Level:</strong> Level II</p>
-                    <p><strong>Weight:</strong> 5.8 kg</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -252,29 +165,6 @@ a:hover {
         <h2>Features</h2>
         <div class="info-box">
             <p>Key features of the gear management system in Dispatch360.</p>
-        </div>
-        <div class="item-list">
-            <div class="item">
-                <img src="icons/setup.png" alt="Setup">
-                <div class="item-info">
-                    <h3>Easy Setup</h3>
-                    <p>Simple installation and configuration.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="icons/records.png" alt="Records">
-                <div class="item-info">
-                    <h3>Record Keeping</h3>
-                    <p>Includes Trello and code-based records.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="icons/editing.png" alt="Editing">
-                <div class="item-info">
-                    <h3>Live Editing</h3>
-                    <p>Add or remove records while the program is running.</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
