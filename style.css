@@ -1,4 +1,3 @@
-<style>
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +52,7 @@ header h1 {
 }
 
 .container {
-    margin-top: 80px;
+    margin-top: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
