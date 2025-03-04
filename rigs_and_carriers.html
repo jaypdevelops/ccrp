@@ -14,21 +14,23 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a;
     color: white;
-    text-align: center;
     display: flex; /* Enables flexbox */
     justify-content: center; /* Centers content horizontally */
     align-items: center; /* Centers content vertically */
-    height: 100vh; /* Makes the body full height of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 .container {
-    width: 90%;
-    max-width: 800px; /* Ensures it doesn't get too wide on large screens */
-    margin: auto; /* Centers everything */
+    width: 100%; /* Takes full width */
+    max-width: 800px; /* Maximum width for larger screens */
+    height: auto;
     padding-top: 20px;
     display: flex;
-    flex-direction: column; /* Ensures vertical stacking */
-    align-items: center; /* Centers child elements horizontally */
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Centers content inside container */
 }
 
 h1 {
@@ -118,7 +120,7 @@ a:hover {
 }
 
 .item-list {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     margin: auto;
     text-align: center; 
