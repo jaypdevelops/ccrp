@@ -3,44 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<title>C://rigs_and_carriers</title>
+<title>Rigs & Carriers - Operation Hollymount</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- Google Fonts: Montserrat -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.nav-button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin: 5px;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.nav-button:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.active-button {
+    background: #ffffff;
+    color: #000000;
+}
+
+.info-box {
+    background: rgba(0, 0, 0, 0.7);
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.gradient-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
+    margin: 20px 0;
+    border-radius: 100px;
+}
+
+.content {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+</style>
 </head>
-
-<!-- Beginning of body -->
 <body>
 
-<!-- Menu -->
-<div class="header">
-<div class="menu-container">
-<button class="menu-button" onclick="toggleMenu()">Menu</button>
-<div class="nav-menu" id="navMenu">
-<a href="https://jaypdevelops.github.io/dispatch360/">E://hollymount</a>
-<a href="missions">C://missions</a>
-<a href="weapon_systems">C://weapon_systems</a>
-<a href="rigs_and_carriers">C://rigs_and_carriers</a>
+<div class="container">
+    <header>
+        <h1>Rigs & Carriers - Operation Hollymount</h1>
+        <p>Version 1.0 - Loadout Information</p>
+    </header>
+
+    <nav>
+        <button class="nav-button active-button" id="rigsButton" onclick="showContent('rigs', this)">Rigs</button>
+        <button class="nav-button" id="carriersButton" onclick="showContent('carriers', this)">Carriers</button>
+        <button class="nav-button" id="featuresButton" onclick="showContent('features', this)">Features</button>
+    </nav>
+
+    <div class="gradient-line"></div>
+
+    <div id="rigs" class="content active">
+        <h2>Chest Rigs</h2>
+        <div class="info-box">
+            <p>A variety of lightweight and versatile chest rigs used in Operation Hollymount.</p>
+            <ul>
+                <li>Modular Chest Rig - Adaptable design</li>
+                <li>Lightweight Assault Rig - High mobility</li>
+                <li>Recon Rig - Optimized for scouting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="carriers" class="content">
+        <h2>Plate Carriers</h2>
+        <div class="info-box">
+            <p>Protective plate carriers designed for different combat scenarios.</p>
+            <ul>
+                <li>Standard Issue Carrier - Balanced protection</li>
+                <li>Heavy Assault Carrier - Maximum defense</li>
+                <li>Stealth Carrier - Lightweight and discreet</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="features" class="content">
+        <h2>Features</h2>
+        <div class="info-box">
+            <p>Key features of the gear management system in Dispatch360.</p>
+            <ul>
+                <li>Easy to set up and configure</li>
+                <li>Minimal system requirements</li>
+                <li>Trello and Code-based records available</li>
+                <li>Able to add and remove records while running the program</li>
+            </ul>
+        </div>
+    </div>
 </div>
-</div>
-</div>
 
-<h2>C://rigs_and_carriers</h2>
-<p>View a list of all the different plate carriers and chest rigs in Operation Hollymount.</p>
+<script>
+function showContent(section, button) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
 
-<h2>Features</h2>
-<p>A massive list of features for Dispatch360 (updated to match the latest version).</p>
-
-<ul>
-<li>Easy to set up and configure</li>
-<li>Minimal system requirements</li>
-<li>Trello and Code based records available</li>
-<li>Able to add and remove records while running the program</li>
-</ul>
-
-
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+</script>
 
 </body>
 </html>
