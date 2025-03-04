@@ -15,6 +15,24 @@ body {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    height: 100vh; /* Makes the body full height of the viewport */
+}
+
+.container {
+    width: 90%;
+    max-width: 800px; /* Ensures it doesn't get too wide on large screens */
+    margin: auto; /* Centers everything */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    align-items: center; /* Centers child elements horizontally */
+}
+
+h1 {
+    text-align: center; /* Centers the title */
 }
 
 h2 {
@@ -28,7 +46,7 @@ h2 {
     background: rgba(0, 0, 0, 0.7);
     color: white;
     width: 95%;
-    text-align: center; /* This centers the text */
+    text-align: center;
 }
 
 .nav-button {
@@ -90,13 +108,6 @@ a:hover {
 
 .active {
     display: block;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px; /* Ensures it doesn't get too wide on large screens */
-    margin: auto; /* Centers everything */
-    padding-top: 20px;
 }
 
 .info-box {
