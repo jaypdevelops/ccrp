@@ -11,14 +11,14 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures consistent box-sizing across all elements */
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a;
     color: white;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -43,7 +43,6 @@ h2 {
     text-align: center;
 }
 
-/* Header Section */
 header {
     position: fixed;
     top: 0;
@@ -52,9 +51,9 @@ header {
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 15px 0;
-    z-index: 10; /* Makes sure header is on top */
+    z-index: 10;
     text-align: center;
-    backdrop-filter: blur(10px); /* Adds blur effect to background content */
+    backdrop-filter: blur(10px);
 }
 
 header h1 {
@@ -62,16 +61,32 @@ header h1 {
     margin: 0;
 }
 
-/* Main Container */
 .container {
-    margin-top: 80px; /* Space for the fixed header */
+    margin-top: 80px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 100%; /* Ensure it does not overflow */
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 100px;
+    margin: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -114,6 +129,9 @@ nav {
 }
 
 .content {
+text-align: center;
+width: 100%;
+max-width: 100%;
     display: none;
 }
 
@@ -121,13 +139,14 @@ nav {
     display: block;
 }
 
-/* Styling for Item Lists */
+
 .item-list {
     width: 100%;
     max-width: 800px;
     margin: auto;
     text-align: center;
 }
+
 
 .item {
     background: rgba(0, 0, 0, 0.7);
@@ -137,14 +156,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 95%; /* Ensure items take up 95% of available width */
-    max-width: 800px; /* Ensures the items don't stretch too far */
-}
-
-.item img {
-    width: 70px;
-    height: 70px;
-    margin-right: 20px;
+    width: 95%;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .item-info {
@@ -162,6 +178,14 @@ nav {
     font-size: 16px;
     color: #ccc;
 }
+
+
+
+.item img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
 </style>
 </head>
 <body>
@@ -174,16 +198,16 @@ nav {
     <nav>
         <button class="nav-button active-button" onclick="showContent('rigs', this)">Rigs</button>
         <button class="nav-button" onclick="showContent('carriers', this)">Carriers</button>
-        <button class="nav-button" onclick="showContent('features', this)">Features</button>
     </nav>
 
     <div class="gradient-line"></div>
     
-    <h2>Chest Rigs</h2>
+
     <div id="rigs" class="content active">
+    <h2>Chest Rigs</h2>
         <div class="item-list">
             <div class="item">
-                <img src="icons/modular_rig.png" alt="Modular Chest Rig">
+                <img src="icons/modular_rig.png" alt="1">
                 <div class="item-info">
                     <h3>Modular Chest Rig</h3>
                     <p>Highly customizable and adaptable for different roles.</p>
@@ -199,9 +223,10 @@ nav {
         <h2>Plate Carriers</h2>
         <div class="item-list">
             <div class="item">
-                <img src="icons/standard_carrier.png" alt="Standard Issue Carrier">
+                <img src="icons/standard_carrier.png" alt="1">
                 <div class="item-info">
                     <h3>Standard Issue Carrier</h3>
+                    <p>Highly customizable and adaptable for different roles.</p>
                     <p><strong>Max Caliber Rating:</strong> 7.62mm</p>
                     <p><strong>Protection Level:</strong> Level IIIA</p>
                     <p><strong>Weight:</strong> 10.5 kg</p>
@@ -209,11 +234,6 @@ nav {
             </div>
         </div>
     </div>
-
-    <div id="features" class="content">
-        <h2>Other Gear</h2>
-    </div>
-</div>
 
 <script>
 function showContent(section, button) {
