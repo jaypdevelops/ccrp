@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E://hollymount</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<h1>E://hollymount</h1>
+</header>
+
+<div class="container">
+<nav>
+<a href="index.html" class="nav-button-link"><button class="nav-button active-button">E://hollymount</button></a>
+<a href="weapon_systems.html" class="nav-button-link"><button class="nav-button">C://weapon_systems</button></a>
+<a href="rigs_and_carriers.html" class="nav-button-link"><button class="nav-button">C://rigs_and_carriers</button></a>
+</nav>
+</div>
+
+<div class="gradient-line"></div>
+
+<div id="rigs" class="content active">
+
+<h2>Information</h2>
+
+<div class="item-list">
+<div class="item">
+<icon><i class="fa-solid fa-magnifying-glass"></i></icon>
+<div class="item-info">
+
+<h3>ABOUT</h3>
+<p><strong>Game Version:</strong> 0.02</p>
+<p><strong>Last Update:</strong> 04/03/2025</p>
+
+</div>
+</div>
+
+<div class="item">
+<icon><i class="fa-solid fa-user"></i></icon>
+<div class="item-info">
+
+<h3>CREDITS</h3>
+<p><strong>Game Creator:</strong> @jaydpowell13</p>
+<p><strong>UI/Website Developer:</strong> @jaydpowell13</p>
+<p><strong>Sound Design:</strong> @jaydpowell13</p>
+<p><strong>Weapon System Design/Scripting:</strong> @jaydpowell13</p>
+</div>
+</div>
+<p>This is a paragraph to test how the formatting works on the E://hollymount page. This can span over multiple lines and can be responsive depending on your device size or what browser you use.</p>
+</div>
+</div>
+
+<div id="rigs" class="content active">
+
+<h2>Updates</h2>
+
+<p>View a list of updates, sorted by date (latest).</p>
+
+<div class="item-list">
+<div class="item">
+<icon><i class="fa-solid fa-code"></i></icon>
+<div class="item-info">
+
+<h3>VERSION 0.023</h3>
+<p>Update 0.023 patches a lot of bugs, including lag-based bugs while using full-auto with the weapon systems, specifically the M4A1 Stock Test.</p>
+<p><strong>New Weapon Systems:</strong> M416A1, P229, SIG SAUER MCX</p>
+<p><strong>Sidearm Magazines:</strong> 3</p>
+<p><strong>Grenades:</strong> 2 (any type)</p>
+
+</div>
+</div>
+<p>This is a paragraph to test how the formatting works on the E://hollymount page. This can span over multiple lines and can be responsive depending on your device size or what browser you use.</p>
+</div>
+</div>
+
+<script>
+function showContent(section, button) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
+
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+</script>
+
+</body>
+</html>
