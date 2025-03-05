@@ -3,38 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <title>E://404</title>
-
-<!-- Google Fonts: Montserrat -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
-<!-- Beginning of body -->
 <body>
 
-<!-- Menu -->
-<div class="header">
-<div class="menu-container">
-<button class="menu-button" onclick="toggleMenu()">Menu</button>
-<div class="nav-menu" id="navMenu">
-<a href="https://jaypdevelops.github.io/dispatch360/">C://dispatch360</a>
-<a href="downloads">C://downloads</a>
-<a href="documentation">C://documentation</a>
+<header>
+<h1>E://404</h1>
+</header>
+
+<div class="container">
+<nav>
+<a href="index.html" class="nav-button-link"><button class="nav-button active-button">E://hollymount</button></a>
+<a href="weapon_systems.html" class="nav-button-link"><button class="nav-button">C://weapon_systems</button></a>
+<a href="rigs_and_carriers.html" class="nav-button-link"><button class="nav-button">C://rigs_and_carriers</button></a>
+</nav>
 </div>
+
+<div class="gradient-line"></div>
+
+<div id="rigs" class="content active">
+
+<h2>Information</h2>
+<p>We could not find the page you were looking for.</p>
+<div class="item-list">
+<div class="item">
+<img src="7C0234C1-3604-4385-8E98-C0016D09E3DE.png" alt="1">
+<div class="item-info">
+
+<h3>THINGS TO CHECK</h3>
+<p><strong>URL:</strong> have you entered the URL correctly?</p>
+<p><strong>Communications:</strong> check our communications server (discord) to see website updates.</p>
+
 </div>
 </div>
 
-<h1>404://notfound</h1>
-<p>The URL you entered does not match any page on our website.</p>
+</div>
+</div>
 
-<h2>Things to check</h2>
+<script>
+function showContent(section, button) {
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
 
-<ul>
-<li>The URL, make sure you typed everything correctly,</li>
-<li>Either the link you were sent or told to type in.</li>
-</ul>
+    const buttons = document.querySelectorAll('.nav-button');
+    buttons.forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+</script>
 
 </body>
 </html>
