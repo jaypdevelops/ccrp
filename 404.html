@@ -45,17 +45,5 @@
 </div>
 </div>
 
-<script>
-function showContent(section, button) {
-    const sections = document.querySelectorAll('.content');
-    sections.forEach(s => s.classList.remove('active'));
-    document.getElementById(section).classList.add('active');
-
-    const buttons = document.querySelectorAll('.nav-button');
-    buttons.forEach(btn => btn.classList.remove('active-button'));
-    button.classList.add('active-button');
-}
-</script>
-
 </body>
 </html>
