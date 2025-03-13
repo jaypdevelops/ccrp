@@ -1,5 +1,5 @@
 const CLIENT_ID = "7943462626764736747";  // Replace with your Roblox OAuth2 client ID
-const REDIRECT_URI = "https://jaydevelops.github.io/ccrp/test2";  // Your redirect URI
+const REDIRECT_URI = "https://jaypdevelops.github.io/ccrp/test2";  // Your redirect URI
 
 document.getElementById("link-roblox").addEventListener("click", function() {
     const AUTH_URL = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid profile`;
