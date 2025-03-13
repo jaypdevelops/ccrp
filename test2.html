@@ -75,7 +75,7 @@
 </div>
 
 <script>
-    const CLIENT_ID = "7943462626764736747";  // Replace with your Roblox OAuth2 client ID
+    const CLIENT_ID = "7943462626764736747";  // Your Roblox OAuth2 client ID
     const REDIRECT_URI = "https://jaypdevelops.github.io/ccrp/test2";  // Your redirect URI
 
     // Event listener for the Link Roblox Account button
@@ -90,7 +90,7 @@
 
     if (authCode) {
         // Exchange the auth code for an access token
-        fetch(`https://yourproxyserver.com/exchange-token?code=${authCode}`)
+        fetch(`https://jaypdevelops.github.io/ccrp/test2/exchange-token?code=${authCode}`)
             .then(response => response.json())
             .then(data => {
                 if (data.access_token) {
