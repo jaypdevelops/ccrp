@@ -1,4 +1,4 @@
-const CLIENT_ID = "5633244669044513321";  // Replace with your Roblox OAuth2 client ID
+const CLIENT_ID = "7943462626764736747";  // Replace with your Roblox OAuth2 client ID
 const REDIRECT_URI = "https://jaydevelops.github.io/ccrp/test2";  // Your redirect URI
 
 document.getElementById("link-roblox").addEventListener("click", function() {
