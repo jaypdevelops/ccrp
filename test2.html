@@ -134,3 +134,40 @@ input {
     <script src="script.js"></script>
 </body>
 </html>
+
+<script>
+document.getElementById('link-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('roblox-username').value;
+
+    if (username) {
+        fetch(`https://users.roblox.com/v1/usernames/users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usernames: [username] })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.data.length > 0) {
+                const userId = data.data[0].id;
+                const avatarUrl = `https://www.roblox.com/headshot-thumbnail/image?userId=${userId}&width=150&height=150&format=png`;
+
+                // Update avatar and username display
+                document.getElementById("roblox-avatar").src = avatarUrl;
+                document.getElementById("roblox-username-display").textContent = username;
+
+                alert(`Roblox account "${username}" linked successfully!`);
+            } else {
+                alert("Invalid Roblox username.");
+            }
+        })
+        .catch(error => console.error("Error fetching data:", error));
+    } else {
+        alert("Please enter a valid Roblox username.");
+    }
+});
+
+</script>
