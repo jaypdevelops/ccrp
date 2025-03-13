@@ -126,12 +126,3 @@
 
 </body>
 </html>
-<script>
-document.getElementById("link-roblox").addEventListener("click", function() {
-    const CLIENT_ID = "7943462626764736747";  // Replace with your actual client ID from Roblox
-    const REDIRECT_URI = "https://jaypdevelops.github.io/ccrp/test2";  // Replace with your actual redirect URI
-    const AUTH_URL = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid profile`;
-
-    window.location.href = AUTH_URL;
-});
-</script>
