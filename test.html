@@ -1,223 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-            overflow-x: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 0;
-            font-size: 28px;
-        }
-
-        h2 {
-            text-align: left;
-            padding: 5px 15px;
-            border: none;
-            border-radius: 100px;
-            margin: 5px;
-            font-weight: 400;
-            font-size: 18px;
-            font-family: 'Montserrat', sans-serif;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            width: 95%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        p {
-            padding: 5px 15px;
-            border: none;
-            margin: 5px;
-            font-weight: 400;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            width: 100%;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 15px 0;
-            z-index: 100;
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
-
-        header h1 {
-            font-size: 24px;
-            margin: 0;
-            text-align: center;
-        }
-
-        .container {
-            margin-top: 100px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        /* Custom Dropdown Styling */
-        .dropdown {
-            position: relative;
-            width: 95%; 
-            margin: 15px 0;
-        }
-
-        .dropdown-button {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            border-radius: 50px;
-            border: none;
-            width: 100%;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
-            cursor: pointer;
-            appearance: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            width: 100%;
-            border-radius: 10px;
-            z-index: 100;
-            display: none;
-            flex-direction: column;
-            margin-top: 5px;
-        }
-
-        .dropdown-menu button {
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .dropdown-menu button:hover {
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .dropdown.open .dropdown-menu {
-            display: flex;
-        }
-
-        .dropdown-button::after {
-            content: ' ▼';
-            font-size: 18px;
-        }
-
-        /* Input and Submit Button Styling */
-        input[type="text"], input[type="submit"] {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            border-radius: 50px;
-            border: none;
-            margin: 15px 0;
-            width: 95%;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        input[type="submit"] {
-            background: rgba(0, 105, 243, 0.7);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 95%;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background: rgba(255, 255, 255, 0.7);
-            color: black;
-        }
-
-        .gradient-line {
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
-            margin: 20px 0;
-            border-radius: 100px;
-        }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Application Form</h1>
-    </header>
+<header>
+<h1>Application Form</h1>
+</header>
+<br><br><br><br>
+<!-- START OF MAIN CONTENT -->
+<div id="rigs" class="content active">
 
-    <div class="container">
-        <form id="applicationForm">
-            <h2>Q1) What rank are you applying for?</h2>
-            <div class="dropdown" id="rankDropdown">
-                <button class="dropdown-button" type="button">Select Rank</button>
-                <div class="dropdown-menu">
-                    <button type="button" value="Supervisor">Supervisor</button>
-                    <button type="button" value="Training Officer">Training Officer</button>
-                  <button type="button" value="Standard Officer">Standard Officer</button>
-                </div>
-            </div>
+<h2>Information</h2>
+<p>View our list of gamepasses. All gamepasses are 75% off for the first month of game release!</p>
+<div class="item-list">
 
-            <h2>Q2) What's your username (discord)?</h2>
-            <input type="text" id="discordUsername" name="discordUsername" required>
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/unmarked.jpeg" alt="1">
+<div class="item-info">
 
-            <h2>Q3) What's your username (rblx)?</h2>
-            <input type="text" id="rblxUsername" name="rblxUsername" required>
+<h3>START</h3>
+<form id="applicationForm">
+<h2>Q1) Which job would you like to apply for?</h2>
+<div class="dropdown" id="rankDropdown">
+<button class="dropdown-button" type="button">Select Rank</button>
+<div class="dropdown-menu">
+<button type="button" value="Civilian">Civilian</button>
+</div>
+</div>
+<h2>Q2) What's your username (discord)?</h2>
+<br>
+<input type="text" id="discordUsername" name="discordUsername" required>
+<br><br>
+<h2>Q3) What's your username (rblx)?</h2>
+<br>
+<input type="text" id="rblxUsername" name="rblxUsername" required>
 
-            <input type="submit" value="Submit Application">
-        </form>
-    </div>
+<input type="submit" value="Submit Application">
+</form>
+</div>
+</div>
+
+</div>
 
     <script>
         // Dropdown functionality
