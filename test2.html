@@ -65,7 +65,7 @@
     <h1>My Roblox Website</h1>
     <div id="user-profile">
         <img id="avatar" src="" alt="Avatar">
-        <span id="username"></span>
+        <span id="username">Username</span> <!-- This text will change after linking -->
     </div>
 </header>
 
@@ -103,7 +103,7 @@
                         // Save user info in LocalStorage for future use
                         localStorage.setItem("robloxUser", JSON.stringify(user));
 
-                        // Update the user profile section
+                        // Update the user profile section with username and avatar
                         updateUserProfile(user);
                     });
                 }
@@ -113,9 +113,17 @@
 
     // Function to update the user profile section with avatar and username
     function updateUserProfile(user) {
-        document.getElementById("username").textContent = user.name;
-        document.getElementById("avatar").src = `https://www.roblox.com/headshot-thumbnail/image?userId=${user.sub}&width=50&height=50&format=png`;
-        document.getElementById("avatar").style.display = "block";  // Show the avatar
+        // Ensure that user.profile is populated (for username and avatar)
+        if (user && user.name && user.sub) {
+            // Update the username text
+            document.getElementById("username").textContent = user.name;
+
+            // Set the avatar image URL
+            document.getElementById("avatar").src = `https://www.roblox.com/headshot-thumbnail/image?userId=${user.sub}&width=50&height=50&format=png`;
+
+            // Show the avatar image
+            document.getElementById("avatar").style.display = "block";  
+        }
     }
 
     // On page load, check if there is saved user info and display it
