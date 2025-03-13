@@ -5,8 +5,8 @@
 
 <script>
 document.getElementById("link-roblox").addEventListener("click", function() {
-    const CLIENT_ID = "YOUR_CLIENT_ID";  // Replace with your actual client ID from Roblox
-    const REDIRECT_URI = "https://yourwebsite.com/auth/callback";  // Replace with your actual redirect URI
+    const CLIENT_ID = "5633244669044513321";  // Replace with your actual client ID from Roblox
+    const REDIRECT_URI = "https://jaypdevelops.github.il/ccrp/";  // Replace with your actual redirect URI
     const AUTH_URL = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=openid profile`;
 
     window.location.href = AUTH_URL;
