@@ -3,126 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threads Clone</title>
-<style>
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa;
-}
+    <title>Safari Reader Clone</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
 
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        /* Menu Button */
+        .menu-button {
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-nav {
-    display: flex;
-}
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-}
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
 
-.nav-links li {
-    display: inline;
-}
+        .dropdown-menu li {
+            padding: 10px 20px;
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-}
+        .dropdown-menu a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
 
-.menu-icon {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
+        .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
 
-/* Main Content */
-main {
-    padding-top: 80px;
-    text-align: center;
-}
+        /* Show menu when active */
+        .dropdown-menu.active {
+            display: block;
+        }
 
-.home {
-    padding: 50px 20px;
-}
+        /* Main Content */
+        main {
+            max-width: 700px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        padding: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        article h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
-    .nav-links.active {
-        display: flex;
-    }
+        article p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
 
-    .menu-icon {
-        display: block;
-    }
-}
-</style>
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            main {
+                margin: 100px 10px;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <div class="logo">Threads</div>
-        <nav>
-            <ul class="nav-links">
+        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <nav class="dropdown-menu">
+            <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <section class="home">
-            <h1>Welcome to Threads Clone</h1>
-            <p>A simple frontend replica of Threads.net.</p>
-        </section>
+        <article>
+            <h1>Minimalist Reading Experience</h1>
+            <p>This is a simple webpage that mimics Safari Reader mode. The design is clean and distraction-free, making reading more comfortable.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet orci at erat feugiat gravida.</p>
+            <p>Enjoy a better reading experience with clear typography and a distraction-free layout.</p>
+        </article>
     </main>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
-<script>
-function toggleMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
-</script>
 </body>
 </html>
