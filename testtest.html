@@ -44,6 +44,23 @@
             margin-bottom: 15px;
         }
 
+        /* Buttons (Styled as Links) */
+        .button {
+            font-weight: bold;
+            font-size: 1em;
+            color: #007AFF;
+            text-decoration: underline;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 5px;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
         /* Menu Button */
         .menu {
             position: fixed;
@@ -126,9 +143,18 @@
     <!-- Article Content -->
     <h1>Building websites for Safari Reader Mode and other reading apps.</h1>
     <p class="author"><strong>Mandy Michael</strong></p>
-    <p>Alternate reading modes offer users improved readability and options for personalization — people can choose to use these tools for any number of reasons including better accessibility with improved contrast, or enjoying the aesthetics of a low-noise environment to read in.</p>
-    <p>I went on a bit of a journey exploring how our websites are experienced across these technologies and how we can make sure that our content is interpreted the way we want, regardless of how people are consuming it.</p>
-    <p>For demo purposes, let’s look at what a simple HTML page looks like in Safari Reader Mode.</p>
+    <p>
+        Alternate reading modes offer users improved readability and options for personalization — people can choose to use these tools for any number of reasons including better accessibility with improved contrast, or enjoying the aesthetics of a low-noise environment to read in. 
+        <button class="button" onclick="alert('Learn More Clicked!')">Learn More</button>
+    </p>
+    <p>
+        I went on a bit of a journey exploring how our websites are experienced across these technologies and how we can make sure that our content is interpreted the way we want, regardless of how people are consuming it.
+        <button class="button" onclick="alert('Read More Clicked!')">Read More</button>
+    </p>
+    <p>
+        For demo purposes, let’s look at what a simple HTML page looks like in Safari Reader Mode.
+        <button class="button" onclick="alert('View Demo Clicked!')">View Demo</button>
+    </p>
 
     <script>
         function toggleMenu() {
