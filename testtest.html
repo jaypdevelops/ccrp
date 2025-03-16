@@ -3,138 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safari Reader Clone</title>
+    <title>Safari Reader Mode Clone</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Georgia', serif;
+        /* Global Reset */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5e7d6; /* Soft beige background */
-            color: #3a2d24; /* Dark brown text for contrast */
+            box-sizing: border-box;
+        }
+
+        /* Body Styles - Default (Light Mode) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            color: black;
+            transition: background 0.3s, color 0.3s;
         }
 
         /* Header */
-        header {
-            background-color: #3a2d24; /* Dark brown top bar */
-            padding: 10px 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            color: white;
+        h1 {
+            font-size: 1.9em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Author Name */
+        .author {
+            font-weight: 500;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 1.15em;
+            margin-bottom: 15px;
         }
 
         /* Menu Button */
-        .menu-button {
-            font-size: 24px;
+        .menu {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
             cursor: pointer;
+            z-index: 100;
         }
 
         /* Dropdown Menu */
-        .dropdown-menu {
+        .dropdown {
             display: none;
             position: absolute;
-            top: 50px;
+            top: 40px;
             left: 10px;
-            background-color: #fff;
+            background: white;
             border: 1px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
+            width: 160px;
         }
 
-        .dropdown-menu ul {
-            list-style: none;
-            padding: 10px;
-            margin: 0;
-        }
-
-        .dropdown-menu li {
-            padding: 10px 20px;
-        }
-
-        .dropdown-menu a {
-            text-decoration: none;
-            color: #333;
+        .dropdown button {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            text-align: left;
+            cursor: pointer;
             display: block;
         }
 
-        .dropdown-menu a:hover {
-            background-color: #f0f0f0;
+        .dropdown button:hover {
+            background: #f0f0f0;
         }
 
-        /* Show menu when active */
-        .dropdown-menu.active {
-            display: block;
+        /* Theme Styles */
+        body.light {
+            background: white;
+            color: black;
         }
 
-        /* Main Content */
-        main {
-            max-width: 700px;
-            margin: 100px auto;
-            padding: 20px;
+        body.dark {
+            background: #1c1c1e;
+            color: #f2f2f7;
         }
 
-        article h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #3a2d24;
+        body.sepia {
+            background: #f4ecd8;
+            color: #5b4636;
         }
 
-        article h2 {
-            font-size: 22px;
-            font-weight: bold;
-            color: #3a2d24;
+        body.gray {
+            background: #222;
+            color: #ccc;
         }
 
-        article p {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #3a2d24;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            main {
-                margin: 120px 10px;
-                padding: 15px;
+        /* Responsive - Adjusting Padding for Smaller Screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 10px;
             }
         }
     </style>
 </head>
-<body>
+<body class="light">
+    <!-- Menu Button -->
+    <button class="menu" onclick="toggleMenu()">☰</button>
+    <div class="dropdown" id="dropdown">
+        <button onclick="changeTheme('light')">Light</button>
+        <button onclick="changeTheme('dark')">Dark</button>
+        <button onclick="changeTheme('sepia')">Sepia</button>
+        <button onclick="changeTheme('gray')">Gray</button>
+    </div>
 
-    <!-- Header -->
-    <header>
-        <div class="menu-button" onclick="toggleMenu()">☰</div>
-        <nav class="dropdown-menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <article>
-            <h1>Building Websites for Safari Reader Mode</h1>
-            <h2>Mandy Michael</h2>
-            <p>Alternate reading modes offer users improved readability and options for personalization—people can choose to use these tools for any number of reasons including better accessibility with improved contrast or enjoying the aesthetics of a low-noise environment to read in.</p>
-            <p>I went on a bit of a journey exploring how our websites are experienced across these technologies and how we can make sure that our content is interpreted the way we want, regardless of how people are consuming it.</p>
-        </article>
-    </main>
+    <!-- Article Content -->
+    <h1>Building websites for Safari Reader Mode and other reading apps.</h1>
+    <p class="author"><strong>Mandy Michael</strong></p>
+    <p>Alternate reading modes offer users improved readability and options for personalization — people can choose to use these tools for any number of reasons including better accessibility with improved contrast, or enjoying the aesthetics of a low-noise environment to read in.</p>
+    <p>I went on a bit of a journey exploring how our websites are experienced across these technologies and how we can make sure that our content is interpreted the way we want, regardless of how people are consuming it.</p>
+    <p>For demo purposes, let’s look at what a simple HTML page looks like in Safari Reader Mode.</p>
 
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.dropdown-menu');
-            menu.classList.toggle('active');
+            const dropdown = document.getElementById('dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
-    </script>
 
+        function changeTheme(theme) {
+            document.body.className = theme;
+            document.getElementById('dropdown').style.display = 'none';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.menu');
+            const dropdown = document.getElementById('dropdown');
+            if (!menu.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
