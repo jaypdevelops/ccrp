@@ -1,180 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safari Reader Mode Clone</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="script.js"></script>
+<title>C://dispatch360</title>
+<!-- Google Fonts: Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    
     <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    /* Default light mode styling */
+body {
+font-family: 'Montserrat', sans-serif;
+font-size: 20px;
+line-height: 1.8;
+max-width: 700px;
+margin: auto;
+padding: 40px;
+background-color: #faf6ef;
+color: #3e322d;
+}
+        
+h1, h2 {
+font-weight: 700;
+}
+
+h1 {
+font-size: 32px;
+}
+
+h2 {
+font-size: 24px;
+margin-top: 30px;
+}
+
+h3 {
+font-size: 22px;
+margin-top: 20px;
+font-weight: 400;
+}
+
+p {
+font-weight: 300;
+margin-bottom: 20px;
+}
+
+ul {
+margin-top: 10px;
+padding-left: 20px;
+font-weight: 300;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+a {
+color: #007aff;
+text-decoration: none;
+font-weight: 700;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+input {
+background-color: #faf6ef;
+border: 1px solid #3e322d;
+border-radius: 7px;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+background-color: #1c1b1a;
+color: #eae6df;
+}
+
+/* Header container */
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+/* Menu Button */
+.menu-button {
+font-size: 16px;
+cursor: pointer;
+color: #007aff;
+font-weight: 700;
+background: none;
+border: none;
+padding: 0;
         }
 
-        /* Body Styles - Default (Light Mode) */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            padding: 0 15px;
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            color: black;
-            transition: background 0.3s, color 0.3s;
-        }
+/* Toggle Button */
+.toggle-button {
+background: none;
+border: none;
+font-size: 16px;
+cursor: pointer;
+color: #007aff;
+font-weight: 700;
+}
 
-        /* Header */
-        h1 {
-            font-size: 1.9em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+/* Navigation Menu */
+.menu-container {
+position: relative;
+}
 
-        /* Author Name */
-        .author {
-            font-weight: 500;
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
+.nav-menu {
+display: none;
+background: #faf6ef;
+position: absolute;
+top: 30px;
+left: 0;
+width: 250px;
+border: 1px solid #ddd;
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+}
 
-        /* Paragraphs */
-        p {
-            font-size: 1.15em;
-            margin-bottom: 15px;
-        }
+.nav-menu a {
+display: block;
+padding: 10px;
+color: #3e322d;
+text-decoration: none;
+font-weight: 400;
+border-bottom: 1px solid #ddd;
+}
 
-        /* Buttons (Styled as Links) */
-        .button {
-            font-weight: bold;
-            font-size: 1em;
-            color: #007AFF;
-            text-decoration: underline;
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 0;
-            margin-left: 5px;
-        }
+.nav-menu a:last-child {
+border-bottom: none;
+}
 
-        .button:hover {
-            opacity: 0.8;
-        }
+.nav-menu a:hover {
+background: #e0dbd3;
+}
 
-        /* Menu Button */
-        .menu {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background: transparent;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 100;
-        }
+/* Show menu when active */
+.nav-menu.active {
+display: block;
+}
 
-        /* Dropdown Menu */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 40px;
-            left: 10px;
-            background: white;
-            border: 1px solid #ccc;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            width: 160px;
-        }
+/* Dark mode adjustments */
+.dark-mode .nav-menu {
+background: #2c2b29;
+border-color: #444;
+}
 
-        .dropdown button {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 12px;
-            font-size: 1em;
-            text-align: left;
-            cursor: pointer;
-            display: block;
-        }
+.dark-mode .nav-menu a {
+color: #eae6df;
+border-bottom-color: #444;
+}
 
-        .dropdown button:hover {
-            background: #f0f0f0;
-        }
+.dark-mode .nav-menu a:hover {
+background: #444;
+}
 
-        /* Theme Styles */
-        body.light {
-            background: white;
-            color: black;
-        }
-
-        body.dark {
-            background: #1c1c1e;
-            color: #f2f2f7;
-        }
-
-        body.sepia {
-            background: #f4ecd8;
-            color: #5b4636;
-        }
-
-        body.gray {
-            background: #222;
-            color: #ccc;
-        }
-
-        /* Responsive - Adjusting Padding for Smaller Screens */
-        @media (max-width: 768px) {
-            body {
-                padding: 0 10px;
-            }
-        }
-    </style>
+.dark-mode input {
+border: 1px solid #eae6df;
+}
+</style>
 </head>
-<body class="light">
-    <!-- Menu Button -->
-    <button class="menu" onclick="toggleMenu()">☰</button>
-    <div class="dropdown" id="dropdown">
-        <button onclick="changeTheme('light')">Light</button>
-        <button onclick="changeTheme('dark')">Dark</button>
-        <button onclick="changeTheme('sepia')">Sepia</button>
-        <button onclick="changeTheme('gray')">Gray</button>
-    </div>
 
-    <!-- Article Content -->
-    <h1>Building websites for Safari Reader Mode and other reading apps.</h1>
-    <p class="author"><strong>Mandy Michael</strong></p>
-    <p>
-        Alternate reading modes offer users improved readability and options for personalization — people can choose to use these tools for any number of reasons including better accessibility with improved contrast, or enjoying the aesthetics of a low-noise environment to read in. 
-        <button class="button" onclick="alert('Learn More Clicked!')">Learn More</button>
-    </p>
-    <p>
-        I went on a bit of a journey exploring how our websites are experienced across these technologies and how we can make sure that our content is interpreted the way we want, regardless of how people are consuming it.
-        <button class="button" onclick="alert('Read More Clicked!')">Read More</button>
-    </p>
-    <p>
-        For demo purposes, let’s look at what a simple HTML page looks like in Safari Reader Mode.
-        <button class="button" onclick="alert('View Demo Clicked!')">View Demo</button>
-    </p>
+<!-- Beginning of body -->
+<body>
 
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById('dropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+<!-- Menu -->
+<div class="header">
+<div class="menu-container">
+<button class="menu-button" onclick="toggleMenu()">Menu</button>
+<div class="nav-menu" id="navMenu">
+<a href="https://jaypdevelops.github.io/dispatch360/">C://dispatch360</a>
+<a href="downloads">C://downloads</a>
+<a href="documentation">C://documentation</a>
+</div>
+</div>
+<button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
+</div>
 
-        function changeTheme(theme) {
-            document.body.className = theme;
-            document.getElementById('dropdown').style.display = 'none';
-        }
+<h1>C://dispatch360</h1>
+<p>Dispatch360, the newest, and only, CAD and MDT system using Trello integrations for datastores.</p>
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.querySelector('.menu');
-            const dropdown = document.getElementById('dropdown');
-            if (!menu.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-    </script>
+<h2>Features</h2>
+<p>A massive list of features for Dispatch360 (updated to match the latest version).</p>
+
+<ul>
+<li>Easy to set up and configure</li>
+<li>Minimal system requirements</li>
+<li>Trello and Code based records available</li>
+<li>Able to add and remove records while running the program</li>
+</ul>
+
+
+
 </body>
 </html>
