@@ -157,3 +157,10 @@ background: #444;
 .dark-mode input {
 border: 1px solid #eae6df;
 }
+
+img {
+width: 100%;
+height: auto;
+border-radius: 7px;
+margin-bottom: 15px;
+}
