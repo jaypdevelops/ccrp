@@ -16,22 +16,26 @@ font-weight: 700;
 
 h1 {
 font-size: 32px;
+margin-left: 10px;
 }
 
 h2 {
 font-size: 24px;
 margin-top: 30px;
+margin-left: 10px;
 }
 
 h3 {
 font-size: 22px;
 margin-top: 20px;
 font-weight: 400;
+margin-left: 10px;
 }
 
 p {
 font-weight: 300;
 margin-bottom: 20px;
+margin-left: 10px;
 }
 
 ul {
@@ -48,6 +52,7 @@ a {
 color: #007aff;
 text-decoration: none;
 font-weight: 700;
+margin-left: 10px;
 }
 
 a:hover {
