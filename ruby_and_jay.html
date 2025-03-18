@@ -10,7 +10,8 @@
 
     <h1>Jay + Ruby</h1>
     <h2>We've been together for:</h2>
-    <p id="timer" class="blue"></p>
+    <p id="timer" class="brown"></p>
+    <h3 id="months" class="creme"></h3>
 
     <script>
         function updateTimer() {
@@ -20,6 +21,7 @@
 
             if (diff < 0) {
                 document.getElementById("timer").innerText = "Our journey hasn't started yet!";
+                document.getElementById("months").innerText = "";
                 return;
             }
 
@@ -28,6 +30,8 @@
             let hours = Math.floor(minutes / 60);
             let days = Math.floor(hours / 24);
             let years = Math.floor(days / 365);
+            let months = Math.floor(days / 30.44); // Approximate month length
+
             days = days % 365;
             hours = hours % 24;
             minutes = minutes % 60;
@@ -35,6 +39,9 @@
 
             document.getElementById("timer").innerText =
                 `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds ❤️`;
+
+            document.getElementById("months").innerText = 
+                `That's approximately ${months} months together! 🥰`;
 
             setTimeout(updateTimer, 1000);
         }
