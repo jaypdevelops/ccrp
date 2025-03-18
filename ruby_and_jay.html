@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay + Ruby</style>
+    <title>Jay + Ruby</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Jay + Ruby</h1>
-    <h2>We have been together for:/h2>
+    <h2>We've been together for:</h2>
     <p id="timer" class="blue"></p>
 
     <script>
         function updateTimer() {
-            const anniversaryDate = new Date("2025-02-14T00:00:00");
+            const startDate = new Date("2025-02-14T00:00:00");
             const now = new Date();
-            const diff = now - anniversaryDate; 
+            const diff = now - startDate; 
 
             if (diff < 0) {
-                document.getElementById("timer").innerText = "The anniversary hasn't happened yet!";
+                document.getElementById("timer").innerText = "Our journey hasn't started yet!";
                 return;
             }
 
@@ -34,7 +34,7 @@
             seconds = seconds % 60;
 
             document.getElementById("timer").innerText =
-                `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+                `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds ❤️`;
 
             setTimeout(updateTimer, 1000);
         }
