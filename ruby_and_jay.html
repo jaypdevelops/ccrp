@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay + Ruby</style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Anniversary Timer</h1>
+    <h2>Time Since February 14, 2025</h2>
+    <p id="timer" class="blue"></p>
+
+    <script>
+        function updateTimer() {
+            const anniversaryDate = new Date("2025-02-14T00:00:00");
+            const now = new Date();
+            const diff = now - anniversaryDate; 
+
+            if (diff < 0) {
+                document.getElementById("timer").innerText = "The anniversary hasn't happened yet!";
+                return;
+            }
+
+            let seconds = Math.floor(diff / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+            let days = Math.floor(hours / 24);
+            let years = Math.floor(days / 365);
+            days = days % 365;
+            hours = hours % 24;
+            minutes = minutes % 60;
+            seconds = seconds % 60;
+
+            document.getElementById("timer").innerText =
+                `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+            setTimeout(updateTimer, 1000);
+        }
+
+        updateTimer();
+    </script>
+
+</body>
+</html>
