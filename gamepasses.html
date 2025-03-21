@@ -3,81 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <title>Gamepasses</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- Montserrat font -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<style>
+reduce {
+text-decoration: line-through;
+color: red;
+font-weight: 400;
+font-family: 'Montserrat', sans-serif;
+}
+
+price {
+font-size: 18px;
+font-weight: 500;
+font-family: 'Montserrat', sans-serif;
+border: none;
+margin: 15px;
+}
+
+.item img {
+width: 70px;
+height: 70px;
+margin-right: 20px;
+border-radius: 7px;
+}
+</style>
+
 </head>
-
-<!-- Beginning of body -->
 <body>
 
-<!-- Menu -->
-<div class="header">
-<div class="menu-container">
-<button class="menu-button" onclick="toggleMenu()">Menu</button>
-<div class="nav-menu" id="navMenu">
-<a href="https://jaypdevelops.github.io/ccrp/">Home</a>
-<a href="gamepasses">Gamepasses</a>
-<a href="meet_our_staff">Meet our Staff</a>
-</div>
-</div>
-<button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
-</div>
-
-<!-- Beginning of page -->
-
+<header>
 <h1>Gamepasses</h1>
-<p>A list of all our available gamepasses, and the prices.</p>
+</header>
 
-<br>
+<!-- NAVIGATION BUTTONS -->
+<div class="container">
+<nav>
+<a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+<a href="gamepasses" class="nav-button-link"><button class="nav-button active-button">Gamepasses</button></a>
+<a href="meet_our_staff" class="nav-button-link"><button class="nav-button">Meet our Staff</button></a>
+</nav>
+</div>
 
-<h3>Tools+</h3>
-<p><strong>Price:</strong> R$ 249</p>
-<p>Unlock a new level of roleplay with the Tools+ pass. Gain access to a variety of powerful tools to enhance your gameplay experience. Tools you can access:</p>
+<div class="gradient-line"></div>
 
-<ul>
-<li>AR LPVO</li>
-<li>AKM FS</li>
-<li>Fire Extinguisher (for all teams)</li>
-<li>Police Barriers and Tape</li>
-</ul>
+<!-- START OF MAIN CONTENT -->
+<div id="rigs" class="content active">
 
-<br>
+<h2>Information</h2>
+<p>View our list of gamepasses. All gamepasses are 75% off for the first month of game release!</p>
+<div class="item-list">
+
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/unmarked.jpeg" alt="1">
+<div class="item-info">
 
 <h3>Vehicles+</h3>
-<p><strong>Price:</strong> R$ 199</p>
-<p>Take your roleplay to the next level with the Vehicles+ pass. Unlock a collection of exclusive vehicles designed to enhance your experience and provide more tactical and immersive options:</p>
-<ul>
-<li>Unmarked Vehicles</li>
-<li>Slicktop Vehicles</li>
-<li>Ghosted Vehicles</li>
-</ul>
-
 <br>
+<price><strong>Price: </strong><reduce>R$150</reduce><strong> R$38</strong></price>
+<p>The Unmarked Vehicles gamepass brings new vehicles which enhance player roleplay.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+</div>
+</div>
+
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/extrauniforms.jpeg" alt="1">
+<div class="item-info">
+
+<h3>Uniforms+</h3>
+<br>
+<price><strong>Price: </strong><reduce>R$100</reduce><strong> R$ 25</strong></price>
+<p>The Slicktop Vehicles gamepass brings new vehicles which enhance player roleplay.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+</div>
+</div>
+
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/parkranger.jpeg" alt="1">
+<div class="item-info">
 
 <h3>Departments+</h3>
-<p><strong>Price:</strong> R$ 699</p>
-<p>Step into elite roles with the Departments+ pass. Unlock access to specialized teams and enhance your roleplay experience by taking on the responsibilities of three highly respected departments:</p>
-<ul>
-<li>Park Ranger</li>
-<li>Special Weapons and Tactics</li>
-<li>Clearwood Metro Police Department</li>
-</ul>
+<br>
+<price><strong>Price: </strong><reduce>R$100</reduce><strong> R$25</strong></price>
+<p>The Slicktop Vehicles gamepass brings new vehicles which enhance player roleplay.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+</div>
+</div>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <p>&copy; 2025 Coral County Roleplay (coralcountyrp.xyz), all rights reserved.</p>
-        <div class="footer-links">
-            <a href="#">Community Server</a>
-            <a href="#">Game Page</a>
-            <a href="#">Updates</a>
-        </div>
-    </div>
-</footer>
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/slicktop.jpeg" alt="1">
+<div class="item-info">
+
+<h3>Tools+</h3>
+<br>
+<price><strong>Price: </strong><reduce>R$150</reduce><strong> R$38</strong></price>
+<p>The Slicktop Vehicles gamepass brings new vehicles which enhance player roleplay.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+</div>
+</div>
+
+<!-- END OF LIST -->
+</div>
+<!-- END OF MAIN CONTENT -->
+</div>
 
 </body>
 </html>
