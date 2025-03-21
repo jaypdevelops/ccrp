@@ -3,61 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 <title>Meet our Staff</title>
-
-<!-- Montserrat font -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
-<!-- Beginning of body -->
 <body>
 
-<!-- Menu -->
-<div class="header">
-<div class="menu-container">
-<button class="menu-button" onclick="toggleMenu()">Menu</button>
-<div class="nav-menu" id="navMenu">
-<a href="https://jaypdevelops.github.io/ccrp/">Home</a>
-<a href="gamepasses">Gamepasses</a>
-<a href="meet_our_staff">Meet our Staff</a>
-</div>
-</div>
-<button class="toggle-button" onclick="toggleMode()">Dark Mode</button>
-</div>
+<header>
 <h1>Meet our Staff</h1>
+</header>
+
+<div class="container">
+
+<!-- NAVIGATION BUTTONS -->
+<nav>
+<a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+<a href="gamepasses" class="nav-button-link"><button class="nav-button">Gamepasses</button></a>
+<a href=meet_our_staff" class="nav-button-link"><button class="nav-button active-button">Meet our Staff</button></a>
+</nav>
+</div>
+
+<div class="gradient-line"></div>
+
+
+<!-- START OF MAIN CONTENT -->
+<div id="rigs" class="content active">
+
+<h2>Introduction</h2>
 <p>The CCRP staff team was forged to help our community members succeed with their experience playing. Our staff members are meticulously picked to give everyone the fairest, and best, opportunity.</p>
 
+<div class="item-list">
 
-<h2>Management</h2>
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/ccrp.png" alt="1">
+<div class="item-info">
+
+<h3>MANAGEMENT</h3>
 <p><strong>Community Director:</strong> @jaydpowell13</p>
-<p><strong>Community Directors Wife:</strong> @xruby.mae</p>
-
+<p><strong>Deputy Community Director:</strong> @xruby.mae</p>
 <p><strong>Community Manager:</strong> @TechnoJLS</p>
 
+</div>
+</div>
 
-<h2>Development Staff</h2>
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/ccrp.png" alt="1">
+<div class="item-info">
+
+<h3>DEVELOPMENT</h3>
 <p><strong>Head of Development:</strong> @jaydpowell13</p>
 <p><strong>Asst Head of Development:</strong> @TechnoJLS</p>
+</div>
+</div>
 
-<h2>Moderation Staff</h2>
-<p><strong>Head of Moderation Staff:</strong> Bennys</p>
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/ccrp.png" alt="1">
+<div class="item-info">
+
+<h3>ADMINISTRATION</h3>
 <p>Currently hiring for administration positions. Fill out our form below to apply for a place on our administration team.</p>
-<a href="applications" class="nav-button">Apply today!</a>
+<a href="applications" class="nav-button-link"><button class="button">Apply today!</button></a>
+</div>
+</div>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <p>&copy; 2025 Coral County Roleplay (coralcountyrp.xyz), all rights reserved.</p>
-        <div class="footer-links">
-            <a href="#">Community Server</a>
-            <a href="#">Guidelines</a>
-            <a href="#">Whitelist</a>
-            <a href="#">Contact Us</a>
-        </div>
-    </div>
-</footer>
+<!-- END OF LIST -->
+</div>
+<!-- END OF MAIN CONTENT -->
+</div>
 
 </body>
 </html>
