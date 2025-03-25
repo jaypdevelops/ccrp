@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>(title)</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<h1>header-h1</h1>
+</header>
+
+<!-- NAVIGATION BUTTONS -->
+<div class="container">
+  <nav>
+    <a href="#" class="nav-button-link"><button class="nav-button">nav-button</button></a>
+    <a href="#" class="nav-button-link"><button class="nav-button active-button">nav-button active</button></a>
+    
+    <!-- First Dropdown -->
+    <div class="dropdown">
+      <button class="dropdown-button">
+        Dropdown 1 <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Option 1.1</a>
+        <a href="#">Option 1.2</a>
+        <a href="#">Option 1.3</a>
+        <a href="#">Option 1.4</a>
+      </div>
+    </div>
+
+    <!-- Second Dropdown -->
+    <div class="dropdown">
+      <button class="dropdown-button">
+        Dropdown 2 <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Option 2.1</a>
+        <a href="#">Option 2.2</a>
+        <a href="#">Option 2.3</a>
+        <a href="#">Option 2.4</a>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+
+
+
+<!-- START OF MAIN CONTENT -->
+<div id="rigs" class="content active">
+
+<h2>Information (h2)</h2>
+<p>This page is to test the style of new items or UI elements. (p)</p>
+<price>Enter a price. (price) <reduce>Reduction in said price (reduce)</reduce></price>
+<a href="#" class="nav-button-link"><button class="button">Standard Button (button)</button></a>
+<a href="#" class="nav-button-link"><button class="buttonred">Red Button (buttonred)</button></a>
+<a href="#" class="nav-button-link"><button class="buttonorange">Orange Button (buttonorange)</button></a>
+<br><br>
+<h3>An example: (h3)</h3>
+<br>
+<price><reduce>$100</reduce> $50</price>
+<div class="item-list">
+
+
+<!-- NEW ITEM -->
+<div class="item">
+<img src="images/placeholder.png" alt="1">
+<div class="item-info">
+
+<h3>text heading (h3)</h3>
+<br>
+<p><strong>Text: (strong)</strong> text description. (p)</p>
+<a href="#" class="nav-button-link"><button class="button">Standard Button (button)</button></a>
+<a href="#" class="nav-button-link"><button class="buttonred">Red Button (buttonred)</button></a>
+<a href="#" class="nav-button-link"><button class="buttonorange">Orange Button (buttonorange)</button></a>
+<input type="text" class="input" placeholder="Example of an input box...">
+<input type="text" class="inputred" placeholder="Example of an input box...">
+<input type="text" class="inputblue" placeholder="Example of an input box...">
+<input type="text" class="inputorange" placeholder="Example of an input box...">
+</div>
+</div>
+
+
+<!-- END OF LIST -->
+</div>
+<!-- END OF MAIN CONTENT -->
+</div>
+
+
+<!-- RIGHT CLICK MENU -->
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li><a href="https://example.com/option1" id="menu-item-1" target="_blank">Home</a></li>
+    <li><a href="https://example.com/option2" id="menu-item-2" target="_blank">Gamepasses</a></li>
+    <li><a href="https://example.com/option3" id="menu-item-3" target="_blank">Meet our Staff</a></li>
+    <li><a href="https://example.com/option4" id="menu-item-4" target="_blank">Server Status</a></li>
+    <li><a href="https://example.com/option4" id="menu-item-5" target="_blank">Community Server</a></li>
+    <li><a href="staff.html" id="menu-item-6" target="_blank">Moderation Staff</a></li>
+  </ul>
+</div>
+
+
+
+
+</body>
+
+<script>
+  // Get the custom menu element
+  const customMenu = document.getElementById('custom-menu');
+
+  // Function to handle right-click event
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevent the default context menu
+
+    // Position the custom menu at the mouse pointer
+    customMenu.style.left = `${event.pageX}px`;
+    customMenu.style.top = `${event.pageY}px`;
+
+    // Show the custom menu
+    customMenu.style.display = 'block';
+  });
+
+  // Hide the custom menu when clicking anywhere else
+  document.addEventListener('click', function(event) {
+    customMenu.style.display = 'none';
+  });
+
+
+// Select all dropdown buttons and dropdown content
+const dropdownButtons = document.querySelectorAll('.dropdown-button');
+const dropdownContents = document.querySelectorAll('.dropdown-content');
+
+// Add event listener for each dropdown button
+dropdownButtons.forEach((dropdownButton, index) => {
+  dropdownButton.addEventListener('click', function(event) {
+    // Prevent click event from propagating to document
+    event.stopPropagation();
+
+    // Toggle visibility of the clicked dropdown
+    if (dropdownContents[index].style.display === 'block') {
+      dropdownContents[index].style.display = 'none';
+      
+      // Change icon to plus when dropdown is closed
+      dropdownButton.querySelector('i').classList.remove('fa-minus');
+      dropdownButton.querySelector('i').classList.add('fa-plus');
+    } else {
+      // Hide all dropdowns first
+      dropdownContents.forEach(content => content.style.display = 'none');
+      
+      // Show the clicked dropdown
+      dropdownContents[index].style.display = 'block';
+      
+      // Change icon to minus when dropdown is opened
+      dropdownButton.querySelector('i').classList.remove('fa-plus');
+      dropdownButton.querySelector('i').classList.add('fa-minus');
+    }
+  });
+});
+
+// Close the dropdown if clicking anywhere outside of the dropdown menu
+document.addEventListener('click', function(event) {
+  dropdownContents.forEach(content => {
+    if (!event.target.closest('.dropdown') && content.style.display === 'block') {
+      content.style.display = 'none';
+      
+      // Change icon back to plus when dropdown is closed
+      const dropdownButton = content.previousElementSibling;
+      dropdownButton.querySelector('i').classList.remove('fa-minus');
+      dropdownButton.querySelector('i').classList.add('fa-plus');
+    }
+  });
+});
+
+
+</script>
+
+
+ 
+
+</html>
