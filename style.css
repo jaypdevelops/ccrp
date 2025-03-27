@@ -1,539 +1,246 @@
 /* START OF STYLING */
-
-
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --main-bg: #1a1a1a;
+    --dark-overlay: rgba(0, 0, 0, 0.7);
+    --light-overlay: rgba(255, 255, 255, 0.7);
+    --blue: rgba(0, 105, 243, 0.7);
+    --red: rgba(243, 0, 0, 0.7);
+    --orange: rgba(243, 151, 0, 0.7);
 }
 
 body {
-font-family: 'Montserrat', sans-serif;
-background-color: #1a1a1a;
-color: white;
-overflow-x: hidden;
-height: 100%;
-display: flex;
-flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--main-bg);
+    color: white;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
 /* HEADER AND TEXT STYLES */
-
-
-h1 {
-text-align: center;
-margin-top: 0;
+h1, h2 {
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
-text-align: center;
-padding: 5px 15px;
-border: none;
-border-radius: 100px;
-margin: 5px;
-font-weight: 400;
-font-size: 18px;
-font-family: 'Montserrat', sans-serif;
-background: rgba(0, 0, 0, 0.7);
-color: white;
-width: 95%;
-margin-left: auto;
-margin-right: auto;
+    padding: 5px 15px;
+    background: var(--dark-overlay);
+    border-radius: 100px;
+    width: 95%;
+    margin: 10px auto;
+    font-size: 18px;
 }
 
 p {
-padding: 5px 15px;
-border: none;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-font-family: 'Montserrat', sans-serif;
-color: white;
-width: 100%;
+    padding: 5px 15px;
+    font-size: 16px;
+    width: 100%;
 }
 
-pm {
-padding: 5px 15px;
-border: none;
-margin: 5px;
-font-weight: 500;
-font-size: 18px;
-font-family: 'Montserrat', sans-serif;
-color: white;
-width: 100%;
-text-align: center;
-}
-
+/* NAVIGATION */
 header {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-background: rgba(0, 0, 0, 0.5);
-color: white;
-padding: 15px 0;
-z-index: 100;
-text-align: center;
-backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    z-index: 100;
 }
 
-header h1 {
-font-size: 24px;
-margin: 0;
-text-align: center;
-}
-
-reduce {
-text-decoration: line-through;
-color: red;
-font-weight: 400;
-font-family: 'Montserrat', sans-serif;
-}
-
-price {
-font-size: 18px;
-font-weight: 500;
-font-family: 'Montserrat', sans-serif;
-border: none;
-margin: 15px;
-}
-
-a {
-font-weight: 400;
-font-size: 16px;
-font-family: 'Montserrat', sans-serif;
-color: white;
-text-decoration: none;
-}
-
-/* CONTENT STYLES */
-
-
+/* CONTAINERS & ITEM STYLING */
 .container {
-margin-top: 20px;
-padding: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 100%;
-max-width: 100%;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-}
-
-icon {
-font-size: 25px;
-padding: 30px;
-}
-
-nav {
-margin-top: 25px;
-text-align: center;
-}
-
-.gradient-line {
-width: 100%;
-height: 3px;
-background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
-margin: 20px 0;
-border-radius: 100px;
-}
-
-.content {
-text-align: center;
-width: 100%;
-max-width: 100%;
-display: none;
-}
-
-.active {
-display: block;
-}
-
-.item-list {
-width: 100%;
-max-width: 800px;
-margin: auto;
-text-align: center;
+    margin-top: 80px; /* Adjusted for fixed header */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
 }
 
 .item {
-background: rgba(0, 0, 0, 0.7);
-margin: 15px auto;
-padding: 20px;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 95%;
-max-width: 95%;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-}
-
-.item-info {
-flex: 1;
-text-align: left;
-}
-
-.item-info h3 {
-margin: 0;
-font-size: 22px;
-}
-
-.item-info p {
-margin: 5px 0;
-font-size: 16px;
-color: #ccc;
+    background: var(--dark-overlay);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px auto;
+    width: 95%;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item img {
-width: 70px;
-height: 70px;
-margin-right: 20px;
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
 }
 
-
-/* BUTTON STYLES */
-
-
-.nav-button {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(0, 0, 0, 0.7);
-color: white;
+/* BUTTONS */
+.button, .nav-button, .buttonred, .buttonorange {
+    text-decoration: none;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    margin: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    width: 95%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-button:hover {
-background: rgba(255, 255, 255, 0.7);
-color: black;
+/* Default button colors */
+.button { background: var(--blue); color: white; }
+.buttonred { background: var(--red); color: white; }
+.buttonorange { background: var(--orange); color: white; }
+.nav-button { background: var(--dark-overlay); color: white; }
+
+/* Hover effects */
+.button:hover, .buttonred:hover, .buttonorange:hover, .nav-button:hover {
+    background: var(--light-overlay);
+    color: black;
 }
 
-.active-button {
-background: rgba(0, 105, 243, 0.7);
-color: white;
-}
-
-.button {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(0, 105, 243, 0.7);
-color: white;
-width: 95%;
-}
-
-.button:hover {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(255, 255, 255, 0.7);
-color: black;
-width: 95%;
-}
-
-.buttonred {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(243, 0, 0, 0.7);
-color: white;
-width: 95%;
-}
-
-.buttonred:hover {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(255, 255, 255, 0.7);
-color: black;
-width: 95%;
-}
-
-.buttonorange {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(243, 151, 0, 0.7);
-color: white;
-width: 95%;
-}
-
-.buttonorange:hover {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: pointer;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(255, 255, 255, 0.7);
-color: black;
-width: 95%;
-}
-
-
-/* RIGHT CLICK MENU */
-
-
-.custom-menu {
-position: absolute;
-display: none;
-background-color: rgba(0, 0, 0, 0.7);
-color: white;
-border-radius: 20px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-z-index: 9999;
-width: 180px;
-backdrop-filter: blur(5px);
-}
-
-.custom-menu ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-}
-
-.custom-menu li {
-padding: 0;
-}
-
-.custom-menu a {
-display: block;
-padding: 12px;
-font-size: 16px;
-color: white;
-text-decoration: none;
-transition: background-color 0.3s ease;
-border-radius: 100px;
-}
-
-.custom-menu a:hover {
-background-color: rgba(255, 255, 255, 0.7);
-color: black;
-}
-
-
-/* INPUT BOXES */
-
-
-input {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: text;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(0, 0, 0, 0.7);
-color: white;
-width: 95%;
-}
-
-.inputred {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: text;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(243, 0, 0, 0.7);
-color: white;
-width: 95%;
-}
-
-.inputblue {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: text;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(0, 105, 243, 0.7);
-color: white;
-width: 95%;
-}
-
-.inputorange {
-text-decoration: none;
-padding: 10px 25px;
-border: none;
-cursor: text;
-border-radius: 50px;
-margin: 5px;
-font-weight: 400;
-font-size: 16px;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
-background: rgba(243, 151, 0, 0.7);
-color: white;
-width: 95%;
-}
-
-
-/* DROPDOWN BUTTON */
-
-
+/* DROPDOWN MENU */
 .dropdown {
-position: relative;
-display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown-button {
-background-color: rgba(0, 0, 0, 0.7);
-color: white;
-font-size: 16px;
-padding: 10px 25px;
-border: none;
-border-radius: 50px;
-cursor: pointer;
-transition: background-color 0.3s ease, color 0.3s ease;
-font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-overlay);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .dropdown-button:hover {
-background-color: rgba(255, 255, 255, 0.7);
-color: black;
+    background-color: var(--light-overlay);
+    color: black;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-background-color: rgba(0, 0, 0, 0.8);
-min-width: 350px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-border-radius: 20px;
-z-index: 9999;
-backdrop-filter: blur(5px);
-list-style-type: none;
-padding: 0;
-margin: 0;
-margin-top: 10px;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    padding: 10px;
 }
 
 .dropdown-content a {
-padding: 12px;
-font-size: 16px;
-color: white;
-text-decoration: none;
-transition: background-color 0.3s ease;
-border-radius: 100px;
-display: block;
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border-radius: 100px;
 }
 
 .dropdown-content a:hover {
-background-color: rgba(255, 255, 255, 0.7);
-color: black;
+    background-color: var(--light-overlay);
+    color: black;
 }
 
-.dropdown-button i {
-transition: transform 0.3s ease;
+/* CUSTOM CONTEXT MENU */
+.custom-menu {
+    position: absolute;
+    display: none;
+    background-color: var(--dark-overlay);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 180px;
+    backdrop-filter: blur(5px);
 }
 
-.dropdown-button i.fa-plus,
-.dropdown-button i.fa-minus {
-display: inline-block;
-}
-
-/* Custom Tooltip Styling */
 .custom-menu a {
-  position: relative; /* Required for positioning the tooltip */
-  display: block;
-  padding: 12px;
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  border-radius: 100px;
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 100px;
 }
 
-/* Tooltip Style */
+.custom-menu a:hover {
+    background-color: var(--light-overlay);
+    color: black;
+}
+
+/* INPUT FIELDS */
+input, .inputred, .inputblue, .inputorange {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px;
+    margin: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    width: 95%;
+    transition: 0.3s ease;
+}
+
+/* Input field colors */
+input { background: var(--dark-overlay); color: white; }
+.inputred { background: var(--red); color: white; }
+.inputblue { background: var(--blue); color: white; }
+.inputorange { background: var(--orange); color: white; }
+
+/* Input hover effect */
+input:hover, .inputred:hover, .inputblue:hover, .inputorange:hover {
+    background: var(--light-overlay);
+    color: black;
+}
+
+/* GRADIENT LINE */
+.gradient-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
+    margin: 20px 0;
+    border-radius: 100px;
+}
+
+/* TOOLTIP FOR RIGHT-CLICK MENU */
+.custom-menu a {
+    position: relative;
+}
+
 .custom-menu a:hover::after {
-  content: attr(title); /* Uses the title attribute for tooltip content */
-  position: absolute;
-  top: 50%;
-  left: 100%; /* Position the tooltip to the right of the menu item */
-  transform: translateY(-50%); /* Center the tooltip vertically with respect to the menu item */
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-  font-size: 14px;
-  z-index: 1;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-border-radius: 100px;
-margin-left: 5px;
-backdrop-filter: blur(5px);
+    content: attr(title);
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: var(--dark-overlay);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    backdrop-filter: blur(5px);
 }
 
-/* Initially hide the tooltip */
 .custom-menu a::after {
-  visibility: hidden;
-  opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
