@@ -75,4 +75,79 @@
 </div>
 
 </body>
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li><a href="" class="option1" title="The main page of the website">Home</a></li>
+    <li><a href="gamepasses" class="option1" title="View and purchase gamepasses and subscriptions">Store</a></li>
+    <li><a href="meet_our_staff" class="option1" title="List of all our staff">Meet our Staff</a></li>
+    <li><a href="gamepasses" class="option1" title="Discord Server">Community Server</a></li>
+    <li><a href="departments/ccpd" class="option1" title="Coral County Police Department">CCPD</a></li>
+    <li><a href="departments/ccso" class="option1" title="Coral County Sheriffs Office">CCSO</a></li>
+    <li><a href="departments/cmpd" class="option1" title="Clearwood Metro Police Department">CMPD</a></li>
+    <li><a href="departments/sasp" class="option1" title="San Andrews State Police">SASP</a></li>
+    <li><a href="departments/ccfd" class="option1" title="Coral County Fire Department">CCFD</a></li>
+    <li><a href="departments/palm_healthcare" class="option1" title="Palm Healthcare">Palm Healthcare</a></li>
+  </ul>
+</div>
+
+
 </html>
+<script>
+  // Get the custom menu element
+  const customMenu = document.getElementById('custom-menu');
+
+  // Function to handle right-click event
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevent the default context menu
+
+    // Position the custom menu at the mouse pointer
+    customMenu.style.left = `${event.pageX}px`;
+    customMenu.style.top = `${event.pageY}px`;
+
+    // Show the custom menu
+    customMenu.style.display = 'block';
+  });
+
+  // Hide the custom menu when clicking anywhere else
+  document.addEventListener('click', function(event) {
+    customMenu.style.display = 'none';
+  });
+
+
+// Select all dropdown buttons and dropdown content
+const dropdownButtons = document.querySelectorAll('.dropdown-button');
+const dropdownContents = document.querySelectorAll('.dropdown-content');
+
+// Add event listener for each dropdown button
+dropdownButtons.forEach((dropdownButton, index) => {
+  dropdownButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+
+    const isActive = dropdownContents[index].style.display === 'block';
+
+    // Hide all dropdowns and reset all icons
+    dropdownContents.forEach((content, i) => {
+      content.style.display = 'none';
+      dropdownButtons[i].querySelector('i').classList.remove('fa-minus');
+      dropdownButtons[i].querySelector('i').classList.add('fa-plus');
+    });
+
+    // Toggle the clicked dropdown
+    if (!isActive) {
+      dropdownContents[index].style.display = 'block';
+      dropdownButton.querySelector('i').classList.remove('fa-plus');
+      dropdownButton.querySelector('i').classList.add('fa-minus');
+    }
+  });
+});
+
+// Close the dropdown if clicking anywhere outside of the dropdown menu
+document.addEventListener('click', function () {
+  dropdownContents.forEach((content, i) => {
+    content.style.display = 'none';
+    dropdownButtons[i].querySelector('i').classList.remove('fa-minus');
+    dropdownButtons[i].querySelector('i').classList.add('fa-plus');
+  });
+});
+</script>
+
