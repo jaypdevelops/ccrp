@@ -1,0 +1,606 @@
+/* MAIN STYLING */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  overflow-x: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+cursor: normal;
+}
+
+br {
+cursor: default;
+}
+
+
+/* HEADER AND TEXT STYLES */
+
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+h2 {
+  text-align: center;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+descarea {
+  padding: 10px 20px;
+  border: none;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  width: 95%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+p {
+  padding: 5px 15px;
+  border: none;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  width: 100%;
+}
+
+pm {
+  padding: 5px 15px;
+  border: none;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* HEADER FIXED POSITION */
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 15px 0;
+  z-index: 100;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+
+/* TEXT STYLES FOR REDUCED AND PRICING */
+
+
+reduce {
+  text-decoration: line-through;
+  color: red;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+
+price {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  margin: 15px;
+}
+
+a {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+align-items: center;
+}
+
+
+/* CONTENT STYLES */
+
+
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+icon {
+  font-size: 25px;
+  padding: 30px;
+}
+
+nav {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.item {
+  background: rgba(0, 0, 0, 0.5);
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.itemcustom {
+  background: rgba(0, 0, 0, 0);
+border: 3px solid rgba(255, 255, 255, 0.1);
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #7289da;
+}
+
+.item-info {
+  flex: 1;
+  text-align: left;
+}
+
+.item-info h3 {
+  margin: 0;
+  font-size: 22px;
+text-align: center;
+}
+
+.item-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.item img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.item-info a {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* BUTTON STYLES */
+
+
+.nav-button {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.active-button {
+  background: rgba(0, 105, 243, 0.1);
+  color: white;
+}
+
+.active-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.button,
+.buttonred,
+.buttonorange,
+.buttonblue {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 95%;
+}
+
+.buttonblue:hover {
+  background: rgba(0, 105, 243, 0.1);
+  color: #7289da;
+}
+
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.buttonred:hover {
+  background: rgba(243, 0, 0, 0.1);
+  color: #da7272;
+}
+
+.buttonorange:hover {
+  background: rgba(243, 151, 0, 0.1);
+  color: #dabe72;
+}
+
+
+/* RIGHT CLICK MENU STYLES */
+
+
+.custom-menu {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  width: 180px;
+  backdrop-filter: blur(5px);
+}
+
+.custom-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-menu li {
+  padding: 0;
+}
+
+.custom-menu a {
+  display: block;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.custom-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+
+/* RIGHT CLICK MENU TOOLTIP STYLE */
+
+
+.custom-menu a {
+  position: relative;
+  display: block;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
+}
+
+.custom-menu a:hover:after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+  padding: 5px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-size: 14px;
+  z-index: 9999;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  border-radius: 12px;
+  margin-left: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.custom-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.custom-menu a::after {
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+/* INPUT BOXES STYLES */
+
+
+input {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: none;
+  cursor: text;
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 95%;
+}
+
+input:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+
+/* FORM STYLES */
+form {
+  background: rgba(0, 0, 0, 0.5);
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+form label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: white;
+}
+
+form input, form textarea {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  width: 90%;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+form input[type="checkbox"] {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+form button {
+  text-decoration: none;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 95%;
+}
+
+form button:hover {
+  background: rgba(0, 105, 243, 0.1);
+  color: #7289da;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form input:focus, form textarea:focus {
+  background: rgba(0, 105, 243, 0.1);
+  color: #7289da;
+}
+
+
+/* DROPDOWN BUTTON STYLES */
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 16px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.dropdown-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  position: relative;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  display: block;
+  font-weight: 600;
+}
+
+.dropdown-content a:hover:after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+  padding: 5px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-size: 14px;
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  margin-left: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #7289da;
+}
+
+.dropdown-content a::after {
+  visibility: hidden;
+  opacity: 0;
+}
