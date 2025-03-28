@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitelist Application</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Apply Montserrat to everything, including input fields and textareas */
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Whitelist Application Form</h1>
+</header>
+
+<!-- NAVIGATION BUTTONS -->
+<div class="container">
+  <nav>
+    <a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+    <a href="gamepasses" class="nav-button-link"><button class="nav-button">Store</button></a>
+    <a href="meet_our_staff" class="nav-button-link"><button class="nav-button">Meet our Staff</button></a>
+  </nav>
+</div>
+
+<!-- START OF MAIN CONTENT -->
+<div class="container">
+  <h2>Whitelist Application</h2>
+  <form id="whitelist-form">
+    <label for="discord-username">Username:</label>
+    <input type="text" id="discord-username" name="discord-username" required placeholder="Enter your username">
+
+    <label for="roblox-username">Username:</label>
+    <input type="text" id="roblox-username" name="roblox-username" required placeholder="Enter your username">
+
+    <label for="community-duration">How long have you been part of the community?</label>
+    <input type="text" id="community-duration" name="community-duration" required placeholder="Enter how long (e.g., 6 months, 1 year)">
+
+    <label for="why-whitelist">Why do you want to join a whitelisted position in CCRP?</label>
+    <textarea id="why-whitelist" name="why-whitelist" required placeholder="Please tell us why you want to join the whitelisted experience, use at least 2 sentences about why you would be the best candidate."></textarea>
+
+    <label for="previous-experience">What role would you like to apply for?</label>
+    <textarea id="previous-experience" name="previous-experience" required placeholder="Please enter the name of the role."></textarea>
+
+    <label for="confirm-acceptance">I confirm I have read and accept the server rules</label>
+    <input type="checkbox" id="confirm-acceptance" name="confirm-acceptance" required>
+
+    <button type="submit" class="button">Submit Application</button>
+  </form>
+<p>After applying for a whitelisted position, you will gain the "Pending Application" role in our community server.
+<br>
+You can always view the result of your application by asking one of our Community Management team, or anyone with the "Application Handler" role.</p>
+</div>
+
+<!-- END OF MAIN CONTENT -->
+
+<script>
+  document.getElementById('whitelist-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const webhookURL = "YOUR_DISCORD_WEBHOOK_URL"; // Replace with your actual Discord webhook URL
+
+    const formData = {
+      content: `New Whitelist Application\n\n**Discord Username:** ${document.getElementById('discord-username').value}\n**Roblox Username:** ${document.getElementById('roblox-username').value}\n**How long have you been part of the community?** ${document.getElementById('community-duration').value}\n**Why do you want to be whitelisted?** ${document.getElementById('why-whitelist').value}\n**Previous Experience (optional):** ${document.getElementById('previous-experience').value}`,
+    };
+
+    fetch(webhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('Application submitted successfully!');
+          document.getElementById('whitelist-form').reset();
+        } else {
+          alert('Error submitting the application.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting the application.');
+      });
+  });
+</script>
+
+</body>
+</html>
