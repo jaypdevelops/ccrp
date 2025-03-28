@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+reduce {
+text-decoration: line-through;
+color: red;
+font-weight: 400;
+font-family: 'Montserrat', sans-serif;
+}
+
+price {
+font-size: 18px;
+font-weight: 500;
+font-family: 'Montserrat', sans-serif;
+border: none;
+margin: 15px;
+}
+
+.item img {
+width: 70px;
+height: 70px;
+margin-right: 20px;
+border-radius: 7px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>Coral County Store</h1>
+</header>
+    
+<div class="container">
+    
+<nav>
+<a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+<a href="gamepasses" class="nav-button-link"><button class="nav-button active-button">Store</button></a>
+<a href="meet_our_staff" class="nav-button-link"><button class="nav-button">Meet our Staff</button></a>
+</nav>
+</div>
+
+<!-- START OF MAIN CONTENT -->
+<div id="rigs" class="content active">
+
+<h2>Information</h2>
+<p>View our store and purchase items in-game for a low price! Purchasing online will allow you to gift the pass to a friend, or a lucky winner!</p>
+<div class="item-list">
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Supporters+</h3>
+<br>
+<price><strong>Price: </strong>$2.99 per month</price>
+<p>Become a true supporter of the game and enjoy exclusive perks with the <strong>Supporters+</strong> pass! For just $2.99 a month, you’ll receive special rewards, early access to updates, and a unique in-game recognition.</p>
+<p><strong>You gain access to:</strong> extra vehicles, extra tools, extra uniforms, an additional department (Bluewater Police Department, BPD)</p>
+<a href="server_list" class="nav-button-link"><button class="button">Subscribe</button></a>
+</div>
+</div>
+
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Vehicles+</h3>
+<br>
+<price><strong>Price: </strong>R$249</price>
+<p>Hit the streets in style with the <strong>Vehicles+</strong> pass! Unlock a variety of new vehicles that give you more freedom and excitement in the game.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+<a href="gifting" class="nav-button-link"><button class="buttonblue">Gift pass to another player!</button></a>
+</div>
+</div>
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Departments+</h3>
+<br>
+<price><strong>Price: </strong>R$899</price>
+<p>Unlock even more roles and career paths within the game with the <strong>Departments+</strong> pass! With this pass, you'll gain access to additional departments that offer unique duties and exciting new gameplay experiences.</p>
+<p><strong>New Departments:</strong> Clearwood Metro Police Department (CMPD), Special Weapons and Tactics (SWAT), San Andrews Park Rangers (SAPR).</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+<a href="gifting" class="nav-button-link"><button class="buttonblue">Gift pass to another player!</button></a>
+</div>
+</div>
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Tools+</h3>
+<br>
+<price><strong>Price: </strong>R$299</price>
+<p>Show off your style with the <strong>Uniforms+</strong> pass! Customize your appearance with additional uniforms inspired by real-life law enforcement, including Class A and Class C attire.</p>
+<p><strong>New Vehicles:</strong> 2025 Ford Explorer, 2009 Ford Crown Victoria, and many more.</p>
+<a href="server_list" class="nav-button-link"><button class="button">Purchase</button></a>
+<a href="gifting" class="nav-button-link"><button class="buttonblue">Gift pass to another player!</button></a>
+</div>
+</div>
+
+<!-- END OF LIST -->
+</div>
+<!-- END OF MAIN CONTENT -->
+</div>
+
+</body>
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li><a href="https://jaypdevelops.github.io/ccrp/" class="option1" title="The main page of the website">Home</a></li>
+    <li><a href="gamepasses" class="option1" title="View and purchase gamepasses and subscriptions">Store</a></li>
+    <li><a href="meet_our_staff" class="option1" title="List of all our staff">Meet our Staff</a></li>
+    <li><a href="https://discord.gg/4mdXww2v6Z" class="option1" title="Discord Server">Community Server</a></li>
+    <li><a href="departments/ccpd" class="option1" title="Coral County Police Department">CCPD</a></li>
+    <li><a href="departments/ccso" class="option1" title="Coral County Sheriffs Office">CCSO</a></li>
+    <li><a href="departments/cmpd" class="option1" title="Clearwood Metro Police Department">CMPD</a></li>
+    <li><a href="departments/sasp" class="option1" title="San Andrews State Police">SASP</a></li>
+    <li><a href="departments/ccfd" class="option1" title="Coral County Fire Department">CCFD</a></li>
+    <li><a href="departments/bpd" class="option1" title="Bluewater Police Department">BPD</a></li>
+    <li><a href="departments/palm_healthcare" class="option1" title="Palm Healthcare">Palm Healthcare</a></li>
+  </ul>
+</div>
+
+
+</html>
+<script>
+  // Get the custom menu element
+  const customMenu = document.getElementById('custom-menu');
+
+  // Function to handle right-click event
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevent the default context menu
+
+    // Position the custom menu at the mouse pointer
+    customMenu.style.left = `${event.pageX}px`;
+    customMenu.style.top = `${event.pageY}px`;
+
+    // Show the custom menu
+    customMenu.style.display = 'block';
+  });
+
+  // Hide the custom menu when clicking anywhere else
+  document.addEventListener('click', function(event) {
+    customMenu.style.display = 'none';
+  });
+
+
+// Select all dropdown buttons and dropdown content
+const dropdownButtons = document.querySelectorAll('.dropdown-button');
+const dropdownContents = document.querySelectorAll('.dropdown-content');
+
+// Add event listener for each dropdown button
+dropdownButtons.forEach((dropdownButton, index) => {
+  dropdownButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+
+    const isActive = dropdownContents[index].style.display === 'block';
+
+    // Hide all dropdowns and reset all icons
+    dropdownContents.forEach((content, i) => {
+      content.style.display = 'none';
+      dropdownButtons[i].querySelector('i').classList.remove('fa-minus');
+      dropdownButtons[i].querySelector('i').classList.add('fa-plus');
+    });
+
+    // Toggle the clicked dropdown
+    if (!isActive) {
+      dropdownContents[index].style.display = 'block';
+      dropdownButton.querySelector('i').classList.remove('fa-plus');
+      dropdownButton.querySelector('i').classList.add('fa-minus');
+    }
+  });
+});
+
+// Close the dropdown if clicking anywhere outside of the dropdown menu
+document.addEventListener('click', function () {
+  dropdownContents.forEach((content, i) => {
+    content.style.display = 'none';
+    dropdownButtons[i].querySelector('i').classList.remove('fa-minus');
+    dropdownButtons[i].querySelector('i').classList.add('fa-plus');
+  });
+});
+</script>
+
