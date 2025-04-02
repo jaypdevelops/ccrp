@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Coralshire Roleplay</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<h1>Coralshire Roleplay</h1>
+</header>
+
+<div class="container">
+
+  <!-- NAVIGATION BUTTONS -->
+  <nav>
+    <a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+    <a href="gamepasses" class="nav-button-link"><button class="nav-button">Store</button></a>
+    <a href="meet_our_staff" class="nav-button-link"><button class="nav-button">Meet our Staff</button></a>
+  </nav>
+</div>
+
+<!-- START OF MAIN CONTENT -->
+<div class="content active">
+
+<h2>Latest Updates</h2>
+<p>View a list of updates, sorted by date (latest). Updates since March 22, 2025 will be featured, any older versions will not be.</p>
+
+<div class="item-list">
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Economy Guide</h3>
+<p>
+Coralshire introduces a highly realistic and dynamic economy system designed to enhance the roleplaying experience, making it feel immersive and grounded in a believable, functional world. In this system, your in-game income is directly tied to the job you take on, the time and effort you invest, and the skills you develop throughout your journey. The economy isn't just a backdrop but a core part of the experience, giving players a true sense of accomplishment as they progress.
+<br><br>
+In Coralshire, players begin their economic journey by taking on various entry-level jobs that serve as stepping stones to more advanced and lucrative opportunities. The system starts simple, allowing newcomers to earn money without feeling overwhelmed. These early tasks may include activities such as farming, collecting resources, or providing basic services like delivering goods. Players can quickly start building up their resources, gaining small amounts of currency while learning the basics of the economy.
+However, earning becomes more complex as you progress. You can choose from a wide variety of professions, each with its own set of skills, challenges, and rewards. For example, you could become a blacksmith crafting weapons and tools, a merchant buying and selling goods, or even a skilled tradesperson like a carpenter, tailor, or miner. The more you specialize and hone your abilities, the greater your potential earnings, but it takes time and effort to reach higher-paying jobs.
+</p>
+</div>
+</div>
+
+<!-- NEW ITEM -->
+<div class="item">
+<div class="item-info">
+
+<h3>Vehicle Keybinds Guide</h3>
+<p>
+<strong>Here’s a breakdown of the essential keybinds for operating your car in Coralshire:</strong>
+<br>
+W – Accelerate
+<br>
+A – Turn Left
+<br>
+S – Brake
+<br>
+D – Turn Right
+<br><br>
+<strong>For more precise control and safety while driving:</strong>
+<br>
+P – Parking Brake
+<br>
+H – Horn
+<br>
+Z – Left Indicator
+<br>
+X – Hazards
+<br>
+C – Right Indicator
+<br>
+L – Headlights
+<br><br>
+<strong>Emergency vehicles come with additional controls:</strong>
+<br>
+R – Wail Siren
+<br>
+T – Yelp Siren
+<br>
+G – Priority Siren
+<br>
+J – Activate 999 Mode/Change Lighting Mode
+<br>
+K – Activate Red/Blue Lights
+</p>
+</div>
+</div>
+
+<!-- END OF LIST -->
+</div>
+<!-- END OF MAIN CONTENT -->
+</div>
+
+</body>
+
+<!-- Updated Right-Click Menu with Coralshire British Teams (West Midlands Setting) -->
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li><a href="https://jaypdevelops.github.io/cukrp/" class="option1" title="The main page of the website">Home</a></li>
+    <li><a href="gamepasses" class="option1" title="View and purchase gamepasses and subscriptions">Store</a></li>
+    <li><a href="meet_our_staff" class="option1" title="List of all our staff">Meet our Staff</a></li>
+    <li><a href="https://discord.gg/4mdXww2v6Z" class="option1" title="Discord Server">Community Server</a></li>
+    <li><a href="departments/cps" class="option1" title="West Midlands Police Service">WMPS</a></li>
+    <li><a href="departments/cfrs" class="option1" title="Coralshire Fire & Rescue Service">CFRS</a></li>
+    <li><a href="departments/cas" class="option1" title="Coralshire Ambulance Service">CAS</a></li>
+  </ul>
+</div>
+
+
+</html>
+<script>
+  // Get the custom menu element
+  const customMenu = document.getElementById('custom-menu');
+
+  // Function to handle right-click event
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault(); // Prevent the default context menu
+
+    // Position the custom menu at the mouse pointer
+    customMenu.style.left = `${event.pageX}px`;
+    customMenu.style.top = `${event.pageY}px`;
+
+    // Show the custom menu
+    customMenu.style.display = 'block';
+  });
+
+  // Hide the custom menu when clicking anywhere else
+  document.addEventListener('click', function(event) {
+    customMenu.style.display = 'none';
+  });
+
+  // Select all dropdown buttons and dropdown content
+  const dropdownButtons = document.querySelectorAll('.dropdown-button');
+  const dropdownContents = document.querySelectorAll('.dropdown-content');
+
+  // Add event listener for each dropdown button
+  dropdownButtons.forEach((dropdownButton, index) => {
+    dropdownButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+
+      const isActive = dropdownContents[index].style.display === 'block';
+
+      // Hide all dropdowns and reset all icons
+      dropdownContents.forEach((content, i) => {
+        content.style.display = 'none';
+        dropdownButtons[i].querySelector('i').classList.remove('fa-minus');
+        dropdownButtons[i].querySelector('i').classList.add('fa-plus');
+      });
+
+      // Toggle the clicked dropdown
+      if (!isActive) {
+        dropdownContents[index].style.display = 'block';
+        dropdownButton.querySelector('i').classList.remove('fa-plus');
+        dropdownButton.querySelector('i').classList.add('fa-minus');
+      }
+    });
+  });
+</script>
