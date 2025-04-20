@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 .button,
-.buttonorange,
 .buttonblue,
 .nav-button,
 form button {
@@ -33,7 +32,6 @@ form button {
 }
 
 .button:hover,
-.buttonorange:hover,
 .buttonblue:hover,
 .nav-button:hover,
 form button:hover {
@@ -60,6 +58,26 @@ form button:hover {
 .buttonred:hover {
   background-color: #2b1d1e; /* deep red hover background */
   color: #f47b7b; /* keep the red text */
+}
+.buttonorange {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.7); /* base dark background */
+  color: #ffae61; /* soft orange text */
+  width: 95%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttonorange:hover {
+  background-color: #2b2119; /* warm brown/orange-tinted dark background */
+  color: #ffae61;
 }
 </style>
 </head>
