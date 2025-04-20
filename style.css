@@ -271,6 +271,7 @@ text-align: center;
 /* BUTTON STYLES */
 
 
+
 .active-button {
   text-decoration: none;
   padding: 12px 25px;
@@ -293,7 +294,6 @@ text-align: center;
   background: rgba(255, 255, 255, 0.1);
   color: #7289da;
 }
-
 .nav-button {
   text-decoration: none;
   padding: 12px 25px;
@@ -341,7 +341,6 @@ text-align: center;
   color: #7289da;
   box-shadow: 0 0 0 1px rgba(114, 137, 218, 0.3);
 }
-
 .buttonred {
   text-decoration: none;
   padding: 12px 25px;
@@ -364,7 +363,6 @@ text-align: center;
   background-color: #2b1d1e; /* deep red hover background */
   color: #f47b7b; /* keep the red text */
 }
-
 .buttonorange {
     text-decoration: none;
   padding: 12px 25px;
@@ -387,7 +385,6 @@ text-align: center;
   background-color: #2b2119; /* warm brown/orange-tinted dark background */
   color: #ffae61;
 }
-
 .buttonblue {
   text-decoration: none;
   padding: 12px 25px;
