@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #1a1a1a;
+  background-color: #000000;
   color: white;
   overflow-x: hidden;
   height: 100%;
@@ -40,7 +40,7 @@ h2 {
   font-weight: 600;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: white;
   margin: 5px;
   width: 95%;
@@ -101,7 +101,7 @@ header {
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: white;
   width: 100%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -208,7 +208,7 @@ nav {
   font-weight: 600;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: white;
   width: 95%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -287,7 +287,7 @@ text-align: center;
   text-align: center;
   transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   background: rgba(0, 105, 243, 0.1);
-  color: 7289da;
+  color: #7289da;
 }
 
 .active-button:hover {
@@ -328,7 +328,7 @@ text-align: center;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: white;
   width: 95%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -351,7 +351,7 @@ text-align: center;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: #f47b7b; /* soft red text */
   width: 95%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -373,7 +373,7 @@ text-align: center;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: #ffae61; /* soft orange text */
   width: 95%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -395,7 +395,7 @@ text-align: center;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #1e1e1e;
+  background: #040404;
   color: #6fbaff; /* soft light blue text */
   width: 95%;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
