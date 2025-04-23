@@ -62,6 +62,25 @@
       font-weight: 500;
       display: block;
       padding: 0.5rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Slide underline hover effect (ONLY text links) */
+    .nav-links a:not(.emergency)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: currentColor;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:not(.emergency):hover::after {
+      transform: translateX(0);
     }
 
     .nav-links .emergency {
@@ -81,10 +100,15 @@
     }
 
     .hero {
-      background: url('https://via.placeholder.com/1920x600/ff0000/ffffff?text=ERG+Emergency+Response') center/cover no-repeat;
+      background: url('file:///C:/Users/jaydp/OneDrive/logo.png') center/cover no-repeat;
       color: white;
       padding: 5rem 2rem;
       text-align: center;
+      width: 100%;
+    }
+
+    .hero img {
+      width: 100%;
     }
 
     .hero-text h1 {
@@ -101,10 +125,19 @@
       text-decoration: none;
     }
 
+    /* Reduce padding between sections */
     section {
-      padding: 4rem 2rem;
+      padding: 2rem 2rem; /* Reduced padding */
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.reveal {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
@@ -191,7 +224,7 @@
     </nav>
   </header>
 
-  <section id="home" class="hero">
+  <section id="home" class="hero reveal">
     <div class="hero-text">
       <h1>Emergency Response Group</h1>
       <p>Supporting communities when seconds matter.</p>
@@ -203,23 +236,21 @@
     <h2>About Us</h2>
     <p>The Emergency Response Group (ERG) is a charity-based organization that supports emergency services by responding to incidents where immediate police, fire, or ambulance intervention isn't required. We provide medical aid, secure scenes, and assist the public in a safe and controlled manner.</p>
   </section>
-
   <section id="services">
     <h2>What We Do</h2>
     <ul>
       <li>Medical response before ambulances arrive</li>
       <li>Scene safety at RTCs</li>
+      <li>Policing for events where regular police is not available</li>
       <li>Support to emergency services in low-risk situations</li>
     </ul>
     <p>We operate a range of vehicles including ambulances, fire vehicles, and air units.</p>
   </section>
-
   <section id="careers">
     <h2>Careers</h2>
     <p>Want to make a difference? Join the ERG team. We offer volunteer and training opportunities to help you become part of the response.</p>
     <a href="#contact" class="button">Get in Touch</a>
   </section>
-
   <section id="contact">
     <h2>Contact Us</h2>
     <p>For general inquiries, volunteer applications, or partnership opportunities, reach out below.</p>
@@ -236,6 +267,23 @@
       const navLinks = document.querySelector('.nav-links');
       navLinks.classList.toggle('active');
     }
+
+    // Scroll Reveal Effect
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+      if (!section.classList.contains('hero')) {
+        observer.observe(section);
+      }
+    });
   </script>
 </body>
 </html>
