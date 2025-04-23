@@ -104,21 +104,33 @@
             padding: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: var(--main-color);
-                position: absolute;
-                top: 70px;
-                right: 0;
-                width: 200px;
-                padding: 1rem;
-            }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    transition: height 0.3s ease;
+}
 
-            .nav-links.active {
-                display: flex;
-            }
+@media (max-width: 768px) {
+    .nav-links {
+        display: block;
+        flex-direction: column;
+        background: var(--main-color);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        overflow: hidden;
+        height: 0;
+        padding: 0;
+    }
+
+    .nav-links.active {
+        height: 220px; /* Adjust depending on number of links */
+        padding: 1rem;
+    }
 
             .menu-toggle {
                 display: block;
@@ -182,11 +194,11 @@
         <p>&copy; 2025 Emergency Response Group. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-    </script>
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
