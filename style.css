@@ -1,3 +1,61 @@
+/* SETTING UP BUTTON AND TOAST STYLES */
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: rgba(0, 255, 85, 0.3);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+background-color: #000000;
+}
+
+h2 {
+background: #040404;
+}
+
+header {
+background: #040404;
+}
+
+.button {
+background: #040404;
+}
+
+.buttonblue {
+background: #040404;
+}
+
+.buttonorange {
+background: #040404;
+}
+
+.buttonred {
+background: #040404;
+}
+
+.nav-button {
+background: #040404;
+}
+
+.item {
+background: #040404;
+}
+
 /* MAIN STYLING */
 
 
@@ -35,7 +93,6 @@ h2 {
   text-decoration: none;
   padding: 12px 25px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
   border-radius: 12px;
   font-weight: 600;
   font-size: 16px;
@@ -97,7 +154,6 @@ header {
   text-decoration: none;
   padding: 12px 25px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
@@ -202,7 +258,6 @@ nav {
   text-decoration: none;
   padding: 12px 25px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
   border-radius: 12px;
   margin: 5px;
   font-weight: 600;
