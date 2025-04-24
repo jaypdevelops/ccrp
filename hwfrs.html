@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hereford & Worcester Fire and Rescue Service</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #f2f6f7;
+      color: #000;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .menu-toggle {
+      font-size: 26px;
+      cursor: pointer;
+      display: block;
+      z-index: 1001;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      transition: left 0.3s ease;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    nav.active {
+      left: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    nav li a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+    }
+
+    nav li a:hover {
+      background-color: #f2f2f2;
+    }
+
+    .accessibility-button {
+      margin: 20px;
+      border: 2px solid #0072bc;
+      color: #0072bc;
+      text-align: center;
+      padding: 12px;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .hero p strong {
+      color: #d92828;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .menu-toggle {
+        position: relative;
+        z-index: 1002;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://www.hwfire.org.uk/static/images/hwfrs-logo.svg" alt="HWFRS Logo">
+      <span>HEREFORD & WORCESTER FIRE AND RESCUE SERVICE</span>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <nav id="mobileMenu">
+    <ul>
+      <li><a href="#">About <span>&#8250;</span></a></li>
+      <li><a href="#">Advice <span>&#8250;</span></a></li>
+      <li><a href="#">Careers <span>&#8250;</span></a></li>
+      <li><a href="#">News <span>&#8250;</span></a></li>
+      <li><a href="#">Events <span>&#8250;</span></a></li>
+      <li><a href="#">Contact <span>&#8250;</span></a></li>
+    </ul>
+    <div class="accessibility-button">Accessibility tools</div>
+  </nav>
+
+  <main class="hero">
+    <h1>Book a <strong>FREE</strong> Home Fire Safety Visit</h1>
+    <p>Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.</p>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
