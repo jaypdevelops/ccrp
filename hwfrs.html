@@ -95,6 +95,8 @@
     .hero {
       padding: 40px 20px;
       text-align: center;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .hero h1 {
@@ -111,6 +113,31 @@
 
     .hero p strong {
       color: #d92828;
+    }
+
+    footer {
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      margin: 0 15px;
     }
 
     @media (max-width: 768px) {
@@ -148,14 +175,44 @@
   </nav>
 
   <main class="hero">
-    <h1>Book a <strong>FREE</strong> Home Fire Safety Visit</h1>
-    <p>Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.</p>
+    <h1 id="heroTitle">Book a <strong id="fireVisitText">FREE</strong> Home Fire Safety Visit</h1>
+    <p id="heroDescription">Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.</p>
+    <button onclick="changeText()">Change Text</button>
   </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Accessibility</a>
+    </div>
+    <p>&copy; 2025 Hereford & Worcester Fire and Rescue Service | All rights reserved</p>
+  </footer>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
+    }
+
+    function changeText() {
+      // Change the hero title
+      const heroTitle = document.getElementById('heroTitle');
+      const fireVisitText = document.getElementById('fireVisitText');
+      const heroDescription = document.getElementById('heroDescription');
+
+      if (fireVisitText.innerHTML === "FREE") {
+        fireVisitText.innerHTML = "Home Fire Safety Visit";
+        fireVisitText.style.color = "#d92828"; // Red for "Home Fire Safety Visit"
+        heroTitle.innerHTML = 'Can you help us <strong style="color:#d92828;">answer the call?</strong>';
+        heroDescription.innerHTML = 'Your support helps us provide fire safety services and respond to emergencies in our community.';
+      } else {
+        fireVisitText.innerHTML = "FREE";
+        fireVisitText.style.color = "#d92828"; // Red for "FREE"
+        heroTitle.innerHTML = 'Book a <strong id="fireVisitText">FREE</strong> Home Fire Safety Visit';
+        heroDescription.innerHTML = 'Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.';
+      }
     }
   </script>
 
