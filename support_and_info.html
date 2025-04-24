@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support & Info</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <h1>Coralshire Roleplay</h1>
+</header>
+
+<div class="container">
+  <nav>
+    <a href="https://jaypdevelops.github.io/ccrp/" class="nav-button-link"><button class="nav-button">Home</button></a>
+    <a href="gamepasses" class="nav-button-link"><button class="nav-button">Store</button></a>
+    <a href="meet_our_staff" class="nav-button-link"><button class="nav-button">Meet our Staff</button></a>
+    <a href="support_and_info" class="nav-button-link"><button class="active-button">Help</button></a>
+  </nav>
+</div>
+
+<div class="content active">
+  <h2>Support & Info</h2>
+  <p>Coralshire Roleplay comes packed with a variety of features designed to enhance your gameplay experience. Below is a list of some of the most useful tools and commands you’ll want to know.</p>
+
+  <div class="item-list">
+
+    <!-- Chat Commands -->
+    <div class="item">
+      <div class="item-info">
+        <h3>Chat Commands</h3>
+<p><strong>/e me:</strong> Displays text above your head correlating to an action.</p>
+<p><strong>/e ooc:</strong> Shows a tag above your head displaying an out of roleplay action or information.</p>
+<p><strong>/e youfind:</strong> Displays text, showing the officer what they find when they search you.</p>
+<p><strong>/e hands:</strong> Displays text, showing the officer that your hands are up.</p>
+<p><strong>/lock (changing to /e lock)</strong> Locks your vehicle.</p>
+<p><strong>/unlock (changing to /e unlock)</strong> Unlocks your vehicle.</p>
+      </div>
+    </div>
+
+    <!-- Vehicle Keybinds -->
+    <div class="item">
+      <div class="item-info">
+        <h3>Vehicle Keybinds</h3>
+        <br>
+        <p><strong>Z:</strong> Activates your left indicator.</p>
+        <p><strong>X:</strong> Activates your hazards.</p>
+        <p><strong>C:</strong> Activates your right indicator.</p>
+        <p><strong>F/H:</strong> Toggles your horn. The keybind depends on which type of vehicle you have. (Emergency = F, Civilian = H)</p>
+        <p><strong>L:</strong> Toggles Headlights.</p>
+        <p><strong>P:</strong> Parking Brake.</p>
+        <p><strong>B:</strong> Toggles Seatbelt.</p>
+        <br>
+        <h3>Emergency Vehicle Keybinds</h3>
+        <br>
+      <p><strong>J:</strong> Toggles ELS/999 Mode.</p>
+      <p><strong>R:</strong> Wail Siren.</p>
+      <p><strong>T:</strong> Yelp Siren.</p>
+      <p><strong>G:</strong> Priority Siren.</p>
+      <p><strong>H:</strong> Hi-Low Siren.</p>
+      <p><strong>F (while 999 mode active):</strong> Activates Bullhorn.</p>
+      <p><strong>K:</strong> Activates Rear Red Lights.</p>
+
+      </div>
+    </div>
+
+    <!-- Nicknaks / Misc Tools -->
+    <div class="item">
+      <div class="item-info">
+        <h3>Additional</h3>
+        <br>
+<p><strong>ELS Controller:</strong> If you are driving an emergency vehicle and have locked it, when getting into the drivers seat, you are still able to activate/deactivate lights, sirens and other ELS related items.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li><a href="https://jaypdevelops.github.io/cukrp/" class="option1" title="The main page of the website">Home</a></li>
+    <li><a href="gamepasses" class="option1" title="View and purchase gamepasses and subscriptions">Store</a></li>
+    <li><a href="meet_our_staff" class="option1" title="List of all our staff">Meet our Staff</a></li>
+    <li><a href="https://discord.gg/4mdXww2v6Z" class="option1" title="Discord Server">Community Server</a></li>
+  </ul>
+</div>
+
+<script>
+  const customMenu = document.getElementById('custom-menu');
+
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    customMenu.style.left = `${event.pageX}px`;
+    customMenu.style.top = `${event.pageY}px`;
+    customMenu.style.display = 'block';
+  });
+
+  document.addEventListener('click', function() {
+    customMenu.style.display = 'none';
+  });
+</script>
+
+</html>
