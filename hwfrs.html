@@ -97,27 +97,11 @@
       text-align: center;
       background-color: #fff;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-      opacity: 1;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .hero h1,
-    .hero p,
-    .button {
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .hero h1.visible,
-    .hero p.visible,
-    .button.visible {
-      opacity: 1;
     }
 
     .hero h1 {
       font-size: 32px;
       margin-bottom: 10px;
-      cursor: pointer;
     }
 
     .hero p {
@@ -207,9 +191,9 @@
   </nav>
 
   <main class="hero">
-    <h1 id="heroTitle" class="visible">Book a <strong id="fireVisitText" style="color: red;">FREE</strong> Home Fire Safety Visit</h1>
-    <p id="heroDescription" class="visible">Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.</p>
-    <a id="actionButton" href="#" class="button visible">Learn more and book online</a>
+    <h1>Can you help us <strong style="color: #d92828;">answer the call?</strong></h1>
+    <p>Your support helps us provide fire safety services and respond to emergencies in our community.</p>
+    <a href="#" class="button">Become an On-Call Firefighter</a>
   </main>
 
   <footer>
@@ -223,62 +207,10 @@
   </footer>
 
   <script>
-    let toggleState = false;
-
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
     }
-
-    function toggleHeroText() {
-      const heroTitle = document.getElementById('heroTitle');
-      const fireVisitText = document.getElementById('fireVisitText');
-      const heroDescription = document.getElementById('heroDescription');
-      const actionButton = document.getElementById('actionButton');
-
-      // Fade out all elements before changing the text
-      heroTitle.classList.remove('visible');
-      heroDescription.classList.remove('visible');
-      actionButton.classList.remove('visible');
-
-      setTimeout(() => {
-        if (!toggleState) {
-          // Switch to "Can you answer the call?" state
-          fireVisitText.innerHTML = "Home Fire Safety Visit";
-          fireVisitText.style.color = "#d92828"; // Red for "Home Fire Safety Visit"
-          heroTitle.innerHTML = 'Can you help us <strong style="color:#d92828;">answer the call?</strong>';
-          heroDescription.innerHTML = 'Your support helps us provide fire safety services and respond to emergencies in our community.';
-          actionButton.innerHTML = "Become an On-Call Firefighter";
-
-          toggleState = true;
-        } else {
-          // Switch back to "FREE Home Fire Safety Visit"
-          fireVisitText.innerHTML = "FREE";
-          fireVisitText.style.color = "#d92828"; // Red for "FREE"
-          heroTitle.innerHTML = 'Book a <strong id="fireVisitText" style="color:red;">FREE</strong> Home Fire Safety Visit';
-          heroDescription.innerHTML = 'Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.';
-          actionButton.innerHTML = "Learn more and book online";
-
-          toggleState = false;
-        }
-
-        // Fade in all elements after changing the text
-        heroTitle.classList.add('visible');
-        heroDescription.classList.add('visible');
-        actionButton.classList.add('visible');
-      }, 500);  // Wait for fade out
-
-    }
-
-    // Run the toggle every 6 seconds to loop continuously
-    setInterval(() => {
-      toggleHeroText();
-    }, 6000); // Change text every 6 seconds (including fade in/out)
-    
-    // Initial setup
-    setTimeout(() => {
-      toggleHeroText();  // Start the transition immediately
-    }, 1000); // Start after 1 second delay
   </script>
 
 </body>
