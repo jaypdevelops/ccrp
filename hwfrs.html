@@ -97,12 +97,15 @@
       text-align: center;
       background-color: #fff;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      transition: opacity 1s ease-in-out;
     }
 
     .hero h1 {
       font-size: 32px;
       margin-bottom: 10px;
       cursor: pointer;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
     }
 
     .hero p {
@@ -208,6 +211,8 @@
   </footer>
 
   <script>
+    let toggleState = false;
+
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
@@ -219,22 +224,47 @@
       const heroDescription = document.getElementById('heroDescription');
       const actionButton = document.getElementById('actionButton');
 
-      if (fireVisitText.innerHTML === "FREE") {
-        fireVisitText.innerHTML = "Home Fire Safety Visit";
-        fireVisitText.style.color = "#d92828"; // Red for "Home Fire Safety Visit"
-        heroTitle.innerHTML = 'Can you help us <strong style="color:#d92828;">answer the call?</strong>';
-        heroDescription.innerHTML = 'Your support helps us provide fire safety services and respond to emergencies in our community.';
-        actionButton.innerHTML = "Become an On-Call Firefighter";
-        actionButton.href = "#"; // Add the link for On-Call Firefighter here
+      if (!toggleState) {
+        // Switch to "Can you answer the call?" state
+        heroTitle.style.opacity = 0;  // Fade out
+        setTimeout(() => {
+          fireVisitText.innerHTML = "Home Fire Safety Visit";
+          fireVisitText.style.color = "#d92828"; // Red for "Home Fire Safety Visit"
+          heroTitle.innerHTML = 'Can you help us <strong style="color:#d92828;">answer the call?</strong>';
+          heroDescription.innerHTML = 'Your support helps us provide fire safety services and respond to emergencies in our community.';
+          actionButton.innerHTML = "Become an On-Call Firefighter";
+          actionButton.href = "#"; // Add the link for On-Call Firefighter here
+          heroTitle.style.opacity = 1;  // Fade in
+        }, 500);  // Wait for fade out
+
+        toggleState = true;
+        setTimeout(() => {
+          toggleHeroText();  // Automatically switch back
+        }, 5000); // Switch back after 5 seconds
       } else {
-        fireVisitText.innerHTML = "FREE";
-        fireVisitText.style.color = "#d92828"; // Red for "FREE"
-        heroTitle.innerHTML = 'Book a <strong id="fireVisitText" style="color:red;">FREE</strong> Home Fire Safety Visit';
-        heroDescription.innerHTML = 'Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.';
-        actionButton.innerHTML = "Learn more and book online";
-        actionButton.href = "#"; // Add the link for booking a visit here
+        // Switch back to "FREE Home Fire Safety Visit"
+        heroTitle.style.opacity = 0;  // Fade out
+        setTimeout(() => {
+          fireVisitText.innerHTML = "FREE";
+          fireVisitText.style.color = "#d92828"; // Red for "FREE"
+          heroTitle.innerHTML = 'Book a <strong id="fireVisitText" style="color:red;">FREE</strong> Home Fire Safety Visit';
+          heroDescription.innerHTML = 'Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.';
+          actionButton.innerHTML = "Learn more and book online";
+          actionButton.href = "#"; // Add the link for booking a visit here
+          heroTitle.style.opacity = 1;  // Fade in
+        }, 500);  // Wait for fade out
+
+        toggleState = false;
+        setTimeout(() => {
+          toggleHeroText();  // Automatically switch back
+        }, 5000); // Switch back after 5 seconds
       }
     }
+
+    // Initialize the toggle on page load
+    setTimeout(() => {
+      toggleHeroText();
+    }, 500); // Start the change immediately after load
   </script>
 
 </body>
