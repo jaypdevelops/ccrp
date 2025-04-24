@@ -102,6 +102,7 @@
     .hero h1 {
       font-size: 32px;
       margin-bottom: 10px;
+      cursor: pointer;
     }
 
     .hero p {
@@ -112,7 +113,23 @@
     }
 
     .hero p strong {
-      color: #d92828;
+      color: #d92828; /* Red color */
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 100px;
+      background-color: #0072bc;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #005a8d;
     }
 
     footer {
@@ -175,9 +192,9 @@
   </nav>
 
   <main class="hero">
-    <h1 id="heroTitle">Book a <strong id="fireVisitText">FREE</strong> Home Fire Safety Visit</h1>
+    <h1 id="heroTitle" onclick="toggleHeroText()">Book a <strong id="fireVisitText" style="color: red;">FREE</strong> Home Fire Safety Visit</h1>
     <p id="heroDescription">Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.</p>
-    <button onclick="changeText()">Change Text</button>
+    <a id="actionButton" href="#" class="button">Learn more and book online</a>
   </main>
 
   <footer>
@@ -196,22 +213,26 @@
       menu.classList.toggle('active');
     }
 
-    function changeText() {
-      // Change the hero title
+    function toggleHeroText() {
       const heroTitle = document.getElementById('heroTitle');
       const fireVisitText = document.getElementById('fireVisitText');
       const heroDescription = document.getElementById('heroDescription');
+      const actionButton = document.getElementById('actionButton');
 
       if (fireVisitText.innerHTML === "FREE") {
         fireVisitText.innerHTML = "Home Fire Safety Visit";
         fireVisitText.style.color = "#d92828"; // Red for "Home Fire Safety Visit"
         heroTitle.innerHTML = 'Can you help us <strong style="color:#d92828;">answer the call?</strong>';
         heroDescription.innerHTML = 'Your support helps us provide fire safety services and respond to emergencies in our community.';
+        actionButton.innerHTML = "Become an On-Call Firefighter";
+        actionButton.href = "#"; // Add the link for On-Call Firefighter here
       } else {
         fireVisitText.innerHTML = "FREE";
         fireVisitText.style.color = "#d92828"; // Red for "FREE"
-        heroTitle.innerHTML = 'Book a <strong id="fireVisitText">FREE</strong> Home Fire Safety Visit';
+        heroTitle.innerHTML = 'Book a <strong id="fireVisitText" style="color:red;">FREE</strong> Home Fire Safety Visit';
         heroDescription.innerHTML = 'Hereford & Worcester Fire and Rescue Service provide fire safety advice to everyone. A Home Fire Safety Visit (HFSV) can be carried out for free to help you stay safe in your home.';
+        actionButton.innerHTML = "Learn more and book online";
+        actionButton.href = "#"; // Add the link for booking a visit here
       }
     }
   </script>
