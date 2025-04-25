@@ -9,44 +9,47 @@
 <script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    #shutdown-overlay {
+#shutdown-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 9999;
   overflow: hidden;
 }
 
-    .x-line {
+.x-line {
   position: absolute;
-  width: 300%; /* Extends way past screen */
-  height: 100px; /* Nice thick bar */
-  background: rgba(255, 0, 0, 0.1); /* Lighter for watermark effect */
-  color: rgba(255, 0, 0, 0.2); /* Semi-transparent red text */
-  font-size: 5rem;
-  font-weight: 900;
-  text-align: center;
-  line-height: 100px;
-  letter-spacing: 30px;
+  width: 300%;
+  height: 80px;
+  background: rgba(255, 0, 0);
   transform-origin: center;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
+  top: 50%;
+  left: 50%;
 }
 
 .x-line1 {
-  transform: rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .x-line2 {
-  transform: rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.shutdown-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255);
+  letter-spacing: 20px;
+  line-height: 80px;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
 }
 
 
@@ -86,7 +89,7 @@
     <a onclick="showToast()" class="nav-button-link"><button class="button">Sign Up</button></a>
 
 <div id="toast" class="toast hidden">
-You cannot sign up for that yet.
+This action is not available.
 </div>
     <p>
       On this official website, you’ll find everything you need to stay up-to-date with the latest developments in the game, including:
@@ -115,7 +118,7 @@ You cannot sign up for that yet.
     <p>
       Join us as we continue to evolve Coralshire into the best roleplaying experience on Roblox! Your participation and feedback are what drive us forward, so let’s make Coralshire a place where everyone can roleplay and have fun together!
     </p>
-<a href="update_logs/25w13b" class="nav-button-link"><button class="button">Join our communications server</button></a>
+    <a onclick="showToast()" class="nav-button-link"><button class="button">Join our Communications Server</button></a>
 
 </div>
 </div>
@@ -153,9 +156,10 @@ Part 2 (V0.992) will introduce even more unique tree types, so stay tuned!</p>
 <!-- END OF MAIN CONTENT -->
 </div>
 <div id="shutdown-overlay">
-  <div class="x-line x-line1">SHUTDOWN</div>
-  <div class="x-line x-line2">SHUTDOWN</div>
+  <div class="x-line x-line1"><span class="shutdown-text">SHUTDOWN</span></div>
+  <div class="x-line x-line2"><span class="shutdown-text">SHUTDOWN</span></div>
 </div>
+
 
 </body>
 
