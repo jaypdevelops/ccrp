@@ -6,9 +6,9 @@
   <title>West Mercia Police</title>
   <style>
     :root {
-      --main-color: #002d72; /* Deep blue */
-      --accent-color: #ffffff; /* White */
-      --highlight-color: #0072ce; /* Light blue */
+      --main-color: #002d72;
+      --accent-color: #ffffff;
+      --highlight-color: #0072ce;
       --text-color: #333333;
       --bg-color: #f5f5f5;
     }
@@ -76,8 +76,32 @@
       cursor: pointer;
     }
 
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
     .hero {
-      background: url('https://via.placeholder.com/1920x600/002d72/ffffff?text=West+Mercia+Police') center/cover no-repeat;
+      background: var(--main-color);
       color: var(--accent-color);
       padding: 5rem 2rem;
       text-align: center;
@@ -114,6 +138,26 @@
       font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--main-color);
+    }
+
+    .recruitment-images {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .recruitment-images img {
+      width: calc(33.333% - 1rem);
+      border-radius: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-list li {
+      margin: 0.5rem 0;
     }
 
     footer {
@@ -176,6 +220,10 @@
           transform: translateX(0);
         }
       }
+
+      .recruitment-images img {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -189,10 +237,20 @@
         <li><a href="#news">News</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#recruitment">Recruitment</a></li>
+        <li><a href="#records">Public Records</a></li>
       </ul>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </nav>
   </header>
+
+  <div class="slider">
+    <div class="slides">
+      <img src="https://via.placeholder.com/1920x600/002d72/ffffff?text=New+Constable+1" alt="Constable 1">
+      <img src="https://via.placeholder.com/1920x600/0044a3/ffffff?text=New+Constable+2" alt="Constable 2">
+      <img src="https://via.placeholder.com/1920x600/0066cc/ffffff?text=New+Constable+3" alt="Constable 3">
+    </div>
+  </div>
 
   <section id="home" class="hero">
     <h1>Serving and Protecting</h1>
@@ -208,21 +266,43 @@
   <section id="news">
     <h2>Latest News</h2>
     <p>Stay informed with the latest updates and announcements from West Mercia Police.</p>
-    <!-- Add news items here -->
   </section>
 
   <section id="events">
     <h2>Community Events</h2>
-    <p>West Mercia Police frequently hosts community events to engage with the public, raise awareness, and build stronger, safer communities. Join us for Q&A sessions, safety briefings, and outreach initiatives.</p>
+    <p>West Mercia Police frequently hosts community events to engage with the public, raise awareness, and build stronger, safer communities.</p>
+  </section>
+
+  <section id="recruitment">
+    <h2>Join Our Force</h2>
+    <p>We’re looking for passionate individuals ready to make a difference. Join West Mercia Police and help protect and serve.</p>
+    <div class="recruitment-images">
+      <img src="https://via.placeholder.com/300x200/0044a3/ffffff?text=Training" alt="Training">
+      <img src="https://via.placeholder.com/300x200/0072ce/ffffff?text=Teamwork" alt="Teamwork">
+      <img src="https://via.placeholder.com/300x200/005fa3/ffffff?text=Duty" alt="Duty">
+    </div>
+  </section>
+
+  <section id="records">
+    <h2>Public Records</h2>
+    <p>We believe in transparency. Access crime reports, public statements, and documentation under the Freedom of Information Act.</p>
+    <ul>
+      <li><a href="#">Annual Crime Report 2024 (PDF)</a></li>
+      <li><a href="#">Community Engagement Plan</a></li>
+      <li><a href="#">FOI Request Guidelines</a></li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
     <p>If you need to get in touch with us for non-emergency inquiries, use the details below.</p>
-    <ul>
+    <ul class="contact-list">
       <li><strong>Non-Emergency Phone:</strong> 101</li>
       <li><strong>Emergency Phone:</strong> 999</li>
-      <li><strong>Email:</strong> contact@westmercia.police.uk</li>
+      <li><strong>Office Phone:</strong> 0300 333 3000</li>
+      <li><strong>General Inquiries Email:</strong> info@westmercia.police.uk</li>
+      <li><strong>Recruitment Email:</strong> careers@westmercia.police.uk</li>
+      <li><strong>Press/Media Email:</strong> media@westmercia.police.uk</li>
       <li><strong>Address:</strong> Hindlip Hall, Worcester, WR3 8SP</li>
     </ul>
   </section>
