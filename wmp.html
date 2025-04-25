@@ -76,30 +76,6 @@
       cursor: pointer;
     }
 
-    .slider {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
-    }
-
-    .slides img {
-      width: 100%;
-      height: auto;
-    }
-
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      33% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
-      100% { transform: translateX(0); }
-    }
-
     .hero {
       background: var(--main-color);
       color: var(--accent-color);
@@ -167,7 +143,6 @@
       padding: 1rem;
     }
 
-    /* Responsive Navigation */
     @media (max-width: 768px) {
       .nav-links {
         flex-direction: column;
@@ -244,16 +219,8 @@
     </nav>
   </header>
 
-  <div class="slider">
-    <div class="slides">
-      <img src="https://via.placeholder.com/1920x600/002d72/ffffff?text=New+Constable+1" alt="Constable 1">
-      <img src="https://via.placeholder.com/1920x600/0044a3/ffffff?text=New+Constable+2" alt="Constable 2">
-      <img src="https://via.placeholder.com/1920x600/0066cc/ffffff?text=New+Constable+3" alt="Constable 3">
-    </div>
-  </div>
-
   <section id="home" class="hero">
-    <h1>Serving and Protecting</h1>
+    <h1>Proud to Protect</h1>
     <p>Committed to making West Mercia a safer place for everyone.</p>
     <a href="#about" class="button">Learn More</a>
   </section>
