@@ -24,18 +24,22 @@
 
 .x-line {
   position: absolute;
-  width: 150%;
-  height: 20px;
-  background: rgba(255, 0, 0, 0.8);
+  width: 160%;
+  height: 80px; /* Thicker line */
+  background: rgba(255, 0, 0, 0.85);
   color: white;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 800;
   text-align: center;
-  line-height: 20px;
-  letter-spacing: 5px;
+  line-height: 80px;
+  letter-spacing: 8px;
   transform-origin: center;
   mix-blend-mode: multiply;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  text-transform: uppercase;
+  pointer-events: none;
 }
+
 
 .x-line1 {
   transform: rotate(45deg);
