@@ -9,37 +9,24 @@
 <script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    #shutdown-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.x-line {
+    
+    .x-line {
   position: absolute;
-  width: 160%;
-  height: 80px; /* Thicker line */
-  background: rgba(255, 0, 0, 0.85);
-  color: white;
-  font-size: 2.5rem;
-  font-weight: 800;
+  width: 300%; /* Extends way past screen */
+  height: 100px; /* Nice thick bar */
+  background: rgba(255, 0, 0, 0.1); /* Lighter for watermark effect */
+  color: rgba(255, 0, 0, 0.2); /* Semi-transparent red text */
+  font-size: 5rem;
+  font-weight: 900;
   text-align: center;
-  line-height: 80px;
-  letter-spacing: 8px;
+  line-height: 100px;
+  letter-spacing: 30px;
   transform-origin: center;
   mix-blend-mode: multiply;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-  text-transform: uppercase;
   pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
-
 
 .x-line1 {
   transform: rotate(45deg);
@@ -48,6 +35,7 @@
 .x-line2 {
   transform: rotate(-45deg);
 }
+
 
   </style>
 </head>
