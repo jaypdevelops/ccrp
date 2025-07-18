@@ -13,6 +13,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
+<style>
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 200%;
+}
+
+.carousel-images img {
+  width: 100%;
+  flex: 0 0 100%;
+  object-fit: contain;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+</style>
 </head>
 
 <body>
