@@ -14,29 +14,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
 <style>
+.click-carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  aspect-ratio: 4 / 3; /* maintain ratio */
+  overflow: hidden;
+}
+
 .carousel-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
   pointer-events: none;
-}
-
-.click-carousel {
-  position: relative;
-  max-width: 600px;
-  margin: 20px auto;
-  aspect-ratio: 4 / 3; /* optional, keeps it responsive */
-  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .carousel-image.active {
   opacity: 1;
-  pointer-events: auto;
   z-index: 1;
+  pointer-events: auto;
 }
 </style>
 </head>
@@ -115,6 +117,7 @@
     const images = carousel.querySelectorAll('.carousel-image');
     let currentIndex = 0;
 
+    // Only the active image is clickable
     images.forEach(img => {
       img.addEventListener('click', () => {
         images[currentIndex].classList.remove('active');
