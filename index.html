@@ -14,24 +14,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
 <style>
-.click-carousel {
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: center;
-  position: relative;
-}
-
 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
-  display: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.click-carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  aspect-ratio: 4 / 3; /* optional, keeps it responsive */
+  overflow: hidden;
 }
 
 .carousel-image.active {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
 }
 </style>
 </head>
@@ -106,12 +111,10 @@
 <!-- END OF MAIN CONTENT -->
 </div>
 <script>
-  // Loop through all carousels on the page
   document.querySelectorAll('.click-carousel').forEach(carousel => {
     const images = carousel.querySelectorAll('.carousel-image');
     let currentIndex = 0;
 
-    // Click any image to go to the next
     images.forEach(img => {
       img.addEventListener('click', () => {
         images[currentIndex].classList.remove('active');
