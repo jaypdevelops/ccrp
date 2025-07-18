@@ -131,6 +131,21 @@
 
 <!-- END OF MAIN CONTENT -->
 </div>
+<script>
+  const carousel = document.querySelector('.carousel-images');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  let index = 0;
 
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % carousel.children.length;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + carousel.children.length) % carousel.children.length;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+  });
+</script>
 </body>
 </html>
