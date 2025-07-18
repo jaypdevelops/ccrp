@@ -14,53 +14,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap"rel="stylesheet"/>
 <style>
-.carousel {
-  position: relative;
-  width: 100%;
+.click-carousel {
   max-width: 600px;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.carousel-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.5s ease;
-  width: 100%;
-}
-
-.carousel-images img {
-  flex: 0 0 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
+  position: relative;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0 12px;
+.carousel-image {
+  width: 100%;
+  height: auto;
+  display: none;
+  border-radius: 10px;
   cursor: pointer;
-  z-index: 10;
-  border-radius: 5px;
+  transition: opacity 0.3s ease;
 }
 
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
+.carousel-image.active {
+  display: block;
 }
 </style>
 </head>
@@ -94,13 +65,9 @@
 <div class="item-info">
 <p>Sanctuary Motorsport is a clothing brand born from the intersection of speed, style, and self-expression. Inspired by motorsport culture, we create streetwear that captures the raw energy of the track and the freedom of the road.</p>
 <br>
-<div class="carousel">
-  <button class="carousel-btn prev">&#10094;</button>
-  <div class="carousel-images">
-    <img src="images/kids_tee_navy_front.PNG" alt="Kids Tee Front">
-    <img src="images/kids_tee_navy_back.PNG" alt="Kids Tee Back">
-  </div>
-  <button class="carousel-btn next">&#10095;</button>
+<div class="click-carousel">
+  <img class="carousel-image active" src="images/kids_tee_navy_front.PNG" alt="Kids Tee Front">
+  <img class="carousel-image" src="images/kids_tee_navy_back.PNG" alt="Kids Tee Back">
 </div>
 
 <div class="info-box">
@@ -139,25 +106,19 @@
 <!-- END OF MAIN CONTENT -->
 </div>
 <script>
-  const carousel = document.querySelector('.carousel-images');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const images = carousel.querySelectorAll('img');
-  let index = 0;
+  // Loop through all carousels on the page
+  document.querySelectorAll('.click-carousel').forEach(carousel => {
+    const images = carousel.querySelectorAll('.carousel-image');
+    let currentIndex = 0;
 
-  function updateCarousel() {
-    const offset = index * 100;
-    carousel.style.transform = `translateX(-${offset}%)`;
-  }
-
-  nextBtn.addEventListener('click', () => {
-    index = (index + 1) % images.length;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    index = (index - 1 + images.length) % images.length;
-    updateCarousel();
+    // Click any image to go to the next
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+      });
+    });
   });
 </script>
 </body>
