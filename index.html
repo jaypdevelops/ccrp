@@ -16,6 +16,7 @@
 <style>
 .carousel {
   position: relative;
+  width: 100%;
   max-width: 600px;
   margin: auto;
   overflow: hidden;
@@ -24,27 +25,34 @@
 
 .carousel-images {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 200%;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel-images img {
-  width: 100%;
   flex: 0 0 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   font-size: 2rem;
-  padding: 0 10px;
+  padding: 0 12px;
   cursor: pointer;
   z-index: 10;
+  border-radius: 5px;
 }
 
 .carousel-btn.prev {
@@ -91,7 +99,6 @@
   <div class="carousel-images">
     <img src="images/kids_tee_navy_front.PNG" alt="Kids Tee Front">
     <img src="images/kids_tee_navy_back.PNG" alt="Kids Tee Back">
-    <!-- Add more images if needed -->
   </div>
   <button class="carousel-btn next">&#10095;</button>
 </div>
@@ -135,16 +142,22 @@
   const carousel = document.querySelector('.carousel-images');
   const nextBtn = document.querySelector('.carousel-btn.next');
   const prevBtn = document.querySelector('.carousel-btn.prev');
+  const images = carousel.querySelectorAll('img');
   let index = 0;
 
+  function updateCarousel() {
+    const offset = index * 100;
+    carousel.style.transform = `translateX(-${offset}%)`;
+  }
+
   nextBtn.addEventListener('click', () => {
-    index = (index + 1) % carousel.children.length;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
+    index = (index + 1) % images.length;
+    updateCarousel();
   });
 
   prevBtn.addEventListener('click', () => {
-    index = (index - 1 + carousel.children.length) % carousel.children.length;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
+    index = (index - 1 + images.length) % images.length;
+    updateCarousel();
   });
 </script>
 </body>
