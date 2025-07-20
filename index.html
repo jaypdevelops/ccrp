@@ -75,6 +75,26 @@
       user-select: none;
     }
 
+    /* Dot navigation styles */
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+      user-select: none;
+    }
+    .carousel-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .carousel-dot.active {
+      background-color: white;
+    }
+
     .sanctuary-card {
       margin-top: 15px;
       background-color: rgba(0,0,0,0.5);
@@ -154,6 +174,8 @@
               <img src="images/acid_wash_classic_red_back.png" alt="Back">
               <img src="images/acid_wash_classic_red_front.png" alt="Front Clone">
             </div>
+            <!-- Dots container will be dynamically generated here -->
+            <div class="carousel-dots" id="carouselDots"></div>
           </div>
 
           <div class="sanctuary-card">
@@ -186,6 +208,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".carousel-track");
   const container = document.querySelector(".carousel-container");
+  const dotsContainer = document.getElementById("carouselDots");
   let slides = Array.from(track.children);
 
   // Clone first and last slides for infinite loop effect
@@ -197,6 +220,9 @@ document.addEventListener("DOMContentLoaded", function () {
   track.insertBefore(lastClone, slides[0]);
   slides = Array.from(track.children); // update slides list
 
+  // Number of real slides (exclude clones)
+  const realSlideCount = slides.length - 2;
+
   let currentIndex = 1;
   let slideWidth = container.clientWidth;
   let isDragging = false;
@@ -205,6 +231,34 @@ document.addEventListener("DOMContentLoaded", function () {
   let prevTranslate = 0;
   let animationID;
 
+  // Create dots dynamically based on real slides
+  function createDots() {
+    dotsContainer.innerHTML = "";
+    for(let i = 0; i < realSlideCount; i++) {
+      const dot = document.createElement("div");
+      dot.classList.add("carousel-dot");
+      if(i === 0) dot.classList.add("active");
+      dot.dataset.index = i + 1; // match slide index starting at 1 (because of clone at 0)
+      dot.addEventListener("click", () => {
+        currentIndex = dot.dataset.index;
+        updateCarouselPosition();
+        updateDots();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  // Update dots active state
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+    dots.forEach(dot => dot.classList.remove("active"));
+    // Because currentIndex starts at 1 and clones exist, map to real slide index
+    let dotIndex = currentIndex;
+    if(currentIndex === 0) dotIndex = realSlideCount; // last slide clone
+    else if(currentIndex === slides.length -1) dotIndex = 1; // first slide clone
+    dots[dotIndex - 1].classList.add("active");
+  }
+
   // Set slide widths and initial position
   function setSlideWidths() {
     slideWidth = container.clientWidth;
@@ -212,22 +266,21 @@ document.addEventListener("DOMContentLoaded", function () {
       slide.style.width = slideWidth + "px";
     });
     track.style.width = slideWidth * slides.length + "px";
-    setPositionByIndex();
+    updateCarouselPosition();
   }
 
-  function setPositionByIndex() {
+  // Move carousel to current index with smooth transition
+  function updateCarouselPosition() {
     currentTranslate = -slideWidth * currentIndex;
     prevTranslate = currentTranslate;
-    setSliderPosition();
-  }
-
-  function setSliderPosition() {
+    track.style.transition = "transform 0.3s ease-out";
     track.style.transform = `translateX(${currentTranslate}px)`;
+    updateDots();
   }
 
   // Animation frame for smooth dragging
   function animation() {
-    setSliderPosition();
+    track.style.transform = `translateX(${currentTranslate}px)`;
     if (isDragging) requestAnimationFrame(animation);
   }
 
@@ -261,14 +314,14 @@ document.addEventListener("DOMContentLoaded", function () {
     track.style.transition = 'transform 0.3s ease-out';
 
     if (movedBy < -slideWidth / 4 && currentIndex < slides.length - 1) {
-      currentIndex += 1;
+      currentIndex = Number(currentIndex) + 1;
     }
 
     if (movedBy > slideWidth / 4 && currentIndex > 0) {
-      currentIndex -= 1;
+      currentIndex = Number(currentIndex) - 1;
     }
 
-    setPositionByIndex();
+    updateCarouselPosition();
   }
 
   function getPositionX(event) {
@@ -280,12 +333,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (slides[currentIndex].getAttribute('data-clone') === 'last') {
       track.style.transition = 'none';
       currentIndex = slides.length - 2;
-      setPositionByIndex();
+      updateCarouselPosition();
     }
     if (slides[currentIndex].getAttribute('data-clone') === 'first') {
       track.style.transition = 'none';
       currentIndex = 1;
-      setPositionByIndex();
+      updateCarouselPosition();
     }
   });
 
@@ -310,7 +363,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Initial setup
+  createDots();
   setSlideWidths();
+
 });
 </script>
 </body>
