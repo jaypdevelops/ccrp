@@ -391,7 +391,7 @@ margin-bottom: 5px;
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  background: #040404;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   width: fit-content;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
