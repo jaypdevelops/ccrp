@@ -300,6 +300,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPositionX = getPositionX(event);
     const diff = currentPositionX - startPos;
     currentTranslate = prevTranslate + diff;
+
+    // Prevent vertical scrolling when dragging/swiping carousel
+    event.preventDefault();
   }
 
   function touchEnd() {
@@ -348,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Dragging move
   container.addEventListener('mousemove', touchMove);
-  container.addEventListener('touchmove', touchMove);
+  container.addEventListener('touchmove', touchMove, { passive: false }); // passive:false so preventDefault works
 
   // Dragging end
   container.addEventListener('mouseup', touchEnd);
