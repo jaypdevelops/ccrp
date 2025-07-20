@@ -1,68 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Sanctuary Motorsport</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/0c8bf0ec2b.js" crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
 
   <style>
     body {
-      background-color: #111;
+      background-image: url('images/background.PNG');
+      background-size: 200px;
+      background-repeat: repeat;
+      background-attachment: scroll;
+      background-position: top left;
+      font-family: 'Montserrat', sans-serif;
       color: white;
-      font-family: sans-serif;
+      overflow-x: hidden;
       margin: 0;
-      padding: 40px;
+      padding: 0;
     }
 
-    .image-switcher {
-      text-align: center;
-      margin-bottom: 50px;
+    .itemcustom,
+    .item-info .info-box,
+    .item-info .error-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .image-switcher img {
+    .item {
+      background-color: rgba(43, 29, 30, 0.3);
+      padding: 20px;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 1001;
+      padding: 20px;
+    }
+
+    .container nav {
+      display: flex;
+      gap: 10px;
+      margin: 20px;
+    }
+
+    .nav-button-link button {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .nav-button-link .active-button {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .product-image-switcher {
+      position: relative;
       width: 100%;
       max-width: 600px;
-      height: auto;
+      margin: 20px auto;
       cursor: pointer;
+      overflow: hidden;
+      height: auto;
+      text-align: center;
+    }
+
+    .product-image-switcher img {
+      width: 100%;
+      height: auto;
       object-fit: contain;
-      transition: opacity 0.2s ease;
-      display: block;
-      margin: 0 auto;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      max-height: 600px;
+      user-select: none;
+    }
+
+    .product-image-switcher img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .sanctuary-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .sanctuary-card h3 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .sanctuary-card p {
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00ff55;
+    }
+
+    .button {
+      margin-top: 20px;
+      background-color: #00ff55;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .button i {
+      margin-right: 5px;
     }
   </style>
 </head>
+
 <body>
-
-  <h1>Product Preview</h1>
-
-  <!-- 🔁 IMAGE SWITCHER 1 -->
-  <div class="image-switcher" data-images="images/tee_front.png,images/tee_back.png,images/tee_side.png">
-    <img src="images/tee_front.png" alt="Product View">
+  <header>
+    <h1>sanctuary motorsport</h1>
+  </header>
+  <br>
+  <div class="container">
+    <nav>
+      <a href="" class="nav-button-link"><button class="active-button"><i class="fa-solid fa-house"></i></button></a>
+      <a href="products" class="nav-button-link"><button class="nav-button"><i class="fa-solid fa-shop"></i></button></a>
+      <a href="meet_our_staff" class="nav-button-link"><button class="nav-button"><i class="fa-solid fa-sterling-sign"></i></button></a>
+    </nav>
   </div>
 
-  <!-- 🔁 IMAGE SWITCHER 2 -->
-  <div class="image-switcher" data-images="images/hat_front.png,images/hat_back.png">
-    <img src="images/hat_front.png" alt="Hat View">
+  <!-- MAIN CONTENT -->
+  <div class="content active">
+    <h2>homepage</h2>
+    <div class="item-list">
+      <div class="item">
+        <div class="item-info">
+          <p>Sanctuary Motorsport is a clothing brand born from the intersection of speed, style, and self-expression. Inspired by motorsport culture, we create streetwear that captures the raw energy of the track and the freedom of the road.</p>
+          <br>
+
+          <!-- ✅ IMAGE SWITCHER - list images as HTML children -->
+          <div class="product-image-switcher">
+            <img src="images/acid_wash_classic_red_front.png" alt="Front" class="active" draggable="false" />
+            <img src="images/acid_wash_classic_red_back.png" alt="Back" draggable="false" />
+            <img src="images/acid_wash_classic_red_front.png" alt="Front clone" draggable="false" />
+          </div>
+
+          <div class="sanctuary-card">
+            <div class="card-header">
+              <h3>Acid Wash Oversized Tee <p>[CLASSIC]</p></h3>
+            </div>
+            <div class="card-body">
+              <p>Built for the next generation of speed lovers, the Sanctuary Motorsport Kids Tee features our bold gothic logo front and back, bringing motorsport culture to the streetwear scene. Comfortable, durable, and designed to move.
+              <br><br>
+              <strong>Available in:</strong> White, Black, Navy Blue<br>
+              <strong>Sizes:</strong> Ages 4–14<br>
+              <strong>Fit:</strong> Regular<br>
+              <strong>Material:</strong> 100% Cotton<br>
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="price">£ 16.99</span>
+            </div>
+          </div>
+
+          <a href="meet_our_staff" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- 🔁 IMAGE SWITCHER 3 -->
-  <div class="image-switcher" data-images="images/shoes_1.png,images/shoes_2.png,images/shoes_3.png,images/shoes_4.png">
-    <img src="images/shoes_1.png" alt="Shoes View">
-  </div>
-
+  <!-- ✅ JS -->
   <script>
-    document.querySelectorAll('.image-switcher').forEach(switcher => {
-      const imageElement = switcher.querySelector('img');
-      const imageList = switcher.dataset.images.split(',');
-      let index = 0;
+    document.querySelectorAll('.product-image-switcher').forEach(container => {
+      const images = container.querySelectorAll('img');
+      let currentIndex = 0;
 
-      imageElement.addEventListener('click', () => {
-        index = (index + 1) % imageList.length;
-        imageElement.src = imageList[index].trim();
+      // Initialize first image visible, rest hidden by CSS above (opacity)
+
+      container.addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
       });
     });
   </script>
-
 </body>
 </html>
