@@ -49,49 +49,77 @@
       padding: 20px;
     }
 
-.carousel-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  padding: 0;
-  margin: 0;
-}
-.carousel-track img {
-  width: 100%;
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0;
-  object-fit: contain;
-}
-
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
+    .carousel-container {
+      position: relative;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      z-index: 10;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
     }
 
-    .carousel-button {
-      background-color: rgba(0, 0, 0, 0.6);
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease-out;
+      will-change: transform;
+      padding: 0;
+      margin: 0;
+    }
+
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .sanctuary-card {
+      margin-top: 15px;
+      background-color: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .card-header h3 {
+      margin: 0;
+    }
+    .card-header p {
+      display: inline-block;
+      margin: 0 0 0 8px;
+      font-weight: 300;
+      font-size: 1rem;
+      color: #ccc;
+    }
+    .card-body {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .card-footer {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #f5f5f5;
+    }
+    .button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: rgba(255,255,255,0.1);
       border: none;
       color: white;
-      font-size: 2rem;
-      padding: 10px 15px;
       cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: rgba(255,255,255,0.25);
     }
 
-    .carousel-button:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
   </style>
 </head>
 
@@ -119,16 +147,12 @@
           <p>Sanctuary Motorsport is a clothing brand born from the intersection of speed, style, and self-expression. Inspired by motorsport culture, we create streetwear that captures the raw energy of the track and the freedom of the road.</p>
           <br>
 
-          <!-- ✅ IMAGE CAROUSEL -->
+          <!-- IMAGE CAROUSEL -->
           <div class="carousel-container">
             <div class="carousel-track" id="carouselTrack">
               <img src="images/acid_wash_classic_red_front.png" alt="Front">
               <img src="images/acid_wash_classic_red_back.png" alt="Back">
               <img src="images/acid_wash_classic_red_front.png" alt="Front Clone">
-            </div>
-            <div class="carousel-buttons">
-              <button class="carousel-button" id="prevBtn">&#10094;</button>
-              <button class="carousel-button" id="nextBtn">&#10095;</button>
             </div>
           </div>
 
@@ -150,77 +174,143 @@
             </div>
           </div>
 
-          <a href="meet_our_staff" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
+          <a href="meet_our_staff" class="nav-button-link">
+            <button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button>
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".carousel-track");
-  const slides = Array.from(track.children);
-  const prevButton = document.querySelector(".carousel-button.prev");
-  const nextButton = document.querySelector(".carousel-button.next");
   const container = document.querySelector(".carousel-container");
+  let slides = Array.from(track.children);
 
-  let currentIndex = 1;
-
-  // Clone first and last slides
+  // Clone first and last slides for infinite loop effect
   const firstClone = slides[0].cloneNode(true);
   const lastClone = slides[slides.length - 1].cloneNode(true);
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, slides[0]);
-
-  const updateSlideWidth = () => {
-    const slideWidth = container.clientWidth;
-    document.querySelectorAll(".carousel-track img").forEach(img => {
-      img.style.width = slideWidth + "px";
-    });
-    track.style.width = (slideWidth * track.children.length) + "px";
-    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-  };
-
-  window.addEventListener("resize", updateSlideWidth);
-  updateSlideWidth();
-
-  const moveToSlide = (index) => {
-    const slideWidth = container.clientWidth;
-    track.style.transition = "transform 0.5s ease-in-out";
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-    currentIndex = index;
-  };
-
-  const handleTransitionEnd = () => {
-    const slideWidth = container.clientWidth;
-    if (track.children[currentIndex].getAttribute("data-clone") === "last") {
-      track.style.transition = "none";
-      currentIndex = slides.length;
-      track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    } else if (track.children[currentIndex].getAttribute("data-clone") === "first") {
-      track.style.transition = "none";
-      currentIndex = 1;
-      track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    }
-  };
-
-  // Mark clones for logic check
   firstClone.setAttribute("data-clone", "first");
   lastClone.setAttribute("data-clone", "last");
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+  slides = Array.from(track.children); // update slides list
 
-  nextButton.addEventListener("click", () => {
-    if (currentIndex >= track.children.length - 1) return;
-    moveToSlide(currentIndex + 1);
+  let currentIndex = 1;
+  let slideWidth = container.clientWidth;
+  let isDragging = false;
+  let startPos = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let animationID;
+
+  // Set slide widths and initial position
+  function setSlideWidths() {
+    slideWidth = container.clientWidth;
+    slides.forEach(slide => {
+      slide.style.width = slideWidth + "px";
+    });
+    track.style.width = slideWidth * slides.length + "px";
+    setPositionByIndex();
+  }
+
+  function setPositionByIndex() {
+    currentTranslate = -slideWidth * currentIndex;
+    prevTranslate = currentTranslate;
+    setSliderPosition();
+  }
+
+  function setSliderPosition() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  // Animation frame for smooth dragging
+  function animation() {
+    setSliderPosition();
+    if (isDragging) requestAnimationFrame(animation);
+  }
+
+  // Touch / Mouse Events
+  function touchStart() {
+    return function(event) {
+      isDragging = true;
+      startPos = getPositionX(event);
+      animationID = requestAnimationFrame(animation);
+      container.style.cursor = 'grabbing';
+      track.style.transition = 'none'; // disable transition while dragging
+    }
+  }
+
+  function touchMove(event) {
+    if (!isDragging) return;
+    const currentPositionX = getPositionX(event);
+    const diff = currentPositionX - startPos;
+    currentTranslate = prevTranslate + diff;
+  }
+
+  function touchEnd() {
+    cancelAnimationFrame(animationID);
+    isDragging = false;
+    container.style.cursor = 'grab';
+
+    // Calculate how much we've dragged, snap to next or previous slide
+    const movedBy = currentTranslate - prevTranslate;
+
+    // Enable smooth snapping transition
+    track.style.transition = 'transform 0.3s ease-out';
+
+    if (movedBy < -slideWidth / 4 && currentIndex < slides.length - 1) {
+      currentIndex += 1;
+    }
+
+    if (movedBy > slideWidth / 4 && currentIndex > 0) {
+      currentIndex -= 1;
+    }
+
+    setPositionByIndex();
+  }
+
+  function getPositionX(event) {
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+  }
+
+  // Loop handling after transition ends
+  track.addEventListener('transitionend', () => {
+    if (slides[currentIndex].getAttribute('data-clone') === 'last') {
+      track.style.transition = 'none';
+      currentIndex = slides.length - 2;
+      setPositionByIndex();
+    }
+    if (slides[currentIndex].getAttribute('data-clone') === 'first') {
+      track.style.transition = 'none';
+      currentIndex = 1;
+      setPositionByIndex();
+    }
   });
 
-  prevButton.addEventListener("click", () => {
-    if (currentIndex <= 0) return;
-    moveToSlide(currentIndex - 1);
+  // Dragging start
+  container.addEventListener('mousedown', touchStart());
+  container.addEventListener('touchstart', touchStart());
+
+  // Dragging move
+  container.addEventListener('mousemove', touchMove);
+  container.addEventListener('touchmove', touchMove);
+
+  // Dragging end
+  container.addEventListener('mouseup', touchEnd);
+  container.addEventListener('mouseleave', () => {
+    if (isDragging) touchEnd();
+  });
+  container.addEventListener('touchend', touchEnd);
+
+  // Resize event to recalc slide widths
+  window.addEventListener('resize', () => {
+    setSlideWidths();
   });
 
-  track.addEventListener("transitionend", handleTransitionEnd);
+  // Initial setup
+  setSlideWidths();
 });
 </script>
 </body>
