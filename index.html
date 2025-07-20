@@ -57,6 +57,9 @@
       overflow: hidden;
       cursor: grab;
       user-select: none;
+      /* ensure no padding or border affecting centering */
+      padding: 0;
+      border: none;
     }
 
     .carousel-track {
@@ -73,23 +76,26 @@
       object-fit: contain;
       pointer-events: none;
       user-select: none;
+      display: block; /* remove bottom whitespace */
     }
 
     /* Dot navigation styles */
     .carousel-dots {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       margin-top: 10px;
       user-select: none;
+      padding: 0;
     }
     .carousel-dot {
-      display: inline-block;
       width: 12px;
       height: 12px;
-      margin: 0 5px;
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      flex-shrink: 0;
     }
     .carousel-dot.active {
       background-color: white;
@@ -240,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if(i === 0) dot.classList.add("active");
       dot.dataset.index = i + 1; // match slide index starting at 1 (because of clone at 0)
       dot.addEventListener("click", () => {
-        currentIndex = dot.dataset.index;
+        currentIndex = Number(dot.dataset.index);
         updateCarouselPosition();
         updateDots();
       });
