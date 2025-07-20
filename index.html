@@ -50,26 +50,24 @@
     }
 
 .carousel-container {
-  position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 40px auto;
+  margin: 0 auto;
   overflow: hidden;
-  border-radius: 10px;
 }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  padding: 0;
+  margin: 0;
+}
 .carousel-track img {
   width: 100%;
-  max-width: 600px;
-  height: auto;
-  object-fit: contain;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.05);
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
 }
 
     .carousel-buttons {
