@@ -33,6 +33,25 @@ body {
   flex-direction: column;
   cursor: normal;
 }
+
+.item,
+.itemcustom,
+h2,
+.item-info .info-box,
+.item-info .error-box,
+.sanctuary-card {
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  backdrop-filter: blur(3px); /* soft blur behind the element */
+  -webkit-backdrop-filter: blur(3px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+header {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent */
+  backdrop-filter: blur(5px); /* stronger blur for clarity */
+  -webkit-backdrop-filter: blur(5px); /* Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1001;
+}
 </style>
 </head>
 
