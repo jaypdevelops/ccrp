@@ -156,67 +156,72 @@
     </div>
   </div>
 
-  <!-- ✅ CAROUSEL SCRIPT -->
-  <script>
-    const track = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let index = 0;
-    const slides = track.children;
-    const totalSlides = slides.length;
-    const slideWidth = slides[0].clientWidth;
 
-    // Clone first slide to end for seamless loop
-    function resetTrackPosition() {
-      track.style.transition = 'none';
-      track.style.transform = `translateX(-${slideWidth}px)`;
-      index = 1;
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".carousel-track");
+  const slides = Array.from(track.children);
+  const prevButton = document.querySelector(".carousel-button.prev");
+  const nextButton = document.querySelector(".carousel-button.next");
+  const container = document.querySelector(".carousel-container");
+
+  let currentIndex = 1;
+
+  // Clone first and last slides
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  const updateSlideWidth = () => {
+    const slideWidth = container.clientWidth;
+    document.querySelectorAll(".carousel-track img").forEach(img => {
+      img.style.width = slideWidth + "px";
+    });
+    track.style.width = (slideWidth * track.children.length) + "px";
+    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+  };
+
+  window.addEventListener("resize", updateSlideWidth);
+  updateSlideWidth();
+
+  const moveToSlide = (index) => {
+    const slideWidth = container.clientWidth;
+    track.style.transition = "transform 0.5s ease-in-out";
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+    currentIndex = index;
+  };
+
+  const handleTransitionEnd = () => {
+    const slideWidth = container.clientWidth;
+    if (track.children[currentIndex].getAttribute("data-clone") === "last") {
+      track.style.transition = "none";
+      currentIndex = slides.length;
+      track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    } else if (track.children[currentIndex].getAttribute("data-clone") === "first") {
+      track.style.transition = "none";
+      currentIndex = 1;
+      track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
     }
+  };
 
-    // Setup carousel on load
-    window.addEventListener('load', () => {
-      const firstClone = slides[0].cloneNode(true);
-      track.appendChild(firstClone);
-      const secondClone = slides[1].cloneNode(true);
-      track.insertBefore(secondClone, slides[0]);
+  // Mark clones for logic check
+  firstClone.setAttribute("data-clone", "first");
+  lastClone.setAttribute("data-clone", "last");
 
-      track.style.transform = `translateX(-${slideWidth}px)`;
-      index = 1;
-    });
+  nextButton.addEventListener("click", () => {
+    if (currentIndex >= track.children.length - 1) return;
+    moveToSlide(currentIndex + 1);
+  });
 
-    // Next button
-    nextBtn.addEventListener('click', () => {
-      if (index >= totalSlides - 1) {
-        track.style.transition = 'none';
-        index = 1;
-        track.style.transform = `translateX(-${slideWidth * index}px)`;
-        void track.offsetWidth; // trigger reflow
-      }
+  prevButton.addEventListener("click", () => {
+    if (currentIndex <= 0) return;
+    moveToSlide(currentIndex - 1);
+  });
 
-      index++;
-      track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${slideWidth * index}px)`;
-    });
-
-    // Previous button
-    prevBtn.addEventListener('click', () => {
-      if (index <= 0) {
-        track.style.transition = 'none';
-        index = totalSlides - 2;
-        track.style.transform = `translateX(-${slideWidth * index}px)`;
-        void track.offsetWidth;
-      }
-
-      index--;
-      track.style.transition = 'transform 0.5s ease-in-out';
-      track.style.transform = `translateX(-${slideWidth * index}px)`;
-    });
-
-    // Resize correction
-    window.addEventListener('resize', () => {
-      track.style.transition = 'none';
-      track.style.transform = `translateX(-${slideWidth * index}px)`;
-    });
-  </script>
+  track.addEventListener("transitionend", handleTransitionEnd);
+});
+</script>
 </body>
 </html>
