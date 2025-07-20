@@ -22,10 +22,6 @@ body {
   background-color: #2b1d1e;
 }
 
-h2 {
-background: #040404;
-}
-
 header {
 background: #040404;
 }
@@ -94,7 +90,7 @@ h2 {
   font-family: "UnifrakturCook", cursive;
   font-weight: 700;
   font-style: normal;
-  background: #040404;
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   margin: 5px;
   width: 95%;
