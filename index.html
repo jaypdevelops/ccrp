@@ -20,6 +20,25 @@
       font-size: 20px !important;
     }
   }
+  .full-width-banner {
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile-specific override */
+@media only screen and (max-width: 768px) {
+  .full-width-banner {
+    background-image: url("images/bgmobile.png");
+    height: 100vh; /* Fill entire mobile screen height */
+  }
+
+  header h1 {
+    font-size: 20px !important;
+  }
+}
 </style>
 </head>
 
@@ -34,12 +53,12 @@
 
 <!-- BANNER WITH TEXT OVERLAY -->
 <div class="banner-wrapper">
-<img src="images/background.png" alt="Banner Image" class="full-width-banner" />
-<div class="banner-text-overlay">
-<h2 style="color: #ffffff; font-size: 50px;">elevate your ritual.</h2>
-<div class="tagline">crafted with intention, worn with reverence.</div>
-<a href="#shop"><button class="cta-button">explore collection</button></a>
-</div>
+  <div class="full-width-banner"></div>
+  <div class="banner-text-overlay">
+    <h2 style="color: #ffffff; font-size: 50px;">elevate your ritual.</h2>
+    <div class="tagline">crafted with intention, worn with reverence.</div>
+    <a href="#shop"><button class="cta-button">explore collection</button></a>
+  </div>
 </div>
 
 <!-- MAIN CONTENT -->
