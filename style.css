@@ -700,7 +700,6 @@ position: relative;
   justify-content: center;
   text-align: center;
   gap: 20px;
-  margin-left: 100px;
 }
 
 @media (max-width: 768px) {
