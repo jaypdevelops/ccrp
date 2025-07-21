@@ -18,34 +18,6 @@
   display: none;
 }
 
-body {
-  background-color: #2b1d1e;
-}
-
-header {
-background: #040404;
-}
-
-.buttonblue {
-background: #040404;
-}
-
-.buttonorange {
-background: #040404;
-}
-
-.buttonred {
-background: #040404;
-}
-
-.nav-button {
-background: #040404;
-}
-
-.item {
-background: #040404;
-}
-
 /* MAIN STYLING */
 
 
@@ -85,18 +57,13 @@ h1 {
 h2 {
   text-decoration: none;
   padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 7.5px;
   font-family: "UnifrakturCook", cursive;
   font-weight: 700;
-  font-style: normal;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+
+  color: #000000;
   margin: 5px;
   width: 95%;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
   text-align: center;
-  transition: 0.3s ease;
 }
 
 descarea {
@@ -122,7 +89,7 @@ padding: 10px;
   font-weight: 500;
   font-size: 16px;
   font-family: "Montserrat", serif;
-  color: white;
+  color: #000000;
   width: 100%;
 text-align: left;
 }
@@ -135,14 +102,12 @@ header {
   position: fixed;
   text-decoration: none;
   padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 600;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   background: #040404;
   color: white;
   width: 100%;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
   text-align: center;
   transition: 0.3s ease;
 }
@@ -173,6 +138,7 @@ price {
 }
 
 a {
+background: none;
 }
 
 
@@ -353,52 +319,79 @@ margin-bottom: 5px;
 
 /* BUTTON STYLES */
 
-
 .active-button {
-  text-decoration: none;
+  position: relative;
   padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   border-radius: 12px;
   margin: 5px;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   width: fit-content;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: none;
   text-align: center;
-  transition: 0.3s ease;
-  background-color: rgba(43, 29, 30, 0.6);
-  color: #ccc;
+  background: none;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.active-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .active-button:hover {
+  color: #888888; /* grey text */
   background: rgba(255, 255, 255, 0.1);
-  color: #ccc;
 }
+
+.active-button:hover::after {
+  background-color: #888888; /* grey underline */
+}
+
 
 .nav-button {
+  position: relative;
   text-decoration: none;
   padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  border-radius: 12px;
   margin: 5px;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: none;
+  color: #000000;
   width: fit-content;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: none;
   text-align: center;
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.nav-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ccc;
+.nav-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px; /* adjust based on padding/font size */
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
+
+.nav-button:hover::after {
+  opacity: 1;
+}
+
 
 .sbutton {
   text-decoration: none;
@@ -424,77 +417,6 @@ max-width: 100%;
 .button {
 background: none;
 }
-
-.buttonred {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 1px solid rgba(255, 255,  255, 0.1);
-  cursor: pointer;
-  border-radius: 12px;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  background: #040404;
-  color: #f47b7b; /* soft red text */
-  width: 95%;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-.buttonred:hover {
-  background-color: #2b1d1e; /* deep red hover background */
-  color: #f47b7b; /* keep the red text */
-}
-
-.buttonorange {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: help;
-  border-radius: 12px;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  background: #040404;
-  color: #ffae61; /* soft orange text */
-  width: 95%;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-.buttonorange:hover {
-  background-color: #2b2119; /* warm brown/orange-tinted dark background */
-  color: #ffae61;
-  transition: 0.3s ease;
-}
-
-.buttonblue {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: alias;
-  border-radius: 12px;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  background: #040404;
-  color: #6fbaff; /* soft light blue text */
-  width: 95%;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-.buttonblue:hover {
-  background-color: #1a222c; /* navy/blue-tinted dark background */
-  color: #6fbaff;
-}
-
 
 .item-info .error-box {
   background-color: #2b1d1e;
