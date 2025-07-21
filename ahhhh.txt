@@ -1,0 +1,50 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    const heroImage = document.querySelector('.hero-image');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Header scroll effect and image blur
+    window.addEventListener('scroll', () => {
+        // Adjust this value: how far down the page before header changes
+        const scrollThreshold = 100;
+
+        if (window.scrollY > scrollThreshold) {
+            header.classList.add('scrolled');
+            // Apply blur to hero image when scrolled past threshold
+            // Adjust blur amount (e.g., '5px', '8px')
+            heroImage.style.filter = 'blur(8px) brightness(0.7)'; // Example: Blur and slightly darken
+        } else {
+            header.classList.remove('scrolled');
+            heroImage.style.filter = 'blur(0px) brightness(1)'; // Remove blur and reset brightness
+        }
+    });
+
+    // Hamburger menu toggle
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        // Prevent body scroll when mobile menu is open
+        document.body.classList.toggle('no-scroll');
+    });
+
+    // Close menu when a navigation link is clicked (for smoother UX on mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) { // Check if menu is open
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+
+    // Optional: Close menu if window is resized above mobile breakpoint while open
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+    });
+});
