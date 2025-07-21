@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,253 +16,405 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
 
 <style>
-    body {
-      background-image: url('images/background.PNG');
-      background-size: 200px;
-      background-repeat: repeat;
-      background-attachment: scroll;
-      background-position: top left;
-      font-family: 'Montserrat', sans-serif;
-      color: white;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
+/* default nav buttons - white text */
+.nav-button,
+.active-button {
+  color: white;
+  border: none;
+  background: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
 
-    .itemcustom,
-    .item-info .info-box,
-    .item-info .error-box {
-      background-color: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
+/* underline for nav-button */
+.nav-button::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  opacity: 0;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  margin-top: 4px;
+}
 
-    .item {
-      background-color: rgba(43, 29, 30, 0.3);
-      padding: 20px;
-    }
+/* show underline on hover */
+.nav-button:hover::after {
+  opacity: 1;
+}
 
-    header {
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      z-index: 1001;
-      padding: 20px;
-    }
+/* underline for active-button */
+.active-button::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  opacity: 1; /* always visible */
+  transition: background-color 0.3s ease;
+  margin-top: 4px;
+}
 
-    footer {
-      background-color: rgba(43, 29, 30, 0.5);
-      border-top: 2px solid rgba(255, 255, 255, 0.2);
-      z-index: 1001;
-      padding: 10px;
-      margin: 0px;
-      width: 100%;
-    }
+/* on scroll */
+header.scrolled .nav-button,
+header.scrolled .active-button {
+  color: black;
+}
 
-    .container nav {
-      display: flex;
-      gap: 10px;
-      margin: 20px;
-    }
+/* underline color black on scroll but only visible on hover */
+header.scrolled .nav-button:hover::after,
+header.scrolled .active-button:hover::after {
+  background-color: black;
+  opacity: 1;
+}
 
-    .product-image-switcher {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      margin: 20px auto;
-      cursor: pointer;
-      overflow: hidden;
-      height: auto;
-      text-align: center;
-    }
+/* active button text and underline default white */
+.active-button {
+  color: white;
+}
 
-    .product-image-switcher img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      margin: auto;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-      max-height: 600px;
-      user-select: none;
-    }
+/* when header is scrolled: active button text and underline turn black */
+header.scrolled .active-button {
+  color: black;
+}
 
-    .product-image-switcher img.active {
-      opacity: 1;
-      position: relative;
-    }
+header.scrolled .active-button::after {
+  background-color: black;
+}
 
-    .sanctuary-card {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
 
-    .sanctuary-card h3 {
-      margin: 0;
-      font-weight: 600;
-    }
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  background: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1001;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    .sanctuary-card p {
-      margin-top: 10px;
-      font-weight: 300;
-    }
+header.scrolled {
+  background-color: #ffffff;
+  color: #000000;
+}
 
-    .price {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #ffffff;
-    }
-        .discount {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #00ff55;
-      text-decoration: strikethrough;
-    }
-    special {
-        color:#6495ed;
-    }
+header.scrolled h1 {
+  color: #000000;
+}
+
+.nav-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  position: relative; /* for dropdown positioning */
+}
+
+/* DROPDOWN MENU STYLES */
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 1100px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 25px 40px;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  border-radius: 8px;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  z-index: 1500;
+}
+
+.nav-dropdown.show {
+  max-height: 400px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-dropdown h4 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav-dropdown li {
+  margin-bottom: 8px;
+}
+
+.nav-dropdown a {
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.nav-dropdown a:hover {
+  color: #6495ed;
+}
+
+/* rest of your styles */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.itemcustom,
+.item-info .info-box,
+.item-info .error-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item {
+  background-color: rgba(43, 29, 30, 0.3);
+  padding: 20px;
+}
+
+footer {
+  background-color: rgba(43, 29, 30, 0.5);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 1001;
+  padding: 10px;
+  margin: 0px;
+  width: 100%;
+}
+
+.container nav {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.product-image-switcher {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  cursor: pointer;
+  overflow: hidden;
+  height: auto;
+  text-align: center;
+}
+
+.product-image-switcher img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  max-height: 600px;
+  user-select: none;
+}
+
+.product-image-switcher img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.sanctuary-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.sanctuary-card h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sanctuary-card p {
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.discount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ff55;
+  text-decoration: line-through;
+}
+
+special {
+  color:#6495ed;
+}
+
+.full-width-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
 </style>
 </head>
 
 <body>
 <header>
-<h1>sanctuary attire</h1>
+  <h1>sanctuary attire</h1>
+  <div class="nav-buttons">
+    <button id="homeButton" class="nav-button">HOME <i class="fa-solid fa-caret-down"></i></button>
+    <a href="new" class="nav-button-link"><button class="active-button">NEW</button></a>
+
+    <!-- Dropdown menu -->
+    <div id="homeDropdown" class="nav-dropdown" aria-label="Home menu dropdown">
+      <div>
+        <h4>All Products</h4>
+        <ul>
+          <li><a href="#">T-Shirts</a></li>
+          <li><a href="#">Hoodies</a></li>
+          <li><a href="#">Jackets</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Women's Products</h4>
+        <ul>
+          <li><a href="#">Tops</a></li>
+          <li><a href="#">Dresses</a></li>
+          <li><a href="#">Leggings</a></li>
+          <li><a href="#">Sweaters</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Collections</h4>
+        <ul>
+          <li><a href="#">Warehouse 13</a></li>
+          <li><a href="#">Urban Essentials</a></li>
+          <li><a href="#">Limited Editions</a></li>
+          <li><a href="#">Seasonal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kid's Products</h4>
+        <ul>
+          <li><a href="#">Tees</a></li>
+          <li><a href="#">Jackets</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Men's Products</h4>
+        <ul>
+          <li><a href="#">Shirts</a></li>
+          <li><a href="#">Sweatshirts</a></li>
+          <li><a href="#">Pants</a></li>
+          <li><a href="#">Hats</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
-<br><br>
-<div class="container">
-<nav>
-<a href="" class="nav-button-link"><button class="active-button"><i class="fa-solid fa-house"></i></button></a>
-<a href="" class="nav-button-link"><button class="nav-button">NEW</button></a>
-</nav>
-</div>
+<!-- MAIN CONTENT -->
+<img src="images/background.png" alt="Banner Image" class="full-width-banner" />
 
-  <!-- MAIN CONTENT -->
 <div class="content active">
-<h2>browse our products</h2>
-<div class="item-list">
-<div class="item">
-<div class="item-info">
-<p>Sanctuary Attire is a streetwear brand rooted in bold self-expression and urban edge. Inspired by the raw energy of the streets, we craft apparel that speaks to movement, individuality, and unapologetic style. FYI: Click on the images to cycle through product images!</p>
-<br>
+  <h2>new products</h2>
+  <div class="item-list">
+    <div class="item">
+      <div class="item-info">
+        <p>Step into the latest from Sanctuary Attire where street culture meets bold expression. Our new arrivals are made for those who move different, think different, and wear what they believe in. Every piece is designed to stand out with clean lines, raw edge, and uncompromising detail. Whether you're layering up or keeping it minimal, this drop brings the heat. Own the street. Own your style.</p>
+        <br>
 
-<div class="product-image-switcher">
-<img src="images/Acid Wash Oversize Tee Front Red.png" alt="Front" class="active" draggable="false" />
-<img src="images/Acid Wash Oversize Tee Back Red.png" alt="Back" draggable="false" />
-<img src="images/Acid Wash Oversize Tee Front Green.png" alt="Front" draggable="false" />
-<img src="images/Acid Wash Oversize Tee Back Green.png" alt="Back" draggable="false" />
-</div>
+        <div class="product-image-switcher">
+          <img src="images/Acid Wash Oversize Tee Front Red.png" alt="Front" class="active" draggable="false" />
+          <img src="images/Acid Wash Oversize Tee Back Red.png" alt="Back" draggable="false" />
+          <img src="images/Acid Wash Oversize Tee Front Green.png" alt="Front" draggable="false" />
+          <img src="images/Acid Wash Oversize Tee Back Green.png" alt="Back" draggable="false" />
+        </div>
 
-<div class="sanctuary-card">
-<div class="card-header">
-<h3>Acid Wash Oversized Tee <p>[13]</p></h3>
-</div>
-<div class="card-body">
-<p>Part of the iconic Warehouse 13 range at Sanctuary Attire, this tee brings back the classics you know and love. Crafted with a vintage-inspired acid wash finish, it delivers that perfect worn-in look and effortless style. The oversized fit adds a modern twist, making it comfortable for all-day wear whether you’re on the move or just chilling. As one of the most popular and enduring pieces in our collection, the Acid Wash Oversized Tee is a must-have staple that honors the heritage of Sanctuary Attire’s timeless design.
-<br><br>
-<strong>Available in:</strong> Red, Green<br>
-<strong>Sizes:</strong> S - XL<br>
-<strong>Fit:</strong> Loose<br>
-<strong>Material:</strong> 100% Cotton<br>
-</p>
-</div>
-<div class="card-footer">
-<span class="price">£ 19.99</span>
-</div>
-</div>
-<a href="https://payhip.com/b/A1Rm5" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
-<!-- END OF PRODUCT -->       
-          
-<div class="product-image-switcher">
-<img src="images/Acid Wash Oversize Hoodie Front Black.png" alt="Front" class="active" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Back Black.png" alt="Back" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Front Blue.png" alt="Front" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Back Blue.png" alt="Back" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Front Grey.png" alt="Front" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Back Grey.png" alt="Back" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Front Purple.png" alt="Front" draggable="false" />
-<img src="images/Acid Wash Oversize Hoodie Back Purple.png" alt="Back" draggable="false" />
-</div>
+        <div class="sanctuary-card">
+          <div class="card-header">
+            <h3>Acid Wash Oversized Tee <p>[13]</p></h3>
+          </div>
+          <div class="card-body">
+            <p>Part of the iconic Warehouse 13 range at Sanctuary Attire, this tee brings back the classics you know and love. Crafted with a vintage-inspired acid wash finish, it delivers that perfect worn-in look and effortless style. The oversized fit adds a modern twist, making it comfortable for all-day wear whether you’re on the move or just chilling. As one of the most popular and enduring pieces in our collection, the Acid Wash Oversized Tee is a must-have staple that honors the heritage of Sanctuary Attire’s timeless design.
+              <br><br>
+              <strong>Available in:</strong> Red, Green<br>
+              <strong>Sizes:</strong> S - XL<br>
+              <strong>Fit:</strong> Loose<br>
+              <strong>Material:</strong> 100% Cotton<br>
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="price">£ 19.99</span>
+          </div>
+        </div>
+        <a href="https://payhip.com/b/A1Rm5" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
+        <!-- END OF PRODUCT -->
 
-<div class="sanctuary-card">
-<div class="card-header">
-<h3>Acid Wash Oversized Hoodie</h3>
-</div>
-<div class="card-body">
-<p>The Acid Wash Oversized Hoodie features a distinctive vintage acid wash finish that delivers a perfectly worn-in look and feel from day one. Designed with a relaxed, oversized fit, the hoodie offers exceptional comfort and versatility for layering or standalone wear. Crafted to combine timeless style with everyday functionality, it’s a bold statement piece built to enhance any wardrobe.
-<br><br>
-<strong>Available in:</strong> Black, Blue, Light Gray, Purple <special>[LIMITED]</special><br>
-<strong>Sizes:</strong> S - XL<br>
-<strong>Fit:</strong> Loose<br>
-<strong>Material:</strong> 100% cotton<br>
-</p>
-</div>
-<div class="card-footer">
-<span class="price">£ 34.99</span>
-</div>
-</div>
-
-<a href="https://payhip.com/b/a70OG?variant=1753033711289" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
-<!-- END OF PRODUCT -->
-
-<div class="product-image-switcher">
-<img src="images/Snow Washed Oversize Long Sleeve Front Black.png" alt="Front" class="active" draggable="false"/>
-<img src="images/Snow Washed Oversize Long Sleeve Back Black.png" alt="Back" draggable="false"/>
-<img src="images/Snow Washed Oversize Long Sleeve Front Blue.png" alt="Front" draggable="false"/>
-<img src="images/Snow Washed Oversize Long Sleeve Back Blue.png" alt="Back" draggable="false"/>
-<img src="images/Snow Washed Oversize Long Sleeve Front Grey.png" alt="Front" draggable="false" />
-<img src="images/Snow Washed Oversize Long Sleeve Back Grey.png" alt="Back" draggable="false" />
-</div>
-
-<div class="sanctuary-card">
-<div class="card-header">
-<h3>Snow Washed Oversized Long-Sleeve</h3>
-</div>
-<div class="card-body">
-<p>The Snow Washed Oversized Long-Sleeve features a relaxed, roomy fit with a unique snow-washed finish that creates a soft, faded vintage look. Crafted for both comfort and style, this long-sleeve tee offers effortless layering potential and timeless appeal, making it a versatile addition to any wardrobe.
-<br><br>
-<strong>Available in:</strong> Black, Blue, Grey<br>
-<strong>Sizes:</strong> S - XL<br>
-<strong>Fit:</strong> Loose<br>
-<strong>Material:</strong> 100% cotton<br>
-</p>
-</div>
-<div class="card-footer">
-<span class="price">£ 24.99</span>
-</div>
-</div>
-
-<a href="https://payhip.com/b/a70OG?variant=1753033711289" class="nav-button-link"><button class="button"><i class="fa-solid fa-credit-card"></i> buy now</button></a>
-<!-- END OF PRODUCT -->
-
-<!-- END OF PRODUCTS SECTION -->
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-<p style="text-align: center; font-size: 18px; margin: 0px;">&copy; Sanctuary Attire 2025</p>
-<a href="https://www.instagram.com/sanctuary.attire" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px; border: none; background: none; color: #ffffff; font-size: 24px; text-decoration: none; cursor: pointer;"><i class="fab fa-instagram"></i></a>
+  <p style="text-align: center; font-size: 18px; margin: 0px;">&copy; Sanctuary Attire 2025</p>
+  <a href="https://www.instagram.com/sanctuary.attire" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px; border: none; background: none; color: #ffffff; font-size: 24px;">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
 </footer>
 
 <script>
-    document.querySelectorAll('.product-image-switcher').forEach(container => {
-      const images = container.querySelectorAll('img');
-      let currentIndex = 0;
+  // sticky header color change on scroll
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if(window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 
-      // Initialize first image visible, rest hidden by CSS above (opacity)
+  // dropdown toggle
+  const homeButton = document.getElementById('homeButton');
+  const homeDropdown = document.getElementById('homeDropdown');
 
-      container.addEventListener('click', () => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
-      });
-    });
+  homeButton.addEventListener('click', () => {
+    homeDropdown.classList.toggle('show');
+  });
+
+  // close dropdown if clicking outside
+  document.addEventListener('click', (event) => {
+    if (!homeButton.contains(event.target) && !homeDropdown.contains(event.target)) {
+      homeDropdown.classList.remove('show');
+    }
+  });
 </script>
-
-<!-- END OF BODY -->
 </body>
 </html>
