@@ -40,10 +40,11 @@
   }
 }
 
-/* Container */
+/* Dropdown container */
 .dropdown {
   position: relative;
   display: inline-block;
+  width: auto;
 }
 
 /* Toggle button */
@@ -54,51 +55,30 @@
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 100;
+  z-index: 101;
 }
 
-/* Dropdown menu */
+/* Dropdown menu — forced full width, no exceptions */
 .dropdown-menu {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 60px; /* adjust to match your header height */
   left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
   background-color: #fff;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-  padding: 20px;
+  z-index: 100;
+  padding: 20px 10px;
   font-family: 'Montserrat', sans-serif;
+
+  display: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
-/* Show on hover (desktop) */
-@media (min-width: 769px) {
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    min-width: 100vw;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .dropdown-menu {
-    position: fixed;
-    top: 60px; /* or adjust depending on header height */
-    left: 0;
-    width: 100vw;
-    height: auto;
-    display: none;
-    flex-direction: column;
-    padding: 20px 10px;
-  }
-
-  .dropdown-menu.show {
-    display: flex;
-  }
-}
-
-/* Grouping */
+/* Group layout inside */
 .dropdown-group {
   margin-bottom: 20px;
 }
@@ -116,6 +96,28 @@
   color: #000;
   font-size: 14px;
   margin-bottom: 5px;
+}
+
+/* Force show */
+.dropdown-menu.show {
+  display: flex !important;
+}
+
+/* Desktop: change layout but keep full width */
+@media (min-width: 769px) {
+  .dropdown-menu {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .dropdown-group {
+    margin: 0 20px;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex !important;
+  }
 }
 </style>
 </head>
