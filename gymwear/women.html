@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Sanctuary Attire Women's Sportswear</title>
+
+<link rel="stylesheet" href="style.css"/>
+<script src="https://kit.fontawesome.com/c06f2af5e6.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/0c8bf0ec2b.js" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=UnifrakturCook:wght@700&family=UnifrakturMaguntia&display=swap" rel="stylesheet"/>
+<style>
+@media only screen and (max-width: 768px) {
+  header h1 {
+    font-size: 20px !important;
+  }
+}
+
+.full-width-banner {
+  width: 100%;
+  height: 80vh;
+  background-image: url("https://jaypdevelops.github.io/ccrp/images/bgdesktopsports.png");
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .full-width-banner {
+    background-image: url("https://jaypdevelops.github.io/ccrp/images/bgmobilesports.JPEG");
+    height: 100vh;
+  }
+
+  header h1 {
+    font-size: 20px !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+<a href="https://jaypdevelops.github.io/ccrp" class="header-link" style="text-decoration: none; background-color: none; color: #ffffff;"><h1>sanctuary attire</h1></a>
+<div class="nav-buttons">
+<a href="https://jaypdevelops.github.io/ccrp" class="nav-button-link"><button class="nav-button">HOME</button></a>
+<div class="dropdown">
+  <button class="nav-button dropdown-toggle"><i class="fa-solid fa-bars"></i></button>
+  <div class="dropdown-menu">
+      <div class="dropdown-group">
+      <span style="color: #000000;">The Main Pages</span>
+      <a href="https://jaypdevelops.github.io/ccrp">Home</a>
+      <a href="new">New Products</a>
+      <a href="featured">Featured Products</a>
+    </div>
+    <div class="dropdown-group">
+            <a href="https://jaypdevelops.github.io/ccrp/classics"><span class="dropdown-link">The Classics</span></a>
+      <a href="classics/men">Men’s</a>
+      <a href="classics/women">Women’s</a>
+      <a href="classics/all">All Products</a>
+    </div>
+    <div class="dropdown-group">
+      <a href="https://jaypdevelops.github.io/ccrp/sportswear"><span class="dropdown-link">Gymwear</span></a>
+      <a href="gymwear/men">Men’s</a>
+      <a href="gymwear/women">Women’s</a>
+      <a href="gymwear/all">All Products</a>
+    </div>
+  </div>
+</div>
+</div>
+</header>
+
+<!-- BANNER WITH TEXT OVERLAY -->
+<div class="banner-wrapper">
+  <div class="full-width-banner"></div>
+  <div class="banner-text-overlay">
+    <h2 style="color: #ffffff; font-size: 50px;">upgrade your sport.</h2>
+    <div class="tagline">for only the toughest members of man-kind</div>
+    <a href="#shop"><button class="cta-button">explore sportswear</button></a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content active" id="shop">
+<h2 style="font-size: 50px; text-align: left; margin-left: 0px;">women's sportswear</h2>
+<div class="item-list">
+<div class="item">
+<div class="item-info">
+  <div class="product-image-switcher">
+    <img src="images/Performance Shorts Front.PNG" alt="Front" class="active" draggable="false" />
+    <img src="images/Performance Shorts Back.PNG" alt="Back" draggable="false" />
+  </div>
+  
+  <div class="item-details">
+    <div class="price"><a href="https://www.instagram.com/sanctuary.attire" style="color: #000000; text-decoration: none;">Performance Shorts</a></div>
+    <div class="price">£ 12.99</div>
+    <a href="https://payhip.com/b/A1Rm5" class="nav-button-link">
+      <button class="button">product unavailable</button>
+    </a>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- FOOTER -->
+<footer>
+<p style="text-align: center; font-size: 20px; margin: 0px;">&copy; Sanctuary Attire 2025</p>
+<a href="https://www.instagram.com/sanctuary.attire" class="footer_button"><i class="fab fa-instagram"></i></a>
+<p style="text-align: center; font-size: 15px; margin: 0px;">Website Developed by Jay Powell (sanctuary attire owner)</p>
+<img src="images/s_logo_black.png" alt="logo bullet" style="height: 55px; width: auto; vertical-align: middle; margin-right: 6px;">
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  document.querySelectorAll('.product-image-switcher').forEach(container => {
+    const images = container.querySelectorAll('img');
+    let currentIndex = 0;
+
+    container.addEventListener('click', () => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // existing image switcher script...
+
+  // mobile dropdown toggle
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+
+  dropdownToggle.addEventListener('click', (e) => {
+    // Only toggle on mobile
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      dropdownMenu.classList.toggle('show');
+    }
+  });
+
+  // Close dropdown when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+});
+</script>
+</body>
+</html>
