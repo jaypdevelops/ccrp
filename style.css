@@ -1,133 +1,136 @@
+/* ==========================================================================
+   0. Base/Reset & Hidden Utility
+   ========================================================================== */
+
+/* Utility class to hide elements */
 .hidden {
   display: none;
 }
 
-/* MAIN STYLING */
-
-
+/* Base Reset/Box Model */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base Body Styling */
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #000000;
-  color: white;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff; /* Updated to white based on later override */
+  color: #000000; /* Updated to black based on later override */
   overflow-x: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
-cursor: normal;
+  cursor: normal;
 }
 
 br {
-cursor: default;
+  cursor: default;
+}
+
+/* General Link/Text Styles */
+a {
+  background: none;
+  text-decoration: none; /* Added for general anchor consistency */
 }
 
 
-/* HEADER AND TEXT STYLES */
+/* ==========================================================================
+   1. Typography & Text Elements
+   ========================================================================== */
 
-
+/* Main Headings */
 h1 {
   text-align: center;
   margin-top: 0;
-  font-family: "UnifrakturCook", cursive;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
   font-weight: 700;
   font-style: normal;
+  /* H1 color is white by default but overwritten to black in .scrolled header */
 }
 
 h2 {
   text-decoration: none;
   padding: 12px 25px;
-  font-family: "UnifrakturCook", cursive;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
-
   color: #000000;
   margin: 5px;
   width: 95%;
   text-align: center;
 }
 
+/* Paragraph Text */
+p {
+  padding: 10px;
+  border: none;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+  width: 100%;
+  text-align: left;
+}
+
+/* Custom Text Elements (Non-Standard Tags) */
 descarea {
   padding: 10px 20px;
   border: none;
   margin: 5px;
   font-weight: 500;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: white;
   width: 95%;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 12px;
   text-align: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  display: block; /* Added for consistency, as it behaves like a block */
 }
-
-
-p {
-padding: 10px;
-  border: none;
-  margin: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: "Montserrat", serif;
-  color: #000000;
-  width: 100%;
-text-align: left;
-}
-
-
-/* HEADER FIXED POSITION */
-
-
-header {
-  position: fixed;
-  text-decoration: none;
-  padding: 12px 25px;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  background: #040404;
-  color: white;
-  width: 100%;
-  text-align: center;
-  transition: 0.3s ease;
-}
-
-header h1 {
-  font-size: 35px;
-  margin: 0;
-  text-align: center;
-}
-
-
-/* TEXT STYLES FOR REDUCED AND PRICING */
-
 
 reduce {
   text-decoration: line-through;
   color: red;
   font-weight: 400;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
+  display: inline; /* Added for consistency */
 }
 
 price {
   font-size: 18px;
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   border: none;
   margin: 15px;
+  display: inline; /* Added for consistency */
 }
 
-a {
-background: none;
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.discount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ff55;
+}
+
+special {
+  color:#6495ed;
+  display: inline; /* Added for consistency */
 }
 
 
-/* CONTENT STYLES */
-
+/* ==========================================================================
+   2. Layout & Containers
+   ========================================================================== */
 
 .container {
   margin-top: 20px;
@@ -143,9 +146,10 @@ background: none;
   text-align: center;
 }
 
-icon {
-  font-size: 25px;
-  padding: 30px;
+.container nav {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
 }
 
 nav {
@@ -160,40 +164,6 @@ nav {
   display: none;
 }
 
-.item {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #2b1d1e;
-  color: white;
-  width: 95%; /* Enforce fixed width */
-  text-align: center;
-  transition: 0.3s ease;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-.itemcustom {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 5px;
-  font-weight: 600;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  background: #040404;
-  color: white;
-  width: 95%; /* Enforce fixed width */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-  text-align: center;
-  transition: 0.3s ease;
-}
-
 .active {
   display: flex;
   justify-content: center;
@@ -203,124 +173,77 @@ nav {
   min-width: 100%;
 }
 
-.container {
-  margin-top: 20px;
+
+/* ==========================================================================
+   3. Header & Navigation (Fixed Position)
+   ========================================================================== */
+
+/* Base Header */
+header {
+  position: fixed;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.item-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-}
-
-.item-info {
-  flex: 1;
-  text-align: left;
-}
-
-.item-info h3 {
-  margin: 0;
-  font-size: 22px;
-text-align: center;
-}
-
-.item-info p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #ccc;
-}
-
-.item img {
-  width: 70px;
-  height: 70px;
-  margin-right: 20px;
-}
-
-.item-info a {
-width: 100%;
-max-width: 100%;
-margin: 5px;
-background: none;
-border: none;
-}
-
-.item-info button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ccc;
-}
-
-.item-info .info-box {
-  background: rgba(255, 255, 255, 0.1);
-  color: #7289da;
-  padding: 16px 20px;
-  border-radius: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-  margin: 5px;
-align-items: center;
-  transition: 0.3s ease;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-}
-
-.item-info .button {
-  text-decoration: none;
-  padding: 12px 25px;
-  border: 2px solid rgba(0, 0, 0, 1);
-  cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: rgba(0, 0, 0, 0);
-  color: #000000;
+  font-family: 'Inter', sans-serif;
+  background: none; /* Transparent by default */
+  color: #ffffff; /* White text by default */
+  width: 100%;
   text-align: center;
   transition: 0.3s ease;
-width: 50%;
-margin-left: 25%;
-margin-right: 25%;
-align-items: center;
-align-self: center;
-align-content: center;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
 }
 
-.item-info .button:hover {
-  background: rgba(124, 124, 124, 0.6);
-  color: #ccc;
+header h1 {
+  font-size: 35px;
+  margin: 0;
+  text-align: center;
+  /* inherits white color from header */
 }
 
-/* BUTTON STYLES */
+/* Scrolled State */
+header.scrolled {
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+header.scrolled h1 {
+color: #000;
+}
+
+.nav-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+
+/* --- Nav Button Styles (Shared) --- */
+
+/* Base Nav/Active Buttons */
+.nav-button,
 .active-button {
   position: relative;
   padding: 12px 25px;
   cursor: pointer;
-  border-radius: 12px;
   margin: 5px;
   font-weight: 500;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  width: fit-content;
-  border: none;
-  text-align: center;
+  font-family: 'Inter', sans-serif;
   background: none;
-  color: #000000;
+  border: none;
+  width: fit-content;
+  text-align: center;
   transition: color 0.3s ease;
+
+  /* Default (Not Scrolled) */
+  color: white;
 }
 
+/* Underline (Pseudo-Element) */
+.nav-button::after,
 .active-button::after {
   content: "";
   position: absolute;
@@ -328,54 +251,50 @@ align-content: center;
   bottom: 6px;
   width: 100%;
   height: 2px;
-  background-color: #000000;
   pointer-events: none;
-  transition: background-color 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+
+  /* Default (Not Scrolled) */
+  background-color: white;
 }
 
-.active-button:hover {
-  color: #888888; /* grey text */
-  background: rgba(255, 255, 255, 0);
-}
-
-.active-button:hover::after {
-  background: #888888; /* grey underline */
-}
-
-
-.nav-button {
-  position: relative;
-  text-decoration: none;
-  padding: 12px 25px;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  background: none;
-  color: #000000;
-  width: fit-content;
-  border: none;
-  text-align: center;
-  transition: color 0.3s ease;
-}
+/* --- Nav Button Specifics --- */
 
 .nav-button::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 6px; /* adjust based on padding/font size */
-  width: 100%;
-  height: 2px;
-  background-color: #000000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+  opacity: 0; /* Hidden by default */
 }
 
 .nav-button:hover::after {
+  opacity: 1; /* Show on hover */
+}
+
+.active-button {
+  /* No additional styles needed here, it mainly relies on the ::after opacity */
+  border-radius: 12px; /* Unique to active-button */
+}
+
+.active-button::after {
+  opacity: 1; /* Always visible */
+}
+
+/* --- Scrolled State Overrides --- */
+
+header.scrolled .nav-button,
+header.scrolled .active-button {
+  color: black;
+}
+
+header.scrolled .nav-button:hover::after,
+header.scrolled .active-button:hover::after {
+  background-color: black;
   opacity: 1;
 }
+
+header.scrolled .active-button::after {
+  background-color: black;
+}
+
+/* --- Header Links (Different Style for Header) --- */
 
 .header-link {
   position: relative;
@@ -385,9 +304,9 @@ align-content: center;
   margin: 5px;
   font-weight: 500;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: none;
-  color: #ffffff;
+  color: #ffffff; /* Default: White */
   width: fit-content;
   border: none;
   text-align: center;
@@ -411,7 +330,7 @@ align-content: center;
   opacity: 1;
 }
 
-/* When scrolled — header becomes white, text and underline go black */
+/* Scrolled Header Links */
 header.scrolled .header-link {
   color: #000000;
 }
@@ -421,326 +340,9 @@ header.scrolled .header-link::after {
 }
 
 
-
-.button {
-background-color: rgba(0, 0, 0, 0);
-}
-
-/* default nav buttons - white text */
-.nav-button,
-.active-button {
-  color: white;
-  border: none;
-  background: none;
-  transition: color 0.3s ease;
-}
-
-.nav-button::after {
-  background-color: white;
-  opacity: 0;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-button:hover::after {
-  opacity: 1;
-}
-
-.active-button::after {
-  background-color: white;
-  transition: background-color 0.3s ease;
-}
-
-header.scrolled .nav-button,
-header.scrolled .active-button {
-  color: black;
-}
-
-header.scrolled .nav-button:hover::after,
-header.scrolled .active-button:hover::after {
-  background-color: black;
-  opacity: 1;
-}
-
-.active-button {
-  color: white;
-}
-
-.active-button::after {
-  background-color: white;
-  opacity: 1;
-  transition: background-color 0.3s ease;
-}
-
-header.scrolled .active-button {
-  color: black;
-}
-
-header.scrolled .active-button::after {
-  background-color: black;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: none;
-  z-index: 1001;
-  color: #ffffff;
-}
-
-.nav-buttons {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
-}
-
-header.scrolled {
-  background-color: #ffffff;
-  color: #000000;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-header.scrolled h1 {
-  color: #000000;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #ffffff;
-  color: #000000;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-.itemcustom,
-.item-info .info-box,
-.item-info .error-box {
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.item {
-  background-color: rgba(43, 29, 30, 0.3);
-  padding: 20px;
-}
-
-footer {
-  background: none;
-  border-top: 2px solid rgba(255, 255, 255, 0.2);
-  z-index: 1001;
-  padding: 10px;
-  margin: 0px;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-}
-
-.container nav {
-  display: flex;
-  gap: 10px;
-  margin: 20px;
-}
-
-.product-image-switcher {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  cursor: pointer;
-  overflow: hidden;
-  height: auto;
-  text-align: center;
-}
-
-.product-image-switcher img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  margin: auto;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  max-height: 600px;
-  user-select: none;
-}
-
-.product-image-switcher img.active {
-  opacity: 1;
-  position: relative;
-}
-
-.price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #000000;
-}
-.discount {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #00ff55;
-}
-special {
-  color:#6495ed;
-}
-.full-width-banner {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 20px;
-  object-fit: cover;
-}
-
-.banner-wrapper {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.banner-text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.banner-text-overlay h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-}
-
-.banner-text-overlay .banner-btn {
-  background: white;
-  color: black;
-  border: none;
-  padding: 10px 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: 0.3s ease;
-}
-
-.banner-text-overlay .banner-btn:hover {
-  background: #ddd;
-}
-
-.banner-text-overlay .tagline {
-  font-size: 1rem;
-  font-weight: 300;
-  color: #e0e0e0;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-
-.cta-button {
-position: relative;
-  text-decoration: none;
-  padding: 12px 25px;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: rgba(255, 255, 255, 0);
-  color: #ffffff;
-  width: fit-content;
-  border: none;
-  text-align: center;
-  transition: color 0.3s ease;
-  border: 1px solid #ffffff;
-  transition: 0.2s ease;
-}
-.cta-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-}
-
-.footer_button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-}
-
-.footer_button i {
-  font-size: 30px;
-  color: black;
-  background-image: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: black;
-  transition: -webkit-text-fill-color 0.4s ease-in-out;
-}
-
-.footer_button:hover i {
-  -webkit-text-fill-color: transparent;
-}
-.item-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 20px;
-}
-
-.product-image-switcher {
-  flex: 1 1 60%;
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.product-image-switcher img {
-  max-width: 100%;
-  height: auto;
-  max-height: 500px;
-  position: absolute;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-.product-image-switcher img.active {
-  opacity: 1;
-  position: relative;
-}
-
-.item-details {
-  flex: 1 1 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .item-info {
-    flex-direction: column;
-  }
-
-  .product-image-switcher,
-  .item-details {
-    max-width: 100%;
-  }
-}
+/* ==========================================================================
+   4. Dropdown Menu (Fixed Position Mega Menu)
+   ========================================================================== */
 
 .dropdown {
   position: relative;
@@ -756,9 +358,9 @@ position: relative;
   font-size: 16px;
   cursor: pointer;
   z-index: 101;
+  /* Will inherit color from header or scrolled header */
 }
 
-/* Dropdown menu with fade animation */
 .dropdown-menu {
   margin-top: 25px;
   position: fixed;
@@ -771,7 +373,7 @@ position: relative;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   z-index: 100;
   padding: 20px 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -806,21 +408,366 @@ position: relative;
   font-weight: 400;
   font-size: 14px;
   margin-bottom: 5px;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .dropdown-menu a:hover {
-  color: #7c3333;
+  color: rgba(0, 122, 255, 1.0);
   font-weight: 500;
 }
 
 .dropdown-link {
   color: #000000;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .dropdown-link:hover {
-  color: #7c3333;
+  color: rgba(0, 122, 255, 1.0);
+}
+
+
+/* ==========================================================================
+   5. Product/Item Listings & Details
+   ========================================================================== */
+
+.item {
+  text-decoration: none;
+  padding: 20px; /* Increased padding */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  background-color: rgba(43, 29, 30, 0.3); /* Lighter background on white body */
+  color: white;
+  width: 95%; /* Enforce fixed width */
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.itemcustom {
+  text-decoration: none;
+  padding: 12px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  background-color: rgba(0, 0, 0, 0.6); /* Consistent with the info-box for dark background */
+  color: white;
+  width: 95%; /* Enforce fixed width */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Item details/information area (Flex container for image + text) */
+.item-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px;
+  flex: 1;
+  text-align: left;
+}
+
+.item img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.item-info a {
+  width: 100%;
+  max-width: 100%;
+  margin: 5px;
+  background: none;
+  border: none;
+}
+
+.item-info h3 {
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+.item-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ccc;
+}
+
+
+/* Product Image Switcher */
+.product-image-switcher {
+  flex: 1 1 60%;
+  max-width: 600px;
+  margin: 20px auto;
+  cursor: pointer;
+  overflow: hidden;
+  height: auto;
+  text-align: center;
+
+  /* Product Info Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.product-image-switcher img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  margin: auto;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  max-height: 500px; /* Reduced from 600px for consistency */
+  user-select: none;
+}
+
+.product-image-switcher img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Product Text Details */
+.item-details {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+
+/* ==========================================================================
+   6. Buttons & Interactive Elements
+   ========================================================================== */
+
+/* CTA Buttons */
+.cta-button {
+  position: relative;
+  text-decoration: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  background-color: rgba(0, 122, 255, 1.0);
+  color: #ffffff;
+  width: fit-content;
+  border: none;
+  text-align: center;
+  transition: 0.2s ease;
+  border-radius: 100px;
+}
+
+.cta-button:hover {
+  background-color: rgba(0, 122, 255, 1.0); /* No change on hover? */
+}
+
+.button {
+  background-color: rgba(0, 0, 0, 0); /* Utility for transparent background */
+}
+
+/* Specific item buttons */
+.item-info .button {
+  text-decoration: none;
+  padding: 12px 25px;
+  border: 1px solid rgba(0, 122, 255, 1.0);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 122, 255, 1.0);
+  text-align: center;
+  transition: 0.2s ease;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  border-radius: 15px;
+}
+
+.item-info .button:hover {
+  background: rgba(0, 122, 255, 1.0);
+  color: #fff;
+  border-radius: 15px;
+}
+
+/* Info and Error Boxes (Inside items) */
+.item-info .info-box {
+  background-color: rgba(0, 0, 0, 0.6); /* Dark background (consolidated with itemcustom) */
+  color: #7289da;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  margin: 5px;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.item-info .error-box {
+  /* No styles provided for error-box, but include for maintenance */
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+icon {
+  font-size: 25px;
+  padding: 30px;
+  display: inline-block; /* Added for consistency */
+}
+
+
+/* ==========================================================================
+   7. Banners & Full-Width Sections
+   ========================================================================== */
+
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.full-width-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.banner-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.banner-text-overlay h2 {
+    background-image: linear-gradient(to right, #4c8bf5, #e76049);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+font-family: 'Inter', sans-serif;
+}
+
+.banner-text-overlay .tagline {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.banner-text-overlay .banner-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.banner-text-overlay .banner-btn:hover {
+  background: #ddd;
+}
+
+
+/* ==========================================================================
+   8. Footer
+   ========================================================================== */
+
+footer {
+  background: none;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 1001;
+  padding: 10px;
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.footer_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.footer_button i {
+  font-size: 30px;
+  color: black;
+  background-image: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: black;
+  transition: -webkit-text-fill-color 0.4s ease-in-out;
+}
+
+.footer_button:hover i {
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ==========================================================================
+   9. Media Queries (Responsiveness)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .item-info {
+    flex-direction: column;
+  }
+
+  .product-image-switcher,
+  .item-details {
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 769px) {
@@ -834,6 +781,7 @@ position: relative;
     margin: 0 20px;
   }
 
+  /* Desktop-specific hover to open dropdown */
   .dropdown:hover .dropdown-menu {
     opacity: 1;
     pointer-events: auto;
