@@ -474,7 +474,6 @@ header.scrolled .header-link::after {
 
 /* Item details/information area (Flex container for image + text) */
 .item-info {
-  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -482,6 +481,8 @@ header.scrolled .header-link::after {
   padding: 20px;
   flex: 1;
   text-align: left;
+  width: 100%;
+  max-width: 100%;
 }
 
 .item img {
@@ -608,13 +609,13 @@ header.scrolled .header-link::after {
   align-items: center;
   align-self: center;
   align-content: center;
-  border-radius: 15px;
+  border-radius: 1000px;
 }
 
 .item-info .button:hover {
   background: rgba(0, 122, 255, 1.0);
   color: #fff;
-  border-radius: 15px;
+  border-radius: 1000px;
 }
 
 /* Info and Error Boxes (Inside items) */
