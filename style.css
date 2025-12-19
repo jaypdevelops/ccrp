@@ -571,7 +571,7 @@ header.scrolled .header-link::after {
   cursor: pointer;
   margin: 5px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   font-family: 'Inter', sans-serif;
   background-color: rgba(0, 122, 255, 1.0);
   color: #ffffff;
@@ -583,7 +583,30 @@ header.scrolled .header-link::after {
 }
 
 .cta-button:hover {
-  background-color: rgba(0, 122, 255, 1.0); /* No change on hover? */
+  background-color: rgba(0, 122, 255, 0.9); /* Slight change on hover */
+}
+
+.cta-button-inactive {
+  position: relative;
+  text-decoration: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background: none;
+  color: rgba(0, 122, 255, 1.0);
+  width: fit-content;
+  border: 1px solid rgba(0, 122, 255, 1.0);
+  text-align: center;
+  transition: 0.2s ease;
+  border-radius: 100px;
+}
+
+.cta-button-inactive:hover {
+  background-color: rgba(0, 122, 255, 0.9); /* Slight change on hover */
+  color: #fff;
 }
 
 .button {
