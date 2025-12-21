@@ -3,139 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanctuary Co</title>
+    <title>Winter Wonderland</title>
     <style>
-        body {
-            background: #111 url('https://png.pngtree.com/background/20211217/original/pngtree-dark-noise-texture-simple-black-background-picture-image_1576225.jpg') repeat; /* Subtle dark noise texture */
-            font-family: 'Arial', sans-serif;
-            color: #e0e0e0;
+        body, html {
             margin: 0;
-            padding: 60px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0f1b3a, #1e3c72); /* Night sky gradient fallback */
         }
 
-        h1 {
-            font-size: 48px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
+        body {
+            background: url('https://images.pexels.com/photos/1552212/pexels-photo-1552212.jpeg?cs=srgb&dl=pexels-souvenirpixels-1552212.jpg&fm=jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        h2 {
-            font-size: 36px;
-            margin: 20px 0;
-        }
-
-        .tagline {
-            font-size: 24px;
-            margin: 40px 0;
-            letter-spacing: 2px;
-        }
-
-        .mwii-button {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 12px 20px;
-            margin: 20px auto;
+        .container {
+            position: relative;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 50px;
-            width: 300px;
-            max-width: 90%;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            font-size: 18px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
+            text-align: center;
+            z-index: 2;
         }
 
-        .mwii-button:hover {
-            background: rgba(40, 40, 40, 0.7);
-            border-color: #ff8c00;
-            box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
         }
 
-        .mwii-button.selected,
-        .mwii-button.active {
-            background: rgba(0, 50, 0, 0.7);
-            border-color: #00ff00;
-            box-shadow: 0 0 12px rgba(0, 255, 0, 0.4);
+        h1 {
+            font-size: 4em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
         }
 
-        .mwii-button .arrow {
-            color: #aaa;
-            font-size: 20px;
-            margin-left: 10px;
+        p {
+            font-size: 1.5em;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
 
-        .divider {
-            width: 80%;
-            max-width: 800px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin: 60px auto;
+        /* Snowfall effect */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .about {
-            font-size: 20px;
-            max-width: 800px;
-            line-height: 1.6;
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            color: #fff;
+            font-size: 1.5em;
+            opacity: 0.8;
+            animation: fall linear infinite, sway ease-in-out infinite;
+            text-shadow: 0 0 5px #fff;
         }
 
-        footer {
-            margin-top: auto;
-            padding-top: 40px;
-            font-size: 14px;
-            opacity: 0.7;
+        @keyframes fall {
+            0% { transform: translateY(-10vh); }
+            100% { transform: translateY(110vh); }
         }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(80px); }
+        }
+
+        /* Multiple snowflakes with variations */
+        .snowflake:nth-child(1) { left: 10%; animation-duration: 15s, 8s; animation-delay: 0s, 0s; font-size: 1.2em; }
+        .snowflake:nth-child(2) { left: 20%; animation-duration: 20s, 10s; animation-delay: 2s, 1s; font-size: 1.8em; }
+        .snowflake:nth-child(3) { left: 30%; animation-duration: 18s, 12s; animation-delay: 4s, 2s; font-size: 1em; }
+        .snowflake:nth-child(4) { left: 40%; animation-duration: 22s, 9s; animation-delay: 6s, 3s; font-size: 2em; }
+        .snowflake:nth-child(5) { left: 50%; animation-duration: 17s, 11s; animation-delay: 1s, 4s; font-size: 1.5em; }
+        .snowflake:nth-child(6) { left: 60%; animation-duration: 25s, 13s; animation-delay: 8s, 5s; font-size: 1.3em; }
+        .snowflake:nth-child(7) { left: 70%; animation-duration: 16s, 7s; animation-delay: 3s, 6s; font-size: 2.2em; }
+        .snowflake:nth-child(8) { left: 80%; animation-duration: 19s, 14s; animation-delay: 5s, 7s; font-size: 1.1em; }
+        .snowflake:nth-child(9) { left: 90%; animation-duration: 21s, 10s; animation-delay: 7s, 8s; font-size: 1.7em; }
+        .snowflake:nth-child(10) { left: 15%; animation-duration: 23s, 12s; animation-delay: 9s, 9s; font-size: 1.4em; }
     </style>
 </head>
 <body>
-    <h1>Sanctuary Co</h1>
-    <h2>sanctuary</h2>
-
-    <div class="tagline">
-        elevate your ritual.<br>
-        Crafted with intention, worn with reverence.<br><br>
-        Members get 35% off all products.
+    <div class="snowflakes">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
     </div>
 
-    <div class="mwii-button active">
-        <span>Explore Collection</span>
-        <span class="arrow">></span>
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to Winter Wonderland</h1>
+            <p>Embrace the magic of snow-covered landscapes and peaceful winter nights.<br>Let the snowflakes dance around you!</p>
+        </div>
     </div>
-
-    <div class="mwii-button">
-        <span>Home</span>
-        <span class="arrow">></span>
-    </div>
-
-    <div class="mwii-button">
-        <span>New Products</span>
-        <span class="arrow">></span>
-    </div>
-
-    <div class="mwii-button">
-        <span>Featured Products</span>
-        <span class="arrow">></span>
-    </div>
-
-    <div class="divider"></div>
-
-    <h2>About Us</h2>
-    <p class="about">
-        Sanctuary Co is dedicated to crafting intentional products that elevate everyday rituals.<br>
-        Inspired by reverence and mindfulness, our collections are designed for those seeking depth and meaning.
-    </p>
-
-    <footer>Inspired by sanctuaryco.xyz • MWII Tactical Style • 2025</footer>
 </body>
 </html>
