@@ -1,0 +1,68 @@
+body {
+  background: #111 url('noise-texture.png') repeat; /* Optional subtle noise for authenticity */
+  font-family: 'Arial', sans-serif; /* MWII uses a condensed sans-serif */
+  color: #e0e0e0;
+}
+
+.mwii-button {
+  background: rgba(20, 20, 20, 0.6); /* Semi-transparent dark gray */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  border-radius: 4px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px); /* Slight glassmorphism effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mwii-button:hover {
+  background: rgba(40, 40, 40, 0.7);
+  border-color: #ff8c00; /* Orange highlight on hover */
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+.mwii-button.selected,
+.mwii-button.active {
+  background: rgba(0, 50, 0, 0.7);
+  border-color: #00ff00; /* Green for selected */
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.4);
+}
+
+.mwii-button .icon {
+  font-size: 24px; /* Or use SVG icons */
+  opacity: 0.8;
+}
+
+.mwii-button .checkmark {
+  color: #00ff00;
+  font-size: 24px;
+}
+
+.mwii-button .arrow {
+  color: #aaa;
+  font-size: 20px;
+}
+
+/* Example usage in HTML */
+<div class="mwii-button">
+  <span>Multiplayer</span>
+  <span class="arrow">></span>
+</div>
+
+<div class="mwii-button selected">
+  <span>Campaign</span>
+  <span class="checkmark">✓</span>
+</div>
+
+<div class="mwii-button">
+  <span class="icon">⚙️</span>
+  <span>Settings</span>
+</div>
