@@ -5,114 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter Wonderland</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-            overflow: hidden;
-            background: linear-gradient(to bottom, #0f1b3a, #1e3c72); /* Night sky gradient fallback */
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { height: 100%; font-family: 'Roboto', sans-serif; color: #fff; overflow-x: hidden; }
+        
         body {
-            background: url('https://images.pexels.com/photos/1552212/pexels-photo-1552212.jpeg?cs=srgb&dl=pexels-souvenirpixels-1552212.jpg&fm=jpg') no-repeat center center fixed;
+            background: linear-gradient(to bottom, #0a1f3d, #1e3c72);
+            background-image: url('https://images.unsplash.com/photo-1531366936337-7c912a4589a7?fm=jpg&q=60&w=3000');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        .container {
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 2;
-        }
-
-        .content {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        h1 {
-            font-size: 4em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8em; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
 
-        p {
-            font-size: 1.5em;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
         }
 
-        /* Snowfall effect */
+        nav a:hover { color: #a0d8ef; }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            cursor: pointer;
+        }
+
+        /* Snowflakes */
         .snowflakes {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 10;
         }
 
         .snowflake {
             position: absolute;
-            top: -10%;
             color: #fff;
             font-size: 1.5em;
-            opacity: 0.8;
+            opacity: 0.9;
             animation: fall linear infinite, sway ease-in-out infinite;
-            text-shadow: 0 0 5px #fff;
+            text-shadow: 0 0 8px #fff;
         }
 
         @keyframes fall {
-            0% { transform: translateY(-10vh); }
-            100% { transform: translateY(110vh); }
+            to { transform: translateY(100vh); }
         }
 
         @keyframes sway {
             0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(80px); }
+            50% { transform: translateX(100px); }
         }
 
-        /* Multiple snowflakes with variations */
-        .snowflake:nth-child(1) { left: 10%; animation-duration: 15s, 8s; animation-delay: 0s, 0s; font-size: 1.2em; }
-        .snowflake:nth-child(2) { left: 20%; animation-duration: 20s, 10s; animation-delay: 2s, 1s; font-size: 1.8em; }
-        .snowflake:nth-child(3) { left: 30%; animation-duration: 18s, 12s; animation-delay: 4s, 2s; font-size: 1em; }
-        .snowflake:nth-child(4) { left: 40%; animation-duration: 22s, 9s; animation-delay: 6s, 3s; font-size: 2em; }
-        .snowflake:nth-child(5) { left: 50%; animation-duration: 17s, 11s; animation-delay: 1s, 4s; font-size: 1.5em; }
-        .snowflake:nth-child(6) { left: 60%; animation-duration: 25s, 13s; animation-delay: 8s, 5s; font-size: 1.3em; }
-        .snowflake:nth-child(7) { left: 70%; animation-duration: 16s, 7s; animation-delay: 3s, 6s; font-size: 2.2em; }
-        .snowflake:nth-child(8) { left: 80%; animation-duration: 19s, 14s; animation-delay: 5s, 7s; font-size: 1.1em; }
-        .snowflake:nth-child(9) { left: 90%; animation-duration: 21s, 10s; animation-delay: 7s, 8s; font-size: 1.7em; }
-        .snowflake:nth-child(10) { left: 15%; animation-duration: 23s, 12s; animation-delay: 9s, 9s; font-size: 1.4em; }
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 120px 10% 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        h2 { font-size: 3em; }
+
+        p { font-size: 1.4em; line-height: 1.8; margin-bottom: 20px; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s;
+        }
+
+        .gallery img:hover { transform: scale(1.05); }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        input, textarea {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1em;
+        }
+
+        input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+        button {
+            padding: 15px;
+            background: #a0d8ef;
+            color: #0a1f3d;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #fff; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.4s;
+            }
+
+            nav ul.active { left: 0; }
+
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.5em; }
+        }
     </style>
 </head>
 <body>
-    <div class="snowflakes">
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❅</div>
+
+    <header>
+        <div class="logo">Winter Wonderland</div>
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#cozy">Cozy Moments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="snowflakes" aria-hidden="true">
+        <!-- Many snowflakes for dense effect -->
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
+        <!-- Add more if you want even denser snow -->
     </div>
 
-    <div class="container">
-        <div class="content">
+    <section id="home">
+        <div class="glass">
             <h1>Welcome to Winter Wonderland</h1>
-            <p>Embrace the magic of snow-covered landscapes and peaceful winter nights.<br>Let the snowflakes dance around you!</p>
+            <p>Experience the serene beauty of snow-covered landscapes under a starry sky. Let the magic of winter envelop you.</p>
         </div>
-    </div>
-</body>
-</html>
+    </section>
+
+    <section id="gallery">
+        <h2>Winter Gallery</h2>
+        <div class="gallery">
+            <img src="https://freerangestock.com/sample/184859/starry-night-sky-over-snow-covered-mountain-landscape.jpg" alt="Starry snowy mountains">
+            <img src="https://i1.wp.com/foreverlostintravel.com/wp-content/uploads/2020/11/cabin-in-the-woods-winter.jpg?fit=688%2C458&ssl=1" alt="Cozy winter cabin">
+            <img src="https://images.stockcake.com/public/6/e/9/6e9a0960-d203-432c-b276-c09c96396df5_large/snowy-forest-path-stockcake.jpg" alt="Snowy forest path">
+            <img src="https://media.istockphoto.com/id/163729324/photo/aurora-borealis.jpg?s=612x612
