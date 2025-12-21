@@ -1,70 +1,158 @@
-<style>
-body {
-  background: #111 url('noise-texture.png') repeat; /* Optional subtle noise for authenticity */
-  font-family: 'Arial', sans-serif; /* MWII uses a condensed sans-serif */
-  color: #e0e0e0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Force 141 - MWII Style Site</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap');
 
-.mwii-button {
-  background: rgba(20, 20, 20, 0.6); /* Semi-transparent dark gray */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-  border-radius: 4px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 50px;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(4px); /* Slight glassmorphism effect */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: #e0e0e0;
+            background: #000 url('https://images7.alphacoders.com/328/thumb-1920-328413.jpg') center/cover no-repeat fixed; /* Replace with any background image URL */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
 
-.mwii-button:hover {
-  background: rgba(40, 40, 40, 0.7);
-  border-color: #ff8c00; /* Orange highlight on hover */
-  box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
-}
+        header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
+            box-shadow: 0 4px 20px rgba(0, 255, 0, 0.2);
+        }
 
-.mwii-button.selected,
-.mwii-button.active {
-  background: rgba(0, 50, 0, 0.7);
-  border-color: #00ff00; /* Green for selected */
-  box-shadow: 0 0 12px rgba(0, 255, 0, 0.4);
-}
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px #00ff00;
+        }
 
-.mwii-button .icon {
-  font-size: 24px; /* Or use SVG icons */
-  opacity: 0.8;
-}
+        nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.mwii-button .checkmark {
-  color: #00ff00;
-  font-size: 24px;
-}
+        .mwii-button {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 20px 40px;
+            min-width: 200px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+        }
 
-.mwii-button .arrow {
-  color: #aaa;
-  font-size: 20px;
-}
-</style>
+        .mwii-button:hover {
+            background: rgba(40, 40, 40, 0.8);
+            border-color: #ff8c00;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+            transform: translateY(-5px);
+        }
 
-/* Example usage in HTML */
-<div class="mwii-button">
-  <span>Multiplayer</span>
-  <span class="arrow">></span>
-</div>
+        .mwii-button.active {
+            border-color: #00ff00;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+            background: rgba(0, 40, 0, 0.7);
+        }
 
-<div class="mwii-button selected">
-  <span>Campaign</span>
-  <span class="checkmark">✓</span>
-</div>
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-<div class="mwii-button">
-  <span class="icon">⚙️</span>
-  <span>Settings</span>
-</div>
+        .panel {
+            background: rgba(15, 15, 15, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+        }
+
+        .panel h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #333;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Task Force 141</h1>
+    </header>
+
+    <nav>
+        <div class="mwii-button active">Operators</div>
+        <div class="mwii-button">Multiplayer</div>
+        <div class="mwii-button">Loadouts</div>
+        <div class="mwii-button">Settings</div>
+        <div class="mwii-button">Store</div>
+    </nav>
+
+    <main>
+        <section class="panel">
+            <h2>Captain Price</h2>
+            <p>Legendary operator with unmatched tactical expertise. Ready for deployment.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Ghost</h2>
+            <p>Stealth specialist. The shadow in the battlefield.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Recent Updates</h2>
+            <p>Season 07 live. New weapons, maps, and operators available.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Stats</h2>
+            <p>K/D: 2.45 | Wins: 1,200 | Level: Prestige Master</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Mock MWII Fan Site | All styles inspired by Call of Duty: Modern Warfare II
+    </footer>
+</body>
+</html>
