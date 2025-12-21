@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MWII Tactical Hub</title>
+    <title>Sanctuary Co</title>
     <style>
         body {
             background: #111 url('https://png.pngtree.com/background/20211217/original/pngtree-dark-noise-texture-simple-black-background-picture-image_1576225.jpg') repeat; /* Subtle dark noise texture */
-            font-family: 'Arial', sans-serif; /* MWII uses a condensed sans-serif */
+            font-family: 'Arial', sans-serif;
             color: #e0e0e0;
             margin: 0;
-            padding: 40px;
+            padding: 60px 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
+        h1 {
+            font-size: 48px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size: 36px;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        .menu-container {
-            width: 80%;
-            max-width: 800px;
-            margin-bottom: 60px;
+        h2 {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .tagline {
+            font-size: 24px;
+            margin: 40px 0;
+            letter-spacing: 2px;
         }
 
         .mwii-button {
-            background: rgba(20, 20, 20, 0.6); /* Semi-transparent dark gray */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             padding: 12px 20px;
-            margin: 8px 0;
+            margin: 20px auto;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             min-height: 50px;
+            width: 300px;
+            max-width: 90%;
             transition: all 0.2s ease;
-            backdrop-filter: blur(4px); /* Slight glassmorphism effect */
+            backdrop-filter: blur(4px);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
             font-size: 18px;
             font-weight: 500;
@@ -54,109 +60,82 @@
 
         .mwii-button:hover {
             background: rgba(40, 40, 40, 0.7);
-            border-color: #ff8c00; /* Orange highlight on hover */
+            border-color: #ff8c00;
             box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
         }
 
         .mwii-button.selected,
         .mwii-button.active {
             background: rgba(0, 50, 0, 0.7);
-            border-color: #00ff00; /* Green for selected */
+            border-color: #00ff00;
             box-shadow: 0 0 12px rgba(0, 255, 0, 0.4);
-        }
-
-        .mwii-button .icon {
-            font-size: 24px; /* Or use SVG icons */
-            opacity: 0.8;
-        }
-
-        .mwii-button .checkmark {
-            color: #00ff00;
-            font-size: 24px;
         }
 
         .mwii-button .arrow {
             color: #aaa;
             font-size: 20px;
+            margin-left: 10px;
         }
 
-        .content {
+        .divider {
             width: 80%;
-            max-width: 1000px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            max-width: 800px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 60px auto;
         }
 
-        .panel {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .panel h2 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px solid #00ff00;
-            padding-bottom: 10px;
+        .about {
+            font-size: 20px;
+            max-width: 800px;
+            line-height: 1.6;
         }
 
         footer {
-            margin-top: 60px;
-            text-align: center;
+            margin-top: auto;
+            padding-top: 40px;
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <header>Modern Warfare II Hub</header>
+    <h1>Sanctuary Co</h1>
+    <h2>sanctuary</h2>
 
-    <div class="menu-container">
-        <div class="mwii-button selected">
-            <span>Campaign</span>
-            <span class="checkmark">✓</span>
-        </div>
-        <div class="mwii-button">
-            <span>Multiplayer</span>
-            <span class="arrow">></span>
-        </div>
-        <div class="mwii-button">
-            <span class="icon">⚙️</span>
-            <span>Settings</span>
-        </div>
-        <div class="mwii-button">
-            <span>Operators</span>
-            <span class="arrow">></span>
-        </div>
-        <div class="mwii-button">
-            <span>Store</span>
-            <span class="arrow">></span>
-        </div>
+    <div class="tagline">
+        elevate your ritual.<br>
+        Crafted with intention, worn with reverence.<br><br>
+        Members get 35% off all products.
     </div>
 
-    <div class="content">
-        <div class="panel">
-            <h2>Latest Update</h2>
-            <p>Season 07 deployed. New maps and weapons available.</p>
-        </div>
-        <div class="panel">
-            <h2>Top Operator</h2>
-            <p>Ghost - Stealth specialist ready for action.</p>
-        </div>
-        <div class="panel">
-            <h2>Player Stats</h2>
-            <p>K/D: 2.8 | Wins: 850 | Prestige: Master</p>
-        </div>
-        <div class="panel">
-            <h2>Quick Tips</h2>
-            <p>Use tactical equipment wisely in high-stakes modes.</p>
-        </div>
+    <div class="mwii-button active">
+        <span>Explore Collection</span>
+        <span class="arrow">></span>
     </div>
 
-    <footer>Inspired by Call of Duty: Modern Warfare II UI • 2025</footer>
+    <div class="mwii-button">
+        <span>Home</span>
+        <span class="arrow">></span>
+    </div>
+
+    <div class="mwii-button">
+        <span>New Products</span>
+        <span class="arrow">></span>
+    </div>
+
+    <div class="mwii-button">
+        <span>Featured Products</span>
+        <span class="arrow">></span>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>About Us</h2>
+    <p class="about">
+        Sanctuary Co is dedicated to crafting intentional products that elevate everyday rituals.<br>
+        Inspired by reverence and mindfulness, our collections are designed for those seeking depth and meaning.
+    </p>
+
+    <footer>Inspired by sanctuaryco.xyz • MWII Tactical Style • 2025</footer>
 </body>
 </html>
