@@ -55,24 +55,23 @@
             cursor: pointer;
         }
 
-        /* Snowflakes */
+        /* Snowflakes Container */
         .snowflakes {
             position: fixed;
-            top: 0;
+            top: 70px; /* Start just below the header/menu */
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 70px);
             pointer-events: none;
             z-index: 10;
         }
 
         .snowflake {
             position: absolute;
-            color: #fff;
-            font-size: 1.5em;
-            opacity: 0.9;
+            width: 30px; /* Small size */
+            height: 30px;
+            opacity: 0.8;
             animation: fall linear infinite, sway ease-in-out infinite;
-            text-shadow: 0 0 8px #fff;
         }
 
         @keyframes fall {
@@ -81,7 +80,7 @@
 
         @keyframes sway {
             0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(100px); }
+            50% { transform: translateX(80px); }
         }
 
         /* Sections */
@@ -206,30 +205,17 @@
     </header>
 
     <div class="snowflakes" aria-hidden="true">
-        <!-- Many snowflakes for dense effect -->
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <div class="snowflake">❅</div><div class="snowflake">❆</div><div class="snowflake">❄</div>
-        <!-- Add more if you want even denser snow -->
-    </div>
-
-    <section id="home">
-        <div class="glass">
-            <h1>Welcome to Winter Wonderland</h1>
-            <p>Experience the serene beauty of snow-covered landscapes under a starry sky. Let the magic of winter envelop you.</p>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <h2>Winter Gallery</h2>
-        <div class="gallery">
-            <img src="https://freerangestock.com/sample/184859/starry-night-sky-over-snow-covered-mountain-landscape.jpg" alt="Starry snowy mountains">
-            <img src="https://i1.wp.com/foreverlostintravel.com/wp-content/uploads/2020/11/cabin-in-the-woods-winter.jpg?fit=688%2C458&ssl=1" alt="Cozy winter cabin">
-            <img src="https://images.stockcake.com/public/6/e/9/6e9a0960-d203-432c-b276-c09c96396df5_large/snowy-forest-path-stockcake.jpg" alt="Snowy forest path">
-            <img src="https://media.istockphoto.com/id/163729324/photo/aurora-borealis.jpg?s=612x612
+        <!-- Many small snowflake images for a beautiful, subtle effect -->
+        <img class="snowflake" src="https://www.shutterstock.com/image-vector/tiny-flying-snow-flakes-illustration-260nw-2522787403.jpg" alt="">
+        <img class="snowflake" src="https://t3.ftcdn.net/jpg/15/83/27/90/360_F_1583279083_g6qXPgfQnOIT4lICroRyKJbTaZJKTJo2.jpg" alt="">
+        <img class="snowflake" src="https://www.shutterstock.com/image-vector/set-cute-snowflake-icons-on-260nw-2506893149.jpg" alt="">
+        <img class="snowflake" src="https://thumbs.dreamstime.com/z/black-snowflake-icon-transparent-background-checkerboard-pattern-has-six-symmetrical-branches-each-smaller-lines-400286917.jpg" alt="">
+        <img class="snowflake" src="https://img.freepik.com/premium-vector/snowflake-collection-delicate-winter-crystals-decorative-applications_346454-1323.jpg" alt="">
+        <img class="snowflake" src="https://static.vecteezy.com/system/resources/thumbnails/072/276/400/small/a-blue-snowflake-with-intricate-geometric-patterns-is-isolated-on-transparency-background-showcasing-its-delicate-and-symmetrical-design-png.png" alt="">
+        <img class="snowflake" src="https://www.shutterstock.com/image-vector/heavy-snowflakes-png-transparent-falling-260nw-2702153755.jpg" alt="">
+        <img class="snowflake" src="https://thumbs.dreamstime.com/b/abstract-winter-background-falling-large-small-snowflakes-isolated-transparent-background-abstract-winter-background-287608205.jpg" alt="">
+        <!-- Duplicate for more density -->
+        <img class="snowflake" src="https://www.shutterstock.com/image-vector/tiny-flying-snow-flakes-illustration-260nw-2522787403.jpg" alt="">
+        <img class="snowflake" src="https://t3.ftcdn.net/jpg/15/83/27/90/360_F_1583279083_g6qXPgfQnOIT4lICroRyKJbTaZJKTJo2.jpg" alt="">
+        <img class="snowflake" src="https://www.shutterstock.com/image-vector/set-cute-snowflake-icons-on-260nw-2506893149.jpg" alt="">
+        <img class="snowflake" src
