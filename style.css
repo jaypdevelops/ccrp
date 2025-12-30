@@ -713,10 +713,7 @@ icon {
 }
 
 .banner-text-overlay h2 {
-    background-image: linear-gradient(to right, #4c8bf5, #e76049);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #fff;
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
